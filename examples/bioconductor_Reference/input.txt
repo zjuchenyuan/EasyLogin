@@ -1,0 +1,1289 @@
+a4	Tobias Verbeke, Willem Ligtenberg	Automated Affymetrix Array Analysis Umbrella Package
+a4Base	Tobias Verbeke, Willem Ligtenberg	Automated Affymetrix Array Analysis Base Package
+a4Classif	Tobias Verbeke, Willem Ligtenberg	Automated Affymetrix Array Analysis Classification Package
+a4Core	Tobias Verbeke, Willem Ligtenberg	Automated Affymetrix Array Analysis Core Package
+a4Preproc	Tobias Verbeke, Willem Ligtenberg	Automated Affymetrix Array Analysis Preprocessing Package
+a4Reporting	Tobias Verbeke, Willem Ligtenberg	Automated Affymetrix Array Analysis Reporting Package
+ABAEnrichment	Steffi Grote	Gene expression enrichment in human brain regions
+ABarray	Yongming Andrew Sun	Microarray QA and statistical data analysis for Applied Biosystems Genome Survey Microrarray (AB1700) gene expression data.
+ABSSeq	Wentao Yang	ABSSeq: a new RNA-Seq analysis method based on modelling absolute expression differences
+acde	Juan Pablo Acosta	Artificial Components Detection of Differentially Expressed Genes
+aCGH	Peter Dimitrov	Classes and functions for Array Comparative Genomic Hybridization data.
+ACME	Sean Davis	Algorithms for Calculating Microarray Enrichment (ACME)
+ADaCGH2	Ramon Diaz-Uriarte	Analysis of big data from aCGH experiments using parallel computing and ff objects
+adSplit	Claudio Lottaz	Annotation-Driven Clustering
+affxparser	Kasper Daniel Hansen	Affymetrix File Parsing SDK
+affy	Rafael A. Irizarry	Methods for Affymetrix Oligonucleotide Arrays
+affycomp	Rafael A. Irizarry	Graphics Toolbox for Assessment of Affymetrix Expression Measures
+AffyCompatible	Martin Morgan	Affymetrix GeneChip software compatibility
+affyContam	V. Carey	structured corruption of affymetrix cel file data
+affycoretools	James W. MacDonald	Functions useful for those doing repetitive analyses with Affymetrix GeneChips
+AffyExpress	Xuejun Arthur Li	Affymetrix Quality Assessment and Analysis Tool
+affyILM	Myriam Kroll and Fabrice Berger	Linear Model of background subtraction and the Langmuir isotherm
+affyio	Benjamin Milo Bolstad	Tools for parsing Affymetrix data files
+affylmGUI	Yifang Hu, Gordon Smyth, Keith Satterley	GUI for limma package with Affymetrix microarrays
+affyPara	Markus Schmidberger	Parallelized preprocessing methods for Affymetrix Oligonucleotide Arrays
+affypdnn	Laurent Gautier	Probe Dependent Nearest Neighbours (PDNN) for the affy package
+affyPLM	Ben Bolstad	Methods for fitting probe-level models
+affyQCReport	Craig Parman	QC Report Generation for affyBatch objects
+AffyRNADegradation	Mario Fasold	Analyze and correct probe positional bias in microarray data due to RNA degradation
+AGDEX	Cuilan lani Gao	Agreement of Differential Expression Analysis
+agilp	Benny Chain	Agilent expression array processing package
+AgiMicroRna	Pedro Lopez-Romero	Processing and Differential Expression Analysis of Agilent microRNA chips
+AIMS	Eric R Paquet	AIMS : Absolute Assignment of Breast Cancer Intrinsic Molecular Subtype
+ALDEx2	Greg Gloor	Analysis Of Differential Abundance Taking Sample Variation Into Account
+AllelicImbalance	Jesper R Gadin	Investigates Allele Specific Expression
+alpine	Michael Love	alpine
+alsace	Ron Wehrens	ALS for the Automatic Chemical Exploration of mixtures
+altcdfenvs	Laurent Gautier	alternative CDF environments (aka probeset mappings)
+AMOUNTAIN	Dong Li	Active modules for multilayer weighted gene co-expression networks: a continuous optimization approach
+ampliQueso	Michal Okoniewski	Analysis of amplicon enrichment panels
+AnalysisPageServer	Brad Friedman	A framework for sharing interactive data and plots from R through the web.
+anamiR	Ti-Tai Wang	An integrated analysis package of miRNA and mRNA expression data
+Anaquin	Ted Wong	Statistical analysis of sequins
+AneuFinder	Aaron Taudt	Analysis of Copy Number Variation in Single-Cell-Sequencing Data
+annaffy	Colin A. Smith	Annotation tools for Affymetrix biological metadata
+annmap	Chris Wirth	Genome annotation and visualisation package pertaining to Affymetrix arrays and NGS analysis.
+annotate	Bioconductor Package Maintainer	Annotation for microarrays
+AnnotationDbi	Bioconductor Package Maintainer	Annotation Database Interface
+AnnotationForge	Bioconductor Package Maintainer	Code for Building Annotation Database Packages
+AnnotationFuncs	Stefan McKinnon Edwards	Annotation translation functions
+AnnotationHub	Bioconductor Package Maintainer	Client to access AnnotationHub resources
+AnnotationHubData	Bioconductor Package Maintainer	Transform public data resources into Bioconductor Data Structures
+annotationTools	Alexandre Kuhn	Annotate microarrays and perform cross-species gene expression analyses using flat file databases.
+annotatr	Raymond G. Cavalcante	Annotation of Genomic Regions to Genomic Annotations
+anota	Ola Larsson	ANalysis Of Translational Activity (ANOTA).
+antiProfiles	Hector Corrada Bravo	Implementation of gene expression anti-profiles
+apComplex	Denise Scholtens	Estimate protein complex membership using AP-MS protein data
+aroma.light	Henrik Bengtsson	Light-Weight Methods for Normalization and Visualization of Microarray Data using Only Basic R Data Types
+ArrayExpress	Ugis Sarkans	Access the ArrayExpress Microarray Database at EBI and build Bioconductor data structures: ExpressionSet, AffyBatch, NChannelSet
+ArrayExpressHTS	Angela Goncalves, Andrew Tikhonov	ArrayExpress High Throughput Sequencing Processing Pipeline
+arrayMvout	V. Carey	multivariate outlier detection for expression array QA
+arrayQuality	Agnes Paquet	Assessing array quality on spotted arrays
+arrayQualityMetrics	Audrey Kauffmann	Quality metrics report for microarray data sets
+ArrayTools	Arthur Li	geneChip Analysis Package
+ArrayTV	Eitan Halper-Stromberg	Implementation of wave correction for arrays
+ARRmNormalization	Jean-Philippe Fortin	Adaptive Robust Regression normalization for Illumina methylation data
+ASAFE	Qian Zhang	Ancestry Specific Allele Frequency Estimation
+ASEB	Likun Wang	Predict Acetylated Lysine Sites
+ASGSCA	Hela Romdhani	Association Studies for multiple SNPs and multiple traits using Generalized Structured Equation Models
+ASpli	Estefania Mancini	Analysis of alternative splicing using RNA-Seq
+ASSET	William Wheeler	An R package for subset-based association analysis of heterogeneous traits and subtypes
+ASSIGN	Ying Shen	Adaptive Signature Selection and InteGratioN (ASSIGN)
+AtlasRDF	Simon Jupp	Gene Expression Atlas query and gene set enrichment package.
+attract	Samuel Zimmerman	Methods to Find the Gene Expression Modules that Represent the Drivers of Kauffman's Attractor Landscape
+BaalChIP	Ines de Santiago	BaalChIP: Bayesian analysis of allele-specific transcription factor binding in cancer genomes
+BAC	Raphael Gottardo	Bayesian Analysis of Chip-chip experiment
+bacon	Maarten van Iterson	Controlling bias and inflation in association studies using the empirical null distribution
+BADER	Andreas Neudecker	Bayesian Analysis of Differential Expression in RNA Sequencing Data
+BadRegionFinder	Sarah Sandmann	BadRegionFinder: an R/Bioconductor package for identifying regions with bad coverage
+BAGS	Alejandro Quiroz-Zarate	A Bayesian Approach for Geneset Selection
+ballgown	Jack Fu	Flexible, isoform-level differential expression analysis
+bamsignals	Alessandro Mammana	Extract read count signals from bam files
+BaseSpaceR	Jared O'Connell	R SDK for BaseSpace RESTful API
+Basic4Cseq	Carolin Walter	Basic4Cseq: an R/Bioconductor package for analyzing 4C-seq data
+BasicSTARRseq	Annika Buerger	Basic peak calling on STARR-seq data
+BatchQC	Solaiappan Manimaran	Batch Effects Quality Control Software
+BayesKnockdown	William Chad Young	BayesKnockdown: Posterior Probabilities for Edges from Knockdown Data
+BayesPeak	Jonathan Cairns	Bayesian Analysis of ChIP-seq Data
+baySeq	Thomas J. Hardcastle	Empirical Bayesian analysis of patterns of differential expression in count data
+BBCAnalyzer	Sarah Sandmann	BBCAnalyzer: an R/Bioconductor package for visualizing base counts
+BCRANK	Adam Ameur	Predicting binding site consensus from ranked DNA sequences
+beadarray	Mark Dunning	Quality assessment and low-level analysis for Illumina BeadArray data
+beadarraySNP	Jan Oosting	Normalization and reporting of Illumina SNP bead arrays
+BeadDataPackR	Mike Smith	Compression of Illumina BeadArray data
+BEAT	Kemal Akman	BEAT - BS-Seq Epimutation Analysis Toolkit
+BEclear	Markus Merl	Correct for batch effects in DNA methylation data
+bgafun	Iain Wallace	BGAfun A method to identify specifity determining residues in protein families
+BgeeDB	Andrea Komljenovic, Frederic Bastian	Annotation and gene expression data retrieval from Bgee database
+BGmix	Alex Lewin	Bayesian models for differential gene expression
+bgx	Ernest Turro	Bayesian Gene eXpression
+BHC	Rich Savage	Bayesian Hierarchical Clustering
+BicARE	Pierre Gestraud	Biclustering Analysis and Results Exploration
+BiGGR	Anand K. Gavai, Hannes Hettling	Constraint based modeling in R using metabolic reconstruction databases
+bigmelon	Tyler Gorrie-Stone	Illumina methylation array analysis for large experiments
+bigmemoryExtras	Peter M. Haverty	An extension of the bigmemory package with added safety, convenience, and a factor class
+bioassayR	Tyler Backman	Cross-target analysis of small molecule bioactivity
+Biobase	Bioconductor Package Maintainer	Biobase: Base functions for Bioconductor
+biobroom	John D. Storey and Andrew J. Bass	Turn Bioconductor objects into tidy data frames
+bioCancer	Karim Mezhoud	Interactive Multi-Omics Cancers Data Visualization and Analysis
+BiocCaseStudies	Bioconductor Package Maintainer	BiocCaseStudies: Support for the Case Studies Monograph
+BiocCheck	Bioconductor Package Maintainer	Bioconductor-specific package checks
+BiocGenerics	Bioconductor Package Maintainer	S4 generic functions for Bioconductor
+biocGraph	Florian Hahne	Graph examples and use cases in Bioinformatics
+BiocInstaller	Bioconductor Package Maintainer	Install/Update Bioconductor, CRAN, and github Packages
+BiocParallel	Bioconductor Package Maintainer	Bioconductor facilities for parallel evaluation
+BiocStyle	Bioconductor Package Maintainer	Standard styles for vignettes and other Bioconductor documents
+biocViews	Bioconductor Package Maintainer	Categorized views of R package repositories
+BiocWorkflowTools	Mike Smith	Tools to aid the development of Bioconductor Workflow packages
+bioDist	Bioconductor Package Maintainer	Different distance measures
+biomaRt	Steffen Durinck	Interface to BioMart databases (e.g. Ensembl, COSMIC, Wormbase and Gramene)
+biomformat	Paul J. McMurdie	An interface package for the BIOM file format
+BioMVCClass	Elizabeth Whalen	Model-View-Controller (MVC) Classes That Use Biobase
+biomvRCNS	Yang Du	Copy Number study and Segmentation for multivariate biological data
+BioNet	Marcus Dittrich	Routines for the functional analysis of biological networks
+BioQC	Jitao David Zhang	Detect tissue heterogeneity in expression profiles with gene sets
+BioSeqClass	Li Hong	Classification for Biological Sequences
+biosigner	Philippe Rinaudo, Etienne Thevenot	Signature discovery from omics data
+Biostrings	H. Pagès	String objects representing biological sequences, and matching algorithms
+biosvd	Anneleen Daemen, Matthew Brauer	Package for high-throughput data processing, outlier detection, noise removal and dynamic modeling
+biovizBase	Michael Lawrence	Basic graphic utilities for visualization of genomic data.
+BiRewire	Andrea Gobbi	High-performing routines for the randomization of a bipartite graph (or a binary event matrix), undirected and directed signed graph preserving degree distribution (or marginal totals)
+birta	Benedikt Zacher, Holger Froehlich	Bayesian Inference of Regulation of Transcriptional Activity
+birte	Holger Froehlich	Bayesian Inference of Regulatory Influence on Expression (biRte)
+BiSeq	Katja Hebestreit	Processing and analyzing bisulfite sequencing data
+BitSeq	Antti Honkela, Panagiotis Papastamoulis	Transcript expression inference and differential expression analysis for RNA-seq data
+blima	Vojtech Kulvait	Package for the preprocessing and analysis of the Illumina microarrays on the detector (bead) level.
+BPRMeth	Chantriolnt-Andreas Kapourani	Model higher-order methylation profiles
+BRAIN	Piotr Dittwald	Baffling Recursive Algorithm for Isotope distributioN calculations
+BrainStars	Itoshi NIKAIDO	query gene expression data and plots from BrainStars (B*)
+bridge	Raphael Gottardo	Bayesian Robust Inference for Differential Gene Expression
+BridgeDbR	Egon Willighagen	Code for using BridgeDb identifier mapping framework from within R
+BrowserViz	Paul Shannon	BrowserViz: interactive R/browser graphics using websockets and JSON
+BrowserVizDemo	Paul Shannon	BrowserVizDemo: How to subclass BrowserViz
+BSgenome	H. Pagès	Infrastructure for Biostrings-based genome data packages and support for efficient SNP representation
+bsseq	Kasper Daniel Hansen	Analyze, manage and store bisulfite sequencing data
+BubbleTree	Todd Creasy, Wei Zhu	BubbleTree: an intuitive visualization to elucidate tumoral aneuploidy and clonality in somatic mosaicism using next generation sequencing data
+BufferedMatrix	Benjamin Milo Bolstad	A matrix data storage object held in temporary files
+BufferedMatrixMethods	B. M. Bolstad	Microarray Data related methods that utlize BufferedMatrix objects
+bumphunter	Rafael A. Irizarry	Bump Hunter
+BUS	Yuanhua Liu	Gene network reconstruction
+CAFE	Sander Bollen	Chromosmal Aberrations Finder in Expression data
+CAGEr	Vanja Haberle	Analysis of CAGE (Cap Analysis of Gene Expression) sequencing data for precise mapping of transcription start sites and promoterome mining
+CALIB	Hui Zhao	Calibration model for estimating absolute expression levels from microarray data
+CAMERA	Steffen Neumann	Collection of annotation related methods for mass spectrometry data
+canceR	Karim Mezhoud	A Graphical User Interface for accessing and modeling the Cancer Genomics Data of MSKCC.
+cancerclass	Daniel Kosztyla	Development and validation of diagnostic tests from high-dimensional molecular data
+CancerInSilico	Thomas D. Sherman, Elana J. Fertig	An R interface for computational modeling of tumor progression
+CancerMutationAnalysis	Simina M. Boca	Cancer mutation analysis
+CancerSubtypes	Taosheng Xu	Cancer subtypes identification, validation and visualization based on genomic data
+CAnD	Caitlin McHugh	Perform Chromosomal Ancestry Differences (CAnD) Analyses
+caOmicsV	Henry Zhang	Visualization of multi-dimentional cancer genomics data
+Cardinal	Kylie A. Bemis	A mass spectrometry imaging toolbox for statistical analysis
+casper	David Rossell	Characterization of Alternative Splicing based on Paired-End Reads
+Category	Bioconductor Package Maintainer	Category Analysis
+categoryCompare	Robert M. Flight	Meta-analysis of high-throughput experiments using feature annotations
+CausalR	Glyn Bradley, Steven Barrett, Bhushan Bonde	Causal Reasoning Methods
+ccmap	Alex Pickering	Combination Connectivity Mapping
+CCPROMISE	Xueyuan Cao	PROMISE analysis with Canonical Correlation for Two Forms of High Dimensional Genetic Data
+ccrepe	Emma Schwager,Craig Bielski, George Weingart	ccrepe_and_nc.score
+cellGrowth	Julien Gagneur	Fitting cell population growth models
+cellHTS2	Joseph Barry	Analysis of cell-based screens - revised version of cellHTS
+cellity	Tomislav Ilicic	Quality Control for Single-Cell RNA-seq Data
+CellMapper	Brad Nelms	Predict genes expressed selectively in specific cell types
+CellNOptR	T.Cokelaer	Training of boolean logic models of signalling networks using prior knowledge networks and perturbation data.
+cellTree	David duVerle	Inference and visualisation of Single-Cell RNA-seq data as a hierarchical tree structure
+CexoR	Pedro Madrigal	An R package to uncover high-resolution protein-DNA interactions in ChIP-exo replicates
+CFAssay	Herbert Braselmann	Statistical analysis for the Colony Formation Assay
+CGEN	William Wheeler	An R package for analysis of case-control studies in genetic epidemiology
+CGHbase	Mark van de Wiel	CGHbase: Base functions and classes for arrayCGH data analysis.
+CGHcall	Mark van de Wiel	Calling aberrations for array CGH tumor profiles.
+cghMCR	J. Zhang	Find chromosome regions showing common gains/losses
+CGHnormaliter	Bart P.P. van Houte	Normalization of array CGH data with imbalanced aberrations.
+CGHregions	Sjoerd Vosse	Dimension Reduction for Array CGH Data with Minimal Information Loss.
+ChAMP	Yuan Tian	Chip Analysis Methylation Pipeline for Illumina HumanMethylation450 and EPIC
+charm	Peter Murakami	Analysis of DNA methylation data from CHARM microarrays
+ChemmineOB	Thomas Girke	R interface to a subset of OpenBabel functionalities
+ChemmineR	Thomas Girke	Cheminformatics Toolkit for R
+Chicago	Mikhail Spivakov	CHiCAGO: Capture Hi-C Analysis of Genomic Organization
+chimera	Raffaele A Calogero	A package for secondary analysis of fusion products
+ChIPComp	Li Chen	Quantitative comparison of multiple ChIP-seq datasets
+chipenrich	Raymond G. Cavalcante	Gene Set Enrichment For ChIP-seq Peak Data
+ChIPpeakAnno	Lihua Julie Zhu, Jianhong Ou	Batch annotation of the peaks identified from either ChIP-seq, ChIP-chip experiments or any experiments resulted in large number of chromosome ranges
+ChIPQC	Tom Carroll, Rory Stark	Quality metrics for ChIPseq data
+ChIPseeker	Guangchuang Yu	ChIPseeker for ChIP peak Annotation, Comparison, and Visualization
+chipseq	Bioconductor Package Maintainer	chipseq: A package for analyzing chipseq data
+ChIPseqR	Peter Humburg	Identifying Protein Binding Sites in High-Throughput Sequencing Data
+ChIPsim	Peter Humburg	Simulation of ChIP-seq experiments
+ChIPXpress	George Wu	ChIPXpress: enhanced transcription factor target gene identification from ChIP-seq and ChIP-chip data using publicly available gene expression profiles
+chopsticks	Hin-Tak Leung	The snp.matrix and X.snp.matrix classes
+chroGPS	Oscar Reina	chroGPS: visualizing the epigenome
+chromDraw	Jan Janecka	chromDraw is a R package for drawing the schemes of karyotypes in the linear and circular fashion.
+ChromHeatMap	Tim F. Rayner	Heat map plotting by genome coordinate
+chromPlot	Karen Y. Orostica	Global visualization tool of genomic data
+chromstaR	Aaron Taudt	Combinatorial and Differential Chromatin State Analysis for ChIP-Seq Data
+CHRONOS	Panos Balomenos	CHRONOS: A time-varying method for microRNA-mediated sub-pathway enrichment analysis
+CINdex	Yuriy Gusev	Chromosome Instability Index
+cisPath	Likun Wang	Visualization and management of the protein-protein interaction networks.
+ClassifyR	Dario Strbenac	A framework for two-class classification problems, with applications to differential variability and differential distribution testing
+cleanUpdTSeq	Sarah Sheppard; Jianhong Ou; Lihua Julie Zhu	This package classifies putative polyadenylation sites as true or false/internally oligodT primed
+cleaver	Sebastian Gibb	Cleavage of Polypeptide Sequences
+clippda	Stephen Nyangoma	A package for the clinical proteomic profiling data analysis
+clipper	Paolo Martini	Gene Set Analysis Exploiting Pathway Topology
+Clomial	Habil Zare	Infers clonal composition of a tumor
+Clonality	Irina Ostrovnaya	Clonality testing
+clonotypeR	Charles Plessy	High throughput analysis of T cell antigen receptor sequences
+clst	Noah Hoffman	Classification by local similarity threshold
+clstutils	Noah Hoffman	Tools for performing taxonomic assignment.
+clustComp	Aurora Torrente	Clustering Comparison Package
+clusterExperiment	Elizabeth Purdom	Compare clusterings for single-cell sequencing
+clusterProfiler	Guangchuang Yu	statistical analysis and visualization of functional profiles for genes and gene clusters
+ClusterSignificance	Jason T Serviss	The ClusterSignificance package provides tools to assess if clusters have a separation different from random or permuted data
+clusterStab	James W. MacDonald	Compute cluster stability scores for microarray data
+CMA	Christoph Bernau	Synthesis of microarray-based classification
+cn.farms	Andreas Mitterecker	cn.FARMS - factor analysis for copy number estimation
+cn.mops	Guenter Klambauer	cn.mops - Mixture of Poissons for CNV detection in NGS data
+CNAnorm	Stefano Berri	A normalization method for Copy Number Aberration in cancer samples
+CNEr	Ge Tan	CNE Detection and Visualization
+CNORdt	A. MacNamara	Add-on to CellNOptR: Discretized time treatments
+CNORfeeder	F.Eduati	Integration of CellNOptR to add missing links
+CNORfuzzy	T. Cokelaer	Addon to CellNOptR: Fuzzy Logic
+CNORode	David Henriques	ODE add-on to CellNOptR
+CNPBayes	Jacob Carey	Bayesian mixture models for copy number polymorphisms
+CNTools	J. Zhang	Convert segment data into a region by sample matrix to allow for other high level computational analyses.
+cnvGSA	Joseph Lugo	Gene Set Analysis of (Rare) Copy Number Variants
+CNVPanelizer	Thomas Wolf	Reliable CNV detection in targeted sequencing applications
+CNVrd2	Hoang Tan Nguyen	CNVrd2: a read depth-based method to detect and genotype complex common copy number variants from next generation sequencing data.
+CNVtools	Chris Barnes	A package to test genetic association with CNV data
+cobindR	Manuela Benary	Finding Co-occuring motifs of transcription factor binding sites
+CoCiteStats	Bioconductor Package Maintainer	Different test statistics based on co-citation.
+codelink	Diego Diez	Manipulation of Codelink microarray data
+CODEX	Yuchao Jiang	A Normalization and Copy Number Variation Detection Method for Whole Exome Sequencing
+CoGAPS	Elana J. Fertig	Coordinated Gene Activity in Pattern Sets
+cogena	Zhilong Jia	co-expressed gene-set enrichment analysis
+coGPS	Yingying Wei	cancer outlier Gene Profile Sets
+COHCAP	Charles Warden	CpG Island Analysis Pipeline for Illumina Methylation Array and Targeted BS-Seq Data
+coMET	Tiphaine Martin	coMET: visualisation of regional epigenome-wide association scan (EWAS) results and DNA co-methylation patterns
+COMPASS	Greg Finak	Combinatorial Polyfunctionality Analysis of Single Cells
+compcodeR	Charlotte Soneson	RNAseq data simulation, differential expression analysis and performance comparison of differential expression methods
+compEpiTools	Kamal Kishore	Tools for computational epigenomics
+CompGO	Ashley J. Waardenberg	An R pipeline for .bed file annotation, comparing GO term enrichment between gene sets and data visualisation
+ComplexHeatmap	Zuguang Gu	Making Complex Heatmaps
+CONFESS	Diana LOW	Cell OrderiNg by FluorEScence Signal
+ConsensusClusterPlus	Matt Wilkerson	ConsensusClusterPlus
+consensusSeekeR	Astrid Louise Deschenes	Detection of consensus regions inside a group of experiences using genomic positions and genomic ranges
+contiBAIT	Kieran O'Neill	Improves Early Build Genome Assemblies using Strand-Seq Data
+conumee	Volker Hovestadt	Enhanced copy-number variation analysis using Illumina DNA methylation arrays
+convert	Yee Hwa (Jean) Yang	Convert Microarray Data Objects
+copa	James W. MacDonald	Functions to perform cancer outlier profile analysis.
+copynumber	Gro Nilsen	Segmentation of single- and multi-track copy number data by penalized least squares regression.
+CopywriteR	Thomas Kuilman	Copy number information from targeted sequencing using off-target reads
+CoRegNet	Remy Nicolle	CoRegNet : reconstruction and integrated analysis of co-regulatory networks
+Cormotif	Yingying Wei	Correlation Motif Fit
+CorMut	Zhenpeng Li	Detect the correlated mutations based on selection pressure
+coRNAi	Elin Axelsson	Analysis of co-knock-down RNAi data
+CORREP	Dongxiao Zhu	Multivariate Correlation Estimator and Statistical Inference Procedures.
+cosmiq	David Fischer, Christian Panse	cosmiq - COmbining Single Masses Into Quantities
+COSNet	Marco Frasca	Cost Sensitive Network for node label prediction on graphs with highly unbalanced labelings
+CountClust	Kushal Dey	Clustering and Visualizing RNA-Seq Expression Data using Grade of Membership Models
+covEB	C. Pacini	Empirical Bayes estimate of block diagonal covariance matrices
+CoverageView	Ernesto Lowy	Coverage visualization package for R
+covRNA	Lara Urban	Multivariate Analysis of Transcriptomic Data
+cpvSNP	Caitlin McHugh	Gene set analysis methods for SNP association p-values that lie in genes in given gene sets
+cqn	Kasper Daniel Hansen	Conditional quantile normalization
+CRImage	Henrik Failmezger, Yinyin Yuan	CRImage a package to classify cells and calculate tumour cellularity
+CRISPRseek	Lihua Julie Zhu	Design of target-specific guide RNAs in CRISPR-Cas9, genome-editing systems
+crisprseekplus	Alper Kucukural	crisprseekplus
+CrispRVariants	Helen Lindsay	Tools for counting and visualising mutations in a target location
+crlmm	Benilton S Carvalho, Robert Scharpf, Matt Ritchie	Genotype Calling (CRLMM) and Copy Number Analysis tool for Affymetrix SNP 5.0 and 6.0 and Illumina arrays
+crossmeta	Alex Pickering	Cross Platform Meta-Analysis of Microarray Data
+CSAR	Jose M Muino	Statistical tools for the analysis of ChIP-seq data
+csaw	Aaron Lun	ChIP-Seq Analysis with Windows
+CSSP	Chandler Zuo	ChIP-Seq Statistical Power
+ctc	Antoine Lucas	Cluster and Tree Conversion.
+ctsGE	Michal Sharabi-Schwager	Clustering of Time Series Gene Expression data
+cummeRbund	Loyal A. Goff	Analysis, exploration, manipulation, and visualization of Cufflinks high-throughput sequencing data.
+customProDB	xiaojing wang	Generate customized protein database from NGS data, with a focus on RNA-Seq data, for proteomics search.
+CVE	Andreas Mock	Cancer Variant Explorer
+cycle	Matthias Futschik	Significance of periodic expression pattern in time-series data
+cytofkit	Jinmiao Chen, Hao Chen	cytofkit: an integrated mass cytometry data analysis pipeline
+CytoML	Mike Jiang	GatingML interface for openCyto
+dada2	Benjamin Callahan	Accurate, high-resolution sample inference from amplicon sequencing data
+dagLogo	Jianhong Ou	dagLogo
+daMA	Jobst Landgrebe	Efficient design and analysis of factorial two-colour microarray data
+DAPAR	Samuel Wieczorek	Tools for the Differential Analysis of Proteins Abundance with R
+DART	Charles Shijie Zheng	Denoising Algorithm based on Relevance network Topology
+DBChIP	Kun Liang	Differential Binding of Transcription Factor with ChIP-seq
+dcGSA	Jiehuan sun	Distance-correlation based Gene Set Analysis for longitudinal gene expression profiles
+DChIPRep	Bernd Klaus	DChIPRep - Analysis of chromatin modification ChIP-Seq data with replication
+ddCt	Jitao David Zhang	The ddCt Algorithm for the Analysis of Quantitative Real-Time PCR (qRT-PCR)
+ddgraph	Robert Stojnic	Distinguish direct and indirect interactions with Graphical Modelling
+debrowser	Alper Kucukural	debrowser: Interactive Differential Expresion Analysis Browser
+DECIPHER	Erik Wright	Tools for curating, analyzing, and manipulating biological sequences
+DeconRNASeq	Ting Gong	Deconvolution of Heterogeneous Tissue Samples for mRNA-Seq data
+DEDS	Yuanyuan Xiao	Differential Expression via Distance Summary for Microarray Data
+DeepBlueR	Felipe Albrecht, Markus List	DeepBlueR
+deepSNV	Moritz Gerstung	Detection of subclonal SNVs in deep sequencing data.
+DEFormats	Andrzej Oleś	Differential gene expression data formats converter
+DEGraph	Laurent Jacob	Two-sample tests on a graph
+DEGreport	Lorena Pantano	Report of DEG analysis
+DEGseq	Likun Wang	Identify Differentially Expressed Genes from RNA-seq data
+deltaGseg	Diana Low	deltaGseg
+DeMAND	Jung Hoon Woo, Mariano Alvarez	DeMAND
+derfinder	Leonardo Collado-Torres	Annotation-agnostic differential expression analysis of RNA-seq data at base-pair resolution via the DER Finder approach
+derfinderHelper	Leonardo Collado-Torres	derfinder helper package
+derfinderPlot	Leonardo Collado-Torres	Plotting functions for derfinder
+DESeq	Simon Anders	Differential gene expression analysis based on the negative binomial distribution
+DESeq2	Michael Love	Differential gene expression analysis based on the negative binomial distribution
+destiny	Philipp Angerer	Creates diffusion maps
+DEsubs	Aristidis G. Vrahatis and Panos Balomenos	DEsubs: an R package for flexible identification of differentially expressed subpathways using RNA-seq expression experiments
+DEXSeq	Alejandro Reyes	Inference of differential exon usage in RNA-Seq
+dexus	Guenter Klambauer	DEXUS - Identifying Differential Expression in RNA-Seq Studies with Unknown Conditions or without Replicates
+DFP	Rodrigo Alvarez-Glez	Gene Selection
+DiffBind	Rory Stark	Differential Binding Analysis of ChIP-Seq peak data
+diffGeneAnalysis	Choudary Jagarlamudi	Performs differential gene expression Analysis
+diffHic	Aaron Lun	Differential Analyis of Hi-C Data
+DiffLogo	Hendrik Treutler	DiffLogo: A comparative visualisation of sequence motifs
+diggit	Mariano J Alvarez	Inference of Genetic Variants Driving Cellular Phenotypes
+Director	Katherine Icay	A dynamic visualization tool of multi-level data
+DirichletMultinomial	Martin Morgan	Dirichlet-Multinomial Mixture Model Machine Learning for Microbiome Data
+dks	Jeffrey T. Leek	The double Kolmogorov-Smirnov package for evaluating multiple testing procedures.
+DMRcaller	Nicolae Radu Zabet	Differentially Methylated Regions caller
+DMRcate	Tim Peters	Methylation array and sequencing spatial analysis methods
+DMRforPairs	Martin Rijlaarsdam	DMRforPairs: identifying Differentially Methylated Regions between unique samples using array based methylation profiles
+DNABarcodes	Tilo Buschmann	A tool for creating and analysing DNA barcodes used in Next Generation Sequencing multiplexing experiments
+DNAcopy	Venkatraman E. Seshan	DNA copy number data analysis
+DNAshapeR	Tsu-Pei Chiu	High-throughput prediction of DNA shape features
+domainsignatures	Florian Hahne	Geneset enrichment based on InterPro domain signatures
+doppelgangR	Levi Waldron	Identify likely duplicate samples from genomic or meta-data
+DOQTL	Daniel Gatti	Genotyping and QTL Mapping in DO Mice
+DOSE	Guangchuang Yu	Disease Ontology Semantic and Enrichment analysis
+DRIMSeq	Malgorzata Nowicka	Differential splicing and sQTL analyses with Dirichlet-multinomial model in RNA-Seq
+DriverNet	Jiarui Ding	Drivernet: uncovering somatic driver mutations modulating transcriptional networks in cancer
+DrugVsDisease	j. Saez-Rodriguez	Comparison of disease and drug profiles using Gene set Enrichment Analysis
+dSimer	Peng Ni	Integration of Disease Similarity Methods
+DSS	Hao Wu	Dispersion shrinakge for sequencing data.
+DTA	Bjoern Schwalb	Dynamic Transcriptome Analysis
+dualKS	Eric J. Kort, Yarong Yang	Dual KS Discriminant Analysis and Classification
+DupChecker	"Quanhu SHENG"	a package for checking high-throughput genomic data redundancy in meta-analysis
+dupRadar	Sergi Sayols, Holger Klein	Assessment of duplication rates in RNA-Seq datasets
+dyebias	Philip Lijnzaad	The GASSCO method for correcting for slide-dependent gene-specific dye bias
+DynDoc	Bioconductor Package Maintainer	Dynamic document tools
+EasyqpcR	Le Pape Sylvain	EasyqpcR for low-throughput real-time quantitative PCR data analysis
+easyRNASeq	Nicolas Delhomme	Count summarization and normalization for RNA-Seq data
+EBarrays	Ming Yuan	Unified Approach for Simultaneous Gene Clustering and Differential Expression Identification
+EBcoexpress	John A. Dawson	EBcoexpress for Differential Co-Expression Analysis
+EBImage	Andrzej Oleś	Image processing and analysis toolbox for R
+EBSEA	Arfa Mehmood	Exon Based Strategy for Expression Analysis of genes
+EBSeq	Ning Leng	An R package for gene and isoform differential expression analysis of RNA-seq data
+EBSeqHMM	Ning Leng	Bayesian analysis for identifying gene or isoform expression changes in ordered RNA-seq experiments
+ecolitk	Laurent Gautier	Meta-data and tools for E. coli
+EDASeq	Davide Risso	Exploratory Data Analysis and Normalization for RNA-Seq
+EDDA	Chia Kuan Hui Burton, Niranjan Nagarajan	Experimental Design in Differential Abundance analysis
+edge	John D. Storey, Andrew J. Bass	Extraction of Differential Gene Expression
+edgeR	Yunshun Chen, Aaron Lun, Mark Robinson, Davis McCarthy, Gordon Smyth	Empirical Analysis of Digital Gene Expression Data in R
+eegc	Xiaoyuan Zhou	Engineering Evaluation by Gene Categorization (eegc)
+EGAD	Sara Ballouz	Extending guilt by association by degree
+EGSEA	Monther Alhamdoosh	Ensemble of Gene Set Enrichment Analyses
+eiR	Thomas Girke	Accelerated similarity searching of small molecules
+eisa	Gabor Csardi	Expression data analysis via the Iterative Signature Algorithm
+ELBOW	Graham Alvare, Xiangli Zhang	ELBOW - Evaluating foLd change By the lOgit Way
+ELMER	Simon Coetzee	Inferring Regulatory Element Landscapes and Transcription Factor Networks Using Cancer Methylomes
+EMDomics	Sadhika Malladi and Daniel Schmolze	Earth Mover's Distance for Differential Analysis of Genomics Data
+EmpiricalBrownsMethod	David Gibbs	Uses Brown's method to combine p-values from dependent tests
+ENCODExplorer	Charles Joly Beauparlant	A compilation of ENCODE metadata
+ENmix	Zongli Xu	Data preprocessing and quality control for Illumina HumanMethylation450 and MethylationEPIC BeadChip
+EnrichedHeatmap	Zuguang Gu	Making Enriched Heatmaps
+EnrichmentBrowser	Ludwig Geistlinger	Seamless navigation through combined results of set-based and network-based enrichment analysis
+ensembldb	Johannes Rainer	Utilities to create and use an Ensembl based annotation database
+ensemblVEP	Bioconductor Package Maintainer	R Interface to Ensembl Variant Effect Predictor
+ENVISIONQuery	Alex Lisovich, Roger Day	Retrieval from the ENVISION bioinformatics data portal into R
+epigenomix	Hans-Ulrich Klein	Epigenetic and gene transcription data normalization and integration with mixture models
+epivizr	Hector Corrada Bravo	R Interface to epiviz web app
+epivizrData	Hector Corrada Bravo	Data Management API for epiviz interactive visualization app
+epivizrServer	Hector Corrada Bravo	WebSocket server infrastructure for epivizr apps and packages
+epivizrStandalone	Hector Corrada Bravo	Run Epiviz Interactive Genomic Data Visualization App within R
+erccdashboard	Sarah Munro	Assess Differential Gene Expression Experiments with ERCC Controls
+erma	VJ Carey	epigenomic road map adventures
+esetVis	Laure Cougnaud	Visualizations of expressionSet Bioconductor object
+eudysbiome	Xiaoyuan Zhou	Cartesian plot and contingency test on 16S Microbial data
+EWCE	Nathan Skene	Expression Weighted Celltype Enrichment
+ExiMiR	Sylvain Gubian	R functions for the normalization of Exiqon miRNA array data
+exomeCopy	Michael Love	Copy number variant detection from exome sequencing read depth
+exomePeak	Lin Zhang, Lian Liu, Jia Meng	exome-based anlaysis of MeRIP-Seq data: peak calling and differential analysis
+ExperimentHub	Bioconductor Package Maintainer	Client to access ExperimentHub resources
+ExperimentHubData	Bioconductor Package Maintainer	Add resources to ExperimentHub
+explorase	Michael Lawrence	GUI for exploratory data analysis of systems biology data
+ExpressionAtlas	Maria Keays	Download datasets from EMBL-EBI Expression Atlas
+ExpressionView	Gabor Csardi	Visualize biclusters identified in gene expression data
+fabia	Sepp Hochreiter	FABIA: Factor Analysis for Bicluster Acquisition
+facopy	David Mosen-Ansorena	Feature-based association and gene-set enrichment for copy number alteration analysis in cancer
+factDesign	Denise Scholtens	Factorial designed microarray experiment analysis
+FamAgg	Johannes Rainer	Pedigree Analysis and Familial Aggregation
+farms	Djork-Arne Clevert	FARMS - Factor Analysis for Robust Microarray Summarization
+fastLiquidAssociation	Tina Gunderson	functions for genome-wide application of Liquid Association
+fastseg	Guenter Klambauer	fastseg - a fast segmentation algorithm
+fCCAC	Pedro Madrigal	functional Canonical Correlation Analysis to evaluate Covariance between nucleic acid sequencing datasets
+fCI	Shaojun Tang	f-divergence Cutoff Index for Differential Expression Analysis in Transcriptomics and Proteomics
+fdrame	Effi Kenigsberg	FDR adjustments of Microarray Experiments (FDR-AME)
+FEM	Zhen Yang	Identification of Functional Epigenetic Modules
+ffpe	Levi Waldron	Quality assessment and control for FFPE microarray expression data
+FGNet	Sara Aibar	Functional Gene Networks derived from biological enrichment analyses
+fgsea	Alexey Sergushichev	Fast Gene Set Enrichment Analysis
+FindMyFriends	Thomas Lin Pedersen	Microbial Comparative Genomics in R
+FISHalyseR	Karesh Arunakirinathan, Andreas Heindl	FISHalyseR a package for automated FISH quantification
+FitHiC	Ruyu Tan	Confidence estimation for intra-chromosomal contact maps
+flagme	Mark Robinson, Riccardo Romoli	Analysis of Metabolomics GC/MS Data
+flipflop	Elsa Bernard	Fast lasso-based isoform prediction as a flow problem
+flowAI	Gianni Monaco	Automatic and interactive quality control for flow cytometry data
+flowBeads	Nikolas Pontikos	flowBeads: Analysis of flow bead data
+flowBin	Kieran O'Neill	Combining multitube flow cytometry data by binning
+flowcatchR	Federico Marini	Tools to analyze in vivo microscopy imaging data focused on tracking flowing blood cells
+flowCHIC	Author: Joachim Schumann	Analyze flow cytometric data using histogram information
+flowCL	Justin Meskas	Semantic labelling of flow cytometric cell populations
+flowClean	Kipper Fletez-Brant	flowClean
+flowClust	Greg Finak, Mike Jiang	Clustering for Flow Cytometry
+flowCore	M.Jiang	flowCore: Basic structures for flow cytometry data
+flowCyBar	Joachim Schumann	Analyze flow cytometric data using gate information
+flowDensity	Mehrnoush Malek	Sequential Flow Cytometry Data Gating
+flowFit	Davide Rambaldi	Estimate proliferation in cell-tracking dye studies
+flowFP	Herb Holyst	Fingerprinting for Flow Cytometry
+flowMap	Chiaowen Joyce Hsiao	Mapping cell populations in flow cytometry data for cross-sample comparisons using the Friedman-Rafsky Test
+flowMatch	Ariful Azad	Matching and meta-clustering in flow cytometry
+flowMeans	Nima Aghaeepour	Non-parametric Flow Cytometry Data Gating
+flowMerge	Greg Finak	Cluster Merging for Flow Cytometry Data
+flowPeaks	Yongchao Ge	An R package for flow data clustering
+flowPloidy	Tyler Smith	Analyze flow cytometer data to determine sample ploidy
+flowPlots	N. Hawkins	flowPlots: analysis plots and data class for gated flow cytometry data
+flowQ	Mike Jiang	Quality control for flow cytometry
+flowQB	Josef Spidlen	Automated Quadratic Characterization of Flow Cytometer Instrument Sensitivity: Q, B and CV instrinsic calculations
+FlowRepositoryR	Josef Spidlen	FlowRepository R Interface
+FlowSOM	Sofie Van Gassen	Using self-organizing maps for visualization and interpretation of cytometry data
+flowStats	Greg Finak and Mike Jiang	Statistical methods for the analysis of flow cytometry data
+flowTrans	Greg Finak	Parameter Optimization for Flow Cytometry Data Transformation
+flowType	Nima Aghaeepour	Phenotyping Flow Cytometry Assays
+flowUtils	Josef Spidlen	Utilities for flow cytometry
+flowViz	Mike Jiang	Visualization for flow cytometry
+flowVS	Ariful Azad	Variance stabilization in flow cytometry (and microarrays)
+flowWorkspace	Greg Finak,Mike Jiang	Infrastructure for representing and interacting with the gated cytometry
+fmcsR	Thomas Girke	Mismatch Tolerant Maximum Common Substructure Searching
+focalCall	Oscar Krijgsman	Detection of focal aberrations in DNA copy number data
+FourCSeq	Felix A. Klein	Package analyse 4C sequencing data
+FRGEpistasis	Futao Zhang	Epistasis Analysis for Quantitative Traits by Functional Regression Model
+frma	Matthew N. McCall	Frozen RMA and Barcode
+frmaTools	Matthew N. McCall	Frozen RMA Tools
+FunChIP	Alice Parodi	Clustering and Alignment of ChIP-Seq peaks based on their shapes
+FunciSNP	Simon G. Coetzee	Integrating Functional Non-coding Datasets with Genetic Association Studies to Identify Candidate Regulatory SNPs
+gaga	David Rossell	GaGa hierarchical model for high-throughput data analysis
+gage	Weijun Luo	Generally Applicable Gene-set Enrichment for Pathway Analysis
+gaggle	Christopher Bare	Broadcast data between R and Gaggle
+gaia	S. Morganella	GAIA: An R package for genomic analysis of significant chromosomal aberrations.
+GAprediction	Jon Bohlin	Prediction of gestational age with Illumina HumanMethylation450 data
+garfield	Valentina Iotchkova	GWAS Analysis of Regulatory or Functional Information Enrichment with LD correction
+gaucho	Alex Murison, Christopher Wardell	Genetic Algorithms for Understanding Clonal Heterogeneity and Ordering
+gcatest	Wei Hao, John D. Storey	Genotype Conditional Association TEST
+gCMAP	Thomas Sandmann	Tools for Connectivity Map-like analyses
+gCMAPWeb	Thomas Sandmann	A web interface for gene-set enrichment analyses
+gCrisprTools	Russell Bainer	Suite of Functions for Pooled Crispr Screen QC and Analysis
+gcrma	Z. Wu	Background Adjustment Using Sequence Information
+gdsfmt	Xiuwen Zheng	R Interface to CoreArray Genomic Data Structure (GDS) Files
+geecc	Markus Boenn	Gene Set Enrichment Analysis Extended to Contingency Cubes
+GEM	Hong Pan	GEM: fast association study for the interplay of Gene, Environment and Methylation
+genArise	IFC Development Team	Microarray Analysis tool
+genbankr	Gabriel Becker	Parsing GenBank files into semantically useful objects
+GENE.E	Joshua Gould	Interact with GENE-E from R
+GeneAnswers	Lei Huang and Gang Feng	Integrated Interpretation of Genes
+geneAttribution	Arthur Wuster	Identification of candidate genes associated with genetic variation
+GeneBreak	Evert van den Broek	Gene Break Detection
+GeneExpressionSignature	Yang Cao, Fei Li,Lu Han	Gene Expression Signature based Similarity Metric
+genefilter	Bioconductor Package Maintainer	genefilter: methods for filtering genes from high-throughput experiments
+genefu	Benjamin Haibe-Kains, Markus Schroeder	Computation of Gene Expression-Based Signatures in Breast Cancer
+GeneGA	Zhenpeng Li	Design gene based on both mRNA secondary structure and codon usage bias using Genetic algorithm
+GeneGeneInteR	Mathieu Emily, Magalie Houee-Bigot	Tools for Testing Gene-Gene Interaction at the Gene Level
+GeneMeta	Bioconductor Package Maintainer	MetaAnalysis for High Throughput Experiments
+GeneNetworkBuilder	Jianhong Ou	Build Regulatory Network from ChIP-chip/ChIP-seq and Expression Data
+GeneOverlap	Li Shen, Mount Sinai	Test and visualize gene overlaps
+geneplast	Mauro Castro	Evolutionary and plasticity analysis based on orthologous groups distribution
+geneplotter	Bioconductor Package Maintainer	Graphics related functions for Bioconductor
+geneRecommender	Greg Hather	A gene recommender algorithm to identify genes coexpressed with a query set of genes
+GeneRegionScan	Lasse Folkersen	GeneRegionScan
+geneRxCluster	Charles Berry	gRx Differential Clustering
+GeneSelectMMD	Weiliang Qiu	Gene selection based on the marginal distributions of gene profiles that characterized by a mixture of three-component multivariate distributions
+GeneSelector	Martin Slawski	Stability and Aggregation of ranked gene lists
+GENESIS	Matthew P. Conomos	GENetic EStimation and Inference in Structured samples (GENESIS): Statistical methods for analyzing genetic data from samples with population structure and/or relatedness
+geNetClassifier	Sara Aibar	Classify diseases and build associated gene networks using gene expression profiles
+GeneticsDesign	The R Genetics Project	Functions for designing genetics studies
+GeneticsPed	David Henderson	Pedigree and genetic relationship functions
+geneXtendeR	Bohdan Khomtchouk	Optimal Gene Extensions From Histone Modification ChIP-seq Data
+genoCN	Wei Sun	genotyping and copy number study tools
+GenoGAM	Georg Stricker	A GAM based framework for analysis of ChIP-Seq data
+genomation	Altuna Akalin, Vedran Franke	Summary, annotation and visualization of genomic data
+GenomeGraphs	Steffen Durinck	Plotting genomic information from Ensembl
+GenomeInfoDb	Bioconductor Package Maintainer	Utilities for manipulating chromosome and other 'seqname' identifiers
+genomeIntervals	Julien Gagneur	Operations on genomic intervals
+genomes	Chris Stubben	Genome sequencing project metadata
+GenomicAlignments	Bioconductor Package Maintainer	Representation and manipulation of short genomic alignments
+GenomicFeatures	Bioconductor Package Maintainer	Tools for making and manipulating transcript centric annotations
+GenomicFiles	Bioconductor Package Maintainer	Distributed computing by file or by range
+GenomicInteractions	Malcolm Perry, Liz Ing-Simmons	R package for handling genomic interaction data
+GenomicRanges	Bioconductor Package Maintainer	Representation and manipulation of genomic intervals and variables defined along a genome
+GenomicTuples	Peter Hickey	Representation and Manipulation of Genomic Tuples
+Genominator	James Bullard	Analyze, manage and store genomic data
+genoset	Peter M. Haverty	A RangedSummarizedExperiment with methods for copy number analysis
+genotypeeval	Jennifer Tom	QA/QC of a gVCF or VCF file
+genphen	Simo Kitanovski	A tool for quantification of associations between genotypes and phenotypes with statistical learning techniques such as random forests and support vector machines as well as with Bayesian inference using hierarchical models
+GenRank	Chakravarthi Kanduri	Candidate gene prioritization based on convergent evidence
+GenVisR	Zachary Skidmore	Genomic Visualizations in R
+GEOmetadb	Jack Zhu	A compilation of metadata from NCBI GEO
+GEOquery	Sean Davis	Get data from NCBI Gene Expression Omnibus (GEO)
+GEOsearch	Zhicheng Ji	GEOsearch
+GEOsubmission	Alexandre Kuhn	Prepares microarray data for submission to GEO
+gespeR	Fabian Schmich	Gene-Specific Phenotype EstimatoR
+GEWIST	Wei Q. Deng	Gene Environment Wide Interaction Search Threshold
+GGBase	VJ Carey	GGBase infrastructure for genetics of gene expression package GGtools
+ggbio	Michael Lawrence	Visualization tools for genomic data.
+ggcyto	Mike Jiang	Visualize Cytometry data with ggplot
+GGtools	VJ Carey	software and data for analyses in genetics of gene expression
+ggtree	Guangchuang Yu	an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data
+girafe	J. Toedling	Genome Intervals and Read Alignments for Functional Exploration
+GLAD	Philippe Hupe	Gain and Loss Analysis of DNA
+Glimma	Shian Su	Interactive HTML graphics
+GlobalAncova	Manuela Hummel	Calculates a global test for differential gene expression between groups
+globalSeq	Armin Rauschenberger	Testing for association between RNA-Seq and high-dimensional data
+globaltest	Jelle Goeman	Testing Groups of Covariates/Features for Association with a Response Variable, with Applications to Gene Set Testing
+gmapR	Michael Lawrence	An R interface to the GMAP/GSNAP/GSTRUCT suite
+GMRP	Yuan-De Tan	GWAS-based Mendelian Randomization and Path Analyses
+GOexpress	Kevin Rue-Albrecht	Visualise microarray and RNAseq data using gene ontology annotations
+GOFunction	Jing Wang	GO-function: deriving biologcially relevant functions from statistically significant functions
+GoogleGenomics	Siddhartha Bagaria	R Client for Google Genomics API
+GOpro	Lidia Chrabaszcz	Find the most characteristic gene ontology terms for groups of human genes
+goProfiles	Alex Sanchez	goProfiles: an R package for the statistical analysis of functional profiles
+GOSemSim	Guangchuang Yu	GO-terms Semantic Similarity Measures
+goseq	Nadia Davidson, Anthony Hawkins	Gene Ontology analyser for RNA-seq and other length biased data
+GOSim	Holger Froehlich	Computation of functional similarities between GO terms and gene products; GO enrichment analysis
+GOstats	Bioconductor Package Maintainer	Tools for manipulating GO and microarrays.
+GOsummaries	Raivo Kolde	Word cloud summaries of GO enrichment analysis
+GOTHiC	Borbala Mifsud	Binomial test for Hi-C data analysis
+goTools	Agnes Paquet	Functions for Gene Ontology database
+gpls	Bioconductor Package Maintainer	Classification using generalized partial least squares
+gprege	Alfredo Kalaitzis	Gaussian Process Ranking and Estimation of Gene Expression time-series
+gQTLBase	VJ Carey	gQTLBase: infrastructure for eQTL, mQTL and similar studies
+gQTLstats	VJ Carey	gQTLstats: computationally efficient analysis for eQTL and allied studies
+graph	Bioconductor Package Maintainer	graph: A package to handle graph data structures
+GraphAlignment	Joern P. Meier	GraphAlignment
+GraphAT	Thomas LaFramboise	Graph Theoretic Association Tests
+graphite	Gabriele Sales	GRAPH Interaction from pathway Topological Environment
+GraphPAC	Gregory Ryslik	Identification of Mutational Clusters in Proteins via a Graph Theoretical Approach.
+GRENITS	Edward Morrissey	Gene Regulatory Network Inference Using Time Series
+GreyListChIP	Gordon Brown	Grey Lists -- Mask Artefact Regions Based on ChIP Inputs
+GRmetrics	Nicholas Clark	Calculate growth-rate inhibition (GR) metrics
+groHMM	Anusha Nagari, Venkat Malladi, Tulip Nandu, W. Lee Kraus	GRO-seq Analysis Pipeline
+GSALightning	Billy Heung Wing Chang	Fast Permutation-based Gene Set Analysis
+GSAR	Yasir Rahmatallah, Galina Glazko	Gene Set Analysis in R
+GSCA	Zhicheng Ji	GSCA: Gene Set Context Analysis
+GSEABase	Bioconductor Package Maintainer	Gene set enrichment data structures and methods
+GSEAlm	Assaf Oron	Linear Model Toolset for Gene Set Enrichment Analysis
+GSReg	Bahman Afsari	Gene Set Regulation (GS-Reg)
+GSRI	Julian Gehring	Gene Set Regulation Index
+GSVA	Justin Guinney	Gene Set Variation Analysis for microarray and RNA-seq data
+gtrellis	Zuguang Gu	Genome Level Trellis Layout
+GUIDEseq	Lihua Julie Zhu	GUIDE-seq analysis pipeline
+Guitar	Jia Meng	Guitar
+Gviz	Florian Hahne	Plotting data and annotation information along genomic coordinates
+gwascat	VJ Carey	representing and modeling data in the EMBL-EBI GWAS catalog
+GWASTools	Stephanie M. Gogarten, Adrienne Stilp	Tools for Genome Wide Association Studies
+h5vc	Paul Theodor Pyl	Managing alignment tallies using a hdf5 backend
+hapFabia	Sepp Hochreiter	hapFabia: Identification of very short segments of identity by descent (IBD) characterized by rare variants in large sequencing data
+Harman	Jason Ross	The removal of batch effects from datasets using a PCA and constrained optimisation based technique
+Harshlight	Maurizio Pellegrino	A "corrective make-up" program for microarray chips
+HCsnip	Askar Obulkasim	Semi-supervised adaptive-height snipping of the Hierarchical Clustering tree
+HDF5Array	Hervé Pagès	An array-like container for convenient access and manipulation of HDF5 datasets
+HDTD	Anestis Touloumis	Statistical Inference about the Mean Matrix and the Covariance Matrices in High-Dimensional Transposable Data (HDTD)
+Heatplus	Alexander Ploner	Heatmaps with row and/or column covariates and colored clusters
+HelloRanges	Michael Lawrence	Introduce *Ranges to bedtools users
+HELP	Reid F. Thompson	Tools for HELP data analysis
+HEM	HyungJun Cho	Heterogeneous error model for identification of differentially expressed genes under multiple conditions
+hiAnnotator	Nirav V Malani	Functions for annotating GRanges objects
+HIBAG	Xiuwen Zheng	HLA Genotype Imputation with Attribute Bagging
+hierGWAS	Laura Buzdugan	Asessing statistical significance in predictive GWA studies
+HilbertCurve	Zuguang Gu	Making 2D Hilbert Curve
+HilbertVis	Simon Anders	Hilbert curve visualization
+HilbertVisGUI	Simon Anders	HilbertVisGUI
+hiReadsProcessor	Nirav V Malani	Functions to process LM-PCR reads from 454/Illumina data
+HiTC	Nicolas Servant	High Throughput Chromosome Conformation Capture analysis
+HMMcopy	Daniel Lai, Sohrab Shah	Copy number prediction with correction for GC and mappability bias for HTS data
+hopach	Katherine S. Pollard	Hierarchical Ordered Partitioning and Collapsing Hybrid (HOPACH)
+hpar	Laurent Gatto	Human Protein Atlas in R
+HTqPCR	Heidi Dvinge	Automated analysis of high-throughput qPCR data
+HTSanalyzeR	Xin Wang	Gene set over-representation, enrichment and network analyses for high-throughput screens
+HTSeqGenie	Jens Reeder	A NGS analysis pipeline.
+htSeqTools	Oscar Reina	Quality Control, Visualization and Processing for High-Throughput Sequencing data
+HTSFilter	Andrea Rau	Filter replicated high-throughput transcriptome sequencing data
+HybridMTest	Demba Fofana	Hybrid Multiple Testing
+hyperdraw	Paul Murrell	Visualizing Hypergaphs
+hypergraph	Bioconductor Package Maintainer	A package providing hypergraph data structures
+iASeq	Yingying Wei	iASeq: integrating multiple sequencing datasets for detecting allele-specific events
+iBBiG	Aedin Culhane	Iterative Binary Biclustering of Genesets
+ibh	Kircicegi Korkmaz	Interaction Based Homogeneity for Evaluating Gene Lists
+iBMQ	Greg Imholte	integrated Bayesian Modeling of eQTL data
+iCARE	Bill Wheeler	A Tool for Individualized Coherent Absolute Risk Estimation (iCARE)
+Icens	Bioconductor Package Maintainer	NPMLE for Censored and Truncated Data
+iCheck	Weiliang Qiu	QC Pipeline and Data Analysis Tools for High-Dimensional Illumina mRNA Expression Data
+iChip	Qianxing Mo	Bayesian Modeling of ChIP-chip Data Through Hidden Ising Models
+iClusterPlus	Qianxing Mo, Ronglai Shen	Integrative clustering of multi-type genomic data
+iCOBRA	Charlotte Soneson	Comparison and Visualization of Ranking and Assignment Methods
+IdeoViz	Shraddha Pai	Plots data (continuous/discrete) along chromosomal ideogram
+idiogram	Karl J. Dykema	idiogram
+IdMappingAnalysis	Alex Lisovich, Roger Day	ID Mapping Analysis
+IdMappingRetrieval	Alex Lisovich, Roger Day	ID Mapping Data Retrieval
+iGC	Liang-Bo Wang	An integrated analysis package of Gene expression and Copy number alteration
+IHW	Nikos Ignatiadis	Independent Hypothesis Weighting
+illuminaio	Kasper Daniel Hansen	Parsing Illumina Microarray Output Files
+imageHTS	Joseph Barry	Analysis of high-throughput microscopy-based screens
+Imetagene	Audrey Lemacon	A graphical interface for the metagene package
+ImmuneSpaceR	Renan Sauteraud	A Thin Wrapper around the ImmuneSpace Database
+immunoClust	Till Soerensen	immunoClust - Automated Pipeline for Population Detection in Flow Cytometry
+IMPCdata	Jeremy Mason	Retrieves data from IMPC database
+ImpulseDE	Jil Sander, Nir Yosef	Detection of DE genes in time series data using impulse models
+impute	Balasubramanian Narasimhan	impute: Imputation for microarray data
+InPAS	Jianhong Ou	Identification of Novel alternative PolyAdenylation Sites (PAS)
+INPower	Bill Wheeler	An R package for computing the number of susceptibility SNPs
+INSPEcT	Stefano de Pretis	Analysis of 4sU-seq and RNA-seq time-course data
+intansv	Wen Yao	Integrative analysis of structural variations
+InteractionSet	Aaron Lun	Base Classes for Storing Genomic Interaction Data
+interactiveDisplay	Shawn Balcome	Package for enabling powerful shiny web displays of Bioconductor objects
+interactiveDisplayBase	Shawn Balcome	Base package for enabling powerful shiny web displays of Bioconductor objects
+inveRsion	Alejandro Caceres	Inversions in genotype data
+IONiseR	Mike Smith	Quality Assessment Tools for Oxford Nanopore MinION data
+iontree	Mingshu Cao	Data management and analysis of ion trees from ion-trap mass spectrometry
+iPAC	Gregory Ryslik	Identification of Protein Amino acid Clustering
+IPO	Thomas Riebenbauer	Automated Optimization of XCMS Data Processing parameters
+IPPD	Martin Slawski	Isotopic peak pattern deconvolution for Protein Mass Spectrometry by template matching
+IRanges	Bioconductor Package Maintainer	Infrastructure for manipulating intervals on sequences
+iSeq	Qianxing Mo	Bayesian Hierarchical Modeling of ChIP-seq Data Through Hidden Ising Models
+isobar	Florian P Breitwieser	Analysis and quantitation of isobarically tagged MSMS proteomics data
+IsoGeneGUI	Setia Pramana	A graphical user interface to conduct a dose-response analysis of microarray data
+ISoLDE	Christelle Reynès	Integrative Statistics of alleLe Dependent Expression
+isomiRs	Lorena Pantano	Analyze isomiRs and miRNAs from small RNA-seq
+ITALICS	Guillem Rigaill	ITALICS
+iterativeBMA	Ka Yee Yeung	The Iterative Bayesian Model Averaging (BMA) algorithm
+iterativeBMAsurv	Ka Yee Yeung	The Iterative Bayesian Model Averaging (BMA) Algorithm For Survival Analysis
+IVAS	Seonggyun Han	Identification of genetic Variants affecting Alternative Splicing
+joda	Ewa Szczurek	JODA algorithm for quantifying gene deregulation using knowledge
+JunctionSeq	Stephen Hartley	JunctionSeq: A Utility for Detection of Differential Exon and Splice-Junction Usage in RNA-Seq data
+KCsmart	Jorma de Ronde	Multi sample aCGH analysis package using kernel convolution
+kebabs	Ulrich Bodenhofer	Kernel-Based Analysis Of Biological Sequences
+KEGGgraph	Jitao David Zhang	KEGGgraph: A graph approach to KEGG PATHWAY in R and Bioconductor
+KEGGlincs	Shana White	Visualize all edges within a KEGG pathway and overlay LINCS data [option]
+keggorthology	VJ Carey	graph support for KO, KEGG Orthology
+KEGGprofile	Shilin Zhao	An annotation and visualization package for multi-types and multi-groups expression data in KEGG pathway
+KEGGREST	Bioconductor Package Maintainer	Client-side REST access to KEGG
+kimod	M L Zingaretti	A k-tables approach to integrate multiple Omics-Data
+lapmix	Yann Ruffieux	Laplace Mixture Model in Microarray Experiments
+LBE	Cyril Dalmasso	Estimation of the false discovery rate.
+ldblock	VJ Carey	data structures for linkage disequilibrium measures in populations
+LEA	Eric Frichot	LEA: an R package for Landscape and Ecological Association Studies
+LedPred	Aitor Gonzalez	Learning from DNA to Predict Enhancers
+les	Julian Gehring	Identifying Differential Effects in Tiling Microarray Data
+lfa	Wei Hao, John D. Storey	Logistic Factor Analysis for Categorical Data
+limma	Gordon Smyth	Linear Models for Microarray Data
+limmaGUI	Yifang Hu, Gordon Smyth, Keith Satterley	GUI for limma package with two color microarrays
+LINC	Manuel Goepferich	co-expression of lincRNAs and protein-coding genes
+Linnorm	Ken Shun Hang Yip	Linear model and normality based transformation method (Linnorm)
+LiquidAssociation	Yen-Yi Ho	LiquidAssociation
+lmdme	Cristobal Fresno	Linear Model decomposition for Designed Multivariate Experiments
+LMGene	Blythe Durbin-Johnson	LMGene Software for Data Transformation and Identification of Differentially Expressed Genes in Gene Expression Arrays
+LOBSTAHS	James Collins	Lipid and Oxylipin Biomarker Screening through Adduct Hierarchy Sequences
+logicFS	Holger Schwender	Identification of SNP Interactions
+logitT	Tobias Guennel	logit-t Package
+lol	Yinyin Yuan	Lots Of Lasso
+LOLA	Nathan Sheffield	Location overlap analysis for enrichment of genomic ranges
+LowMACA	Stefano de Pretis, Giorgio Melloni	LowMACA - Low frequency Mutation Analysis via Consensus Alignment
+LPE	Nitin Jain	Methods for analyzing microarray data using Local Pooled Error (LPE) method
+LPEadj	Carl Murie	A correction of the local pooled error (LPE) method to replace the asymptotic variance adjustment with an unbiased adjustment based on sample size.
+lpNet	Lars Kaderali	Linear Programming Model for Network Inference
+lpsymphony	Vladislav Kim	Symphony integer linear programming solver in R
+lumi	Pan Du	BeadArray Specific Methods for Illumina Methylation and Expression Microarrays
+LVSmiRNA	Stefano Calza	LVS normalization for Agilent miRNA data
+LymphoSeq	David Coffey	Analyze high-throughput sequencing of T and B cell receptors
+M3D	Tom Mayo	Identifies differentially methylated regions across testing groups
+M3Drop	Tallulah Andrews	Michaelis-Menten Modelling of Dropouts in single-cell RNASeq
+maanova	Keith Sheppard	Tools for analyzing Micro Array experiments
+macat	Joern Toedling	MicroArray Chromosome Analysis Tool
+maCorrPlot	Alexander Ploner	Visualize artificial correlation in microarray data
+made4	Aedin Culhane	Multivariate analysis of microarray data using ADE4
+MADSEQ	Yu Kong	Mosaic Aneuploidy Detection and Quantification using Massive Parallel Sequencing Data
+maftools	Anand Mayakonda	Summarize, Analyze and Visualize MAF files
+maigesPack	Gustavo H. Esteves	Functions to handle cDNA microarray data, including several methods of data analysis
+MAIT	Francesc Fernandez-Albert	Statistical Analysis of Metabolomic Data
+makecdfenv	James W. MacDonald	CDF Environment Maker
+MANOR	Pierre Neuvial	CGH Micro-Array NORmalization
+manta	Chris Berthiaume, Adrian Marchetti	Microbial Assemblage Normalized Transcript Analysis
+MantelCorr	Brian Steinmeyer	Compute Mantel Cluster Correlations
+maPredictDSC	Adi Laurentiu Tarca	Phenotype prediction using microarray data: approach of the best overall team in the IMPROVER Diagnostic Signature Challenge
+marray	Yee Hwa (Jean) Yang	Exploratory analysis for two-color spotted microarray data
+maSigPro	Maria Jose Nueda	Significant Gene Expression Profile Differences in Time Course Gene Expression Data
+maskBAD	Michael Dannemann	Masking probes with binding affinity differences
+MassArray	Reid F. Thompson	Analytical Tools for MassArray Data
+massiR	Sam Buckberry	massiR: MicroArray Sample Sex Identifier
+MassSpecWavelet	Pan Du	Mass spectrum processing by wavelet-based algorithms
+MAST	Andrew McDavid	Model-based Analysis of Single Cell Transcriptomics
+matchBox	Luigi Marchionni, Anuj Gupta	Utilities to compute, compare, and plot the agreement between ordered vectors of features (ie. distinct genomic experiments). The package includes Correspondence-At-the-TOP (CAT) analysis.
+MatrixRider	Elena Grassi	Obtain total affinity and occupancies for binding site matrices on a given sequence
+matter	Kylie A. Bemis	A framework for rapid prototyping with binary data on disk
+MBAmethyl	Tao Wang	Model-based analysis of DNA methylation data
+MBASED	Oleg Mayba	Package containing functions for ASE analysis using Meta-analysis Based Allele-Specific Expression Detection
+MBCB	Jeff Allen	MBCB (Model-based Background Correction for Beadarray)
+mBPCR	P.M.V. Rancoita	Bayesian Piecewise Constant Regression for DNA copy number estimation
+MBttest	Yuan-De Tan	Multiple Beta t-Tests
+mcaGUI	Wade K. Copeland	Microbial Community Analysis GUI
+MCRestimate	Marc Johannes	Misclassification error estimation with cross-validation
+mdgsa	David Montaner	Multi Dimensional Gene Set Analysis.
+mdqc	Gabriela Cohen-Freue	Mahalanobis Distance Quality Control for microarrays
+MEAL	Carlos Ruiz	Perform methylation analysis
+MeasurementError.cor	Beiying Ding	Measurement Error model estimate for correlation coefficient
+MEDIPS	Lukas Chavez	DNA IP-seq data analysis
+MEDME	Mattia Pelizzola	Modelling Experimental Data from MeDIP Enrichment
+MEIGOR	Jose Egea	MEIGO - MEtaheuristics for bIoinformatics Global Optimization
+MergeMaid	Xiaogang Zhong	Merge Maid
+Mergeomics	Zeyneb Kurt	Integrative network analysis of omics data
+MeSHDbi	Koki Tsuyuzaki	DBI to construct MeSH-related package from sqlite file
+meshes	Guangchuang Yu	MeSH Enrichment and Semantic analyses
+meshr	Koki Tsuyuzaki	Tools for conducting enrichment analysis of MeSH
+MeSHSim	Jing ZHou	MeSH(Medical Subject Headings) Semantic Similarity Measures
+messina	Mark Pinese	Single-gene classifiers and outlier-resistant detection of differential expression for two-group and survival problems.
+metaArray	Hyungwon Choi	Integration of Microarray Data for Meta-analysis
+Metab	Raphael Aggio	Metab: An R Package for a High-Throughput Analysis of Metabolomics Data Generated by GC-MS.
+metabomxtr	Michael Nodzenski	A package to run mixture models for truncated metabolomics data with normal or lognormal distributions
+MetaboSignal	Andrea Rodriguez-Martinez, Rafael Ayala	MetaboSignal: a network-based approach to overlay and explore metabolic and signaling KEGG pathways
+metaCCA	Anna Cichonska	Summary Statistics-Based Multivariate Meta-Analysis of Genome-Wide Association Studies Using Canonical Correlation Analysis
+metagene	Charles Joly Beauparlant	A package to produce metagene plots
+metagenomeFeatures	Nathan D. Olson	Exploration of marker-gene sequence taxonomic annotations
+metagenomeSeq	Joseph N. Paulson	Statistical analysis for sparse high-throughput sequencing
+metahdep	John R. Stevens	Hierarchical Dependence in Meta-Analysis
+metaMS	Ron Wehrens	MS-based metabolomics annotation pipeline
+metaSeq	Koki Tsuyuzaki	Meta-analysis of RNA-Seq count data in multiple studies
+metaseqR	Panagiotis Moulos	An R package for the analysis and result reporting of RNA-Seq data by combining multiple statistical algorithms.
+MetCirc	Thomas Naake	MetCirc - a workflow to analyse and visualise metabolomics data
+MethPed	Helena Carén	A DNA methylation classifier tool for the identification of pediatric brain tumor subtypes
+MethTargetedNGS	Muhammad Ahmer Jamil	Perform Methylation Analysis on Next Generation Sequencing Data
+methVisual	Arie Zackay	Methods for visualization and statistics on DNA methylation data
+methyAnalysis	Pan Du	DNA methylation data analysis and visualization
+MethylAid	M. van Iterson	Visual and interactive quality control of large Illumina DNA Methylation array data sets
+methylKit	Altuna Akalin	DNA methylation analysis from high-throughput bisulfite sequencing results
+MethylMix	Olivier Gevaert	MethylMix: Identifying methylation driven cancer genes.
+methylMnM	Yan Zhou	detect different methylation level (DMR)
+methylPipe	Kamal Kishore	Base resolution DNA methylation data analysis
+MethylSeekR	Lukas Burger	Segmentation of Bis-seq data
+methylumi	Sean Davis	Handle Illumina methylation data
+Mfuzz	Matthias Futschik	Soft clustering of time series gene expression data
+MGFM	Khadija El Amrani	Marker Gene Finder in Microarray gene expression data
+MGFR	Khadija El Amrani	Marker Gene Finder in RNA-seq data
+mgsa	Sebastian Bauer	Model-based gene set analysis
+MiChip	Jonathon Blake	MiChip Parsing and Summarizing Functions
+microRNA	"James F. Reid"	Data and functions for dealing with microRNAs
+MIMOSA	Greg Finak	Mixture Models for Single-Cell Assays
+MineICA	Anne Biton	Analysis of an ICA decomposition obtained on genomics data
+minet	Patrick E. Meyer	Mutual Information NETworks
+minfi	Kasper Daniel Hansen	Analyze Illumina Infinium DNA methylation arrays
+MinimumDistance	Robert B Scharpf	A Package for De Novo CNV Detection in Case-Parent Trios
+MiPP	Sukwoo Kim	Misclassification Penalized Posterior Classification
+MiRaGE	Y-h. Taguchi	MiRNA Ranking by Gene Expression
+miRcomp	Matthew N. McCall	Tools to assess and compare miRNA expression estimatation methods
+mirIntegrator	Diana Diaz	Integrating microRNA expression into signaling pathways for pathway analysis
+miRLAB	Thuc Duy Le	Dry lab for exploring miRNA-mRNA relationships
+miRNAmeConverter	Stefan J. Haunsberger	Convert miRNA Names to Different miRBase Versions
+miRNApath	James M. Ward	miRNApath: Pathway Enrichment for miRNA Expression Data
+miRNAtap	Maciej Pajak	miRNAtap: microRNA Targets - Aggregated Predictions
+Mirsynergy	Yue Li	Mirsynergy
+missMethyl	Belinda Phipson, Jovana Maksimovic	Analysing Illumina HumanMethylation BeadChip Data
+mitoODE	Gregoire Pau	Implementation of the differential equation model described in "Dynamical modelling of phenotypes in a genome-wide RNAi live-cell imaging assay"
+MLInterfaces	V. Carey	Uniform interfaces to R machine learning procedures for data in Bioconductor containers
+MLP	Tobias Verbeke	MLP
+MLSeq	Gokmen Zararsiz	Machine learning interface for RNA-Seq data
+MMDiff2	Gabriele Schweikert	Statistical Testing for ChIP-Seq data sets
+mmnet	Yang Cao, Fei Li	A metagenomic pipeline for systems biology
+MmPalateMiRNA	Guy Brock	Murine Palate miRNA Expression Analysis
+MODA	Dong Li	MODA: MOdule Differential Analysis for weighted gene co-expression network
+mogsa	Chen Meng	Multiple omics data integrative clustering and gene set analysis
+monocle	Cole Trapnell	Clustering, differential expression, and trajectory analysis for single- cell RNA-Seq
+MoonlightR	Antonio Colaprico, Catharina Olsen	Identify oncogenes and tumor suppressor genes from omics data
+MoPS	Philipp Eser	MoPS - Model-based Periodicity Screening
+mosaics	Dongjun Chung	MOSAiCS (MOdel-based one and two Sample Analysis and Inference for ChIP-Seq)
+motifbreakR	Simon Gert Coetzee	A Package For Predicting The Disruptiveness Of Single Nucleotide Polymorphisms On Transcription Factor Binding Sites
+MotifDb	Paul Shannon	An Annotated Collection of Protein-DNA Binding Sequence Motifs
+motifRG	Zizhen Yao	A package for discriminative motif discovery, designed for high throughput sequencing dataset
+motifStack	Jianhong Ou	Plot stacked logos for single or multiple DNA, RNA and amino acid sequence
+MotIV	Eloi Mercier, Raphael Gottardo	Motif Identification and Validation
+MPFE	Conrad Burden	Estimation of the amplicon methylation pattern distribution from bisulphite sequencing data
+mQTL.NMR	Lyamine Hedjazi	Metabolomic Quantitative Trait Locus Mapping for 1H NMR data
+msa	Ulrich Bodenhofer	Multiple Sequence Alignment
+MSGFgui	Thomas Lin Pedersen	A shiny GUI for MSGFplus
+MSGFplus	Thomas Lin Pedersen	An interface between R and MS-GF+
+msmsEDA	Josep Gregori	Exploratory Data Analysis of LC-MS/MS data by spectral counts
+msmsTests	Josep Gregori i Font	LC-MS/MS Differential Expression Tests
+MSnbase	Laurent Gatto	Base Functions and Classes for MS-based Proteomics
+MSnID	Vlad Petyuk	Utilities for Exploration and Assessment of Confidence of LC-MSn Proteomics Identifications
+msPurity	Thomas N. Lawson	Automated Evaluation of Precursor Ion Purity for Mass Spectrometry Based Fragmentation in Metabolomics
+MSstats	Meena Choi	Protein Significance Analysis in DDA, SRM and DIA for Label-free or Label-based Proteomics Experiments
+Mulcom	Claudio Isella	Calculates Mulcom test
+MultiAssayExperiment	Marcel Ramos	Create Classes and Functions for Managing Multiple Assays on Sets of Samples
+multiClust	Nathan Lawlor	multiClust: An R-package for Identifying Biologically Relevant Clusters in Cancer Transcriptome Profiles
+MultiDataSet	Carlos Ruiz-Arenas	Implementation of the BRGE's (Bioinformatic Research Group in Epidemiology from Center for Research in Environmental Epidemiology) MultiDataSet and MethylationSet
+MultiMed	Simina M. Boca	Testing multiple biological mediators simultaneously
+multiscan	Mizanur Khondoker	R package for combining multiple scans
+multtest	Katherine S. Pollard	Resampling-based multiple hypothesis testing
+muscle	Alex T. Kalinka	Multiple Sequence Alignment with MUSCLE
+MutationalPatterns	Francis Blokzijl, Roel Janssen	Studying patterns in base substitution catalogues
+MVCClass	Elizabeth Whalen	Model-View-Controller (MVC) Classes
+mvGST	John R. Stevens	Multivariate and directional gene set testing
+mygene	Adam Mark, Cyrus Afrasiabi, Chunlei Wu	Access MyGene.Info_ services
+myvariant	Adam Mark, Chunlei Wu	Accesses MyVariant.info variant query and annotation services
+mzID	Thomas Lin Pedersen	An mzIdentML parser for R
+mzR	Bernd Fischer, Steffen Neumann, Laurent Gatto, Qiang Kou	parser for netCDF, mzXML, mzData and mzML and mzIdentML files (mass spectrometry data)
+NanoStringDiff	hong wang	Differential Expression Analysis of NanoString nCounter Data
+NanoStringQCPro	Robert Ziman	Quality metrics and data processing methods for NanoString mRNA gene expression data
+NarrowPeaks	Pedro Madrigal	Shape-based Analysis of Variation in ChIP-seq using Functional PCA
+ncdfFlow	Mike Jiang	ncdfFlow: A package that provides HDF5 based storage for flow cytometry data.
+NCIgraph	Laurent Jacob	Pathways from the NCI Pathways Database
+nem	Holger Froehlich	(Dynamic) Nested Effects Models and Deterministic Effects Propagation Networks to reconstruct phenotypic hierarchies
+netbenchmark	Pau Bellot	Benchmarking of several gene network inference methods
+netbiov	Shailesh tripathi	A package for visualizing complex biological network
+nethet	Nicolas Staedler, Frank Dondelinger	A bioconductor package for high-dimensional exploration of biological network heterogeneity
+NetPathMiner	Ahmed Mohamed	NetPathMiner for Biological Network Construction, Path Mining and Visualization
+netprioR	Fabian Schmich	A model for network-based prioritisation of genes
+netresponse	Leo Lahti	Functional Network Analysis
+NetSAM	Bing Zhang	Network Seriation And Modularization
+networkBMA	Ka Yee Yeung	Regression-based network inference using Bayesian Model Averaging
+NGScopy	Xiaobei Zhao	NGScopy: Detection of Copy Number Variations in Next Generation Sequencing sequencing
+nnNorm	Adi Laurentiu Tarca	Spatial and intensity based normalization of cDNA microarray data based on robust neural nets
+NOISeq	Sonia Tarazona	Exploratory analysis and differential expression for RNA-seq data
+nondetects	Valeriia Sherina	Non-detects in qPCR data
+normalize450K	Jonathan Alexander Heiss	Preprocessing of Illumina Infinium 450K data
+NormqPCR	James Perkins	Functions for normalisation of RT-qPCR data
+normr	Johannes Helmuth	Normalization and difference calling in ChIP-seq data
+npGSEA	Jessica Larson	Permutation approximation methods for gene set enrichment analysis (non-permutation GSEA)
+NTW	Yuanhua Liu	Predict gene network using an Ordinary Differential Equation (ODE) based method
+nucleoSim	Astrid Deschenes	Generate synthetic nucleosome maps
+nucleR	Ricard Illa	Nucleosome positioning package for R
+nudge	N. Dean	Normal Uniform Differential Gene Expression detection
+NuPoP	Ji-Ping Wang	An R package for nucleosome positioning prediction
+occugene	Oliver Will	Functions for Multinomial Occupancy Distribution
+OCplus	Alexander Ploner	Operating characteristics plus sample size and local fdr for microarray experiments
+odseq	José Jiménez	Outlier detection in multiple sequence alignments
+OGSA	Michael F. Ochs	Outlier Gene Set Analysis
+oligo	Benilton Carvalho	Preprocessing tools for oligonucleotide arrays
+oligoClasses	Benilton Carvalho and Robert Scharpf	Classes for high-throughput arrays supported by oligo and crlmm
+OLIN	Matthias Futschik	Optimized local intensity-dependent normalisation of two-color microarrays
+OLINgui	Matthias Futschik	Graphical user interface for OLIN
+omicade4	Chen Meng	Multiple co-inertia analysis of omics datasets
+OmicCircos	Ying Hu	High-quality circular visualization of omics data
+OmicsMarkeR	Charles E. Determan Jr.	Classification and Feature Selection for 'Omics' Datasets
+OncoScore	Daniele Ramazzotti	A tool to identify potentially oncogenic genes
+OncoSimulR	Ramon Diaz-Uriarte	Forward Genetic Simulation of Cancer Progression with Epistasis
+oneChannelGUI	Raffaele A Calogero	A graphical interface designed to facilitate analysis of microarrays and miRNA/RNA-seq data on laptops
+ontoCAT	Natalja Kurbatova	Ontology traversal and search
+openCyto	Mike Jiang	Hierarchical Gating Pipeline for flow cytometry data
+OperaMate	Chenglin Liu	An R package of Data Importing, Processing and Analysis for Opera High Content Screening System
+oposSOM	Henry Loeffler-Wirth	Comprehensive analysis of transciptome data
+oppar	Soroor Hediyeh zadeh	Outlier profile and pathway analysis in R
+OrderedList	Claudio Lottaz	Similarities of Ordered Gene Lists
+OrganismDbi	Biocore Data Team	Software to enable the smooth interfacing of different database packages
+OSAT	Li Yan	OSAT: Optimal Sample Assignment Tool
+Oscope	Ning Leng	Oscope - A statistical pipeline for identifying oscillatory genes in unsynchronized single cell RNA-seq
+OTUbase	Daniel Beck	Provides structure and functions for the analysis of OTU data
+OutlierD	Sukwoo Kim	Outlier detection using quantile regression on the M-A scatterplots of high-throughput data
+PAA	Michael Turewicz, Martin Eisenacher	PAA (Protein Array Analyzer)
+PADOG	Adi Laurentiu Tarca	Pathway Analysis with Down-weighting of Overlapping Genes (PADOG)
+paircompviz	Michal Burda	Multiple comparison test visualization
+pandaR	Joseph N. Paulson, Dan Schlauch	PANDA Algorithm
+PAnnBuilder	Li Hong	Protein annotation data package builder
+panp	Peter Warren	Presence-Absence Calls from Negative Strand Matching Probesets
+PANR	Xin Wang	Posterior association networks and functional modules inferred from rich phenotypes of gene perturbations
+PanVizGenerator	Thomas Lin Pedersen	Generate PanViz visualisations from your pangenome
+PAPi	Raphael Aggio	Predict metabolic pathway activity based on metabolomics data
+parglms	VJ Carey	support for parallelized estimation of GLMs/GEEs
+parody	VJ Carey	Parametric And Resistant Outlier DYtection
+Path2PPI	Oliver Philipp	Prediction of pathway-related protein-protein interaction networks
+pathifier	Assif Yitzhaky	Quantify deregulation of pathways in cancer
+PathNet	Jason B. Smith	An R package for pathway analysis using topological information
+PathoStat	Solaiappan Manimaran	PathoStat Statistical Microbiome Analysis Package
+pathRender	Vince Carey	Render molecular pathways
+pathVar	Samuel Zimmerman	Methods to Find Pathways with Significantly Different Variability
+pathview	Weijun Luo	a tool set for pathway based data integration and visualization
+paxtoolsr	Augustin Luna	PaxtoolsR: Access Pathways from Multiple Databases through BioPAX and Pathway Commons
+Pbase	Sebastian Gibb, Laurent Gatto	Manipulating and exploring protein and proteomics data
+pbcmc	Cristobal Fresno	Permutation-Based Confidence for Molecular Classification
+pcaExplorer	Federico Marini	Interactive Visualization of RNA-seq Data Using a Principal Components Approach
+pcaGoPromoter	Morten Hansen	pcaGoPromoter is used to analyze DNA micro array data
+pcaMethods	Henning Redestig	A collection of PCA methods
+PCAN	Matthew Page and Patrice Godard	Phenotype Consensus ANalysis (PCAN)
+pcot2	Sarah Song	Principal Coordinates and Hotelling's T-Square method
+PCpheno	Nolwenn Le Meur	Phenotypes and cellular organizational units
+pdInfoBuilder	Benilton Carvalho	Platform Design Information Package Builder
+pdmclass	James W. MacDonald	Classification of Microarray Samples using Penalized Discriminant Methods
+PECA	Tomi Suomi	Probe-level Expression Change Averaging
+pepStat	Gregory C Imholte	Statistical analysis of peptide microarrays
+pepXMLTab	Xiaojing Wang	Parsing pepXML files and filter based on peptide FDR.
+PGA	Bo Wen, Shaohang Xu	An package for identification of novel peptides by customized database derived from RNA-Seq
+PGSEA	Karl Dykema	Parametric Gene Set Enrichment Analysis
+PharmacoGx	Benjamin Haibe-Kains	Analysis of Large-Scale Pharmacogenomic Data
+phenoDist	Xian Zhang	Phenotypic distance measures
+PhenStat	Jeremy Mason	Statistical analysis of phenotypic data
+philr	Justin Silverman	Phylogenetic partitioning based ILR transform for metagenomics data
+phyloseq	Paul J. McMurdie	Handling and analysis of high-throughput microbiome census data
+Pi	Hai Fang	Leveraging Genetic Evidence to Prioritise Drug Targets at the Gene, Pathway and Network Level
+piano	Leif Varemo	Platform for integrative analysis of omics data
+pickgene	Brian S. Yandell	Adaptive Gene Picking for Microarray Expression Data Analysis
+PICS	Renan Sauteraud	Probabilistic inference of ChIP-seq
+Pigengene	Habil Zare	Infers biological signatures from gene expression data
+PING	Renan Sauteraud	Probabilistic inference for Nucleosome Positioning with MNase-based or Sonicated Short-read Data
+pint	Olli-Pekka Huovilainen	Pairwise INTegration of functional genomics data
+pkgDepTools	Seth Falcon	Package Dependency Tools
+plateCore	Errol Strain	Statistical tools and data structures for plate-based flow cytometry
+plethy	Daniel Bottomly	R framework for exploration and analysis of respirometry data
+plgem	Norman Pavelka	Detect differential expression in microarray and proteomics datasets with the Power Law Global Error Model (PLGEM)
+plier	Crispin Miller	Implements the Affymetrix PLIER algorithm
+PLPE	Soo-heang Eo	Local Pooled Error Test for Differential Expression with Paired High-throughput Data
+plrs	Gwenael G.R. Leday to	Piecewise Linear Regression Splines (PLRS) for the association between DNA copy number and gene expression
+plw	Magnus Astrand	Probe level Locally moderated Weighted t-tests.
+pmm	Anna Drewek	Parallel Mixed Model
+podkat	Ulrich Bodenhofer	Position-Dependent Kernel Association Test
+polyester	Jack Fu, Jeff Leek	Simulate RNA-seq reads
+Polyfit	Conrad Burden	Add-on to DESeq to improve p-values and q-values
+ppiStats	Bioconductor Package Maintainer	Protein-Protein Interaction Statistical Package
+pqsfinder	Jiri Hon	Identification of potential quadruplex forming sequences
+prada	Florian Hahne	Data analysis for cell-based functional assays
+prebs	Karolis Uziela	Probe region expression estimation for RNA-seq data for improved microarray comparability
+PREDA	Francesco Ferrari	Position RElated Data Anlysis
+predictionet	Benjamin Haibe-Kains, Catharina Olsen	Inference for predictive networks designed for (but not limited to) genomic data
+preprocessCore	Benjamin Milo Bolstad	A collection of pre-processing functions
+Prize	Daryanaz Dargahi	Prize: an R package for prioritization estimation based on analytic hierarchy process
+proBAMr	Xiaojing Wang	Generating SAM file for PSMs in shotgun proteomics data
+PROcess	Xiaochun Li	Ciphergen SELDI-TOF Processing
+procoil	Ulrich Bodenhofer	Prediction of Oligomerization of Coiled Coil Proteins
+ProCoNA	David L Gibbs	Protein co-expression network analysis (ProCoNA).
+proFIA	Alexis Delabriere	Preprocessing of FIA-HRMS data
+profileScoreDist	Paal O. Westermark	Profile score distributions
+pRoloc	Laurent Gatto	A unifying bioinformatics framework for spatial proteomics
+pRolocGUI	Laurent Gatto, Lisa M Breckels	Interactive visualisation of spatial proteomics data
+PROMISE	Stan Pounds, Xueyuan Cao	PRojection Onto the Most Interesting Statistical Evidence
+PROPER	Hao Wu	PROspective Power Evaluation for RNAseq
+Prostar	Samuel Wieczorek	Provides a GUI for DAPAR
+prot2D	Sebastien Artigaud	Statistical Tools for volume data from 2D Gel Electrophoresis
+proteinProfiles	Julian Gehring	Protein Profiling
+ProteomicsAnnotationHubData	Laurent Gatto	Transform public proteomics data resources into Bioconductor Data Structures
+proteoQC	Bo Wen	An R package for proteomics data quality control
+ProtGenerics	Laurent Gatto	S4 generic functions for Bioconductor proteomics infrastructure
+PSEA	Alexandre Kuhn	Population-Specific Expression Analysis.
+psichomics	Nuno Saraiva Agostinho	Analyse and Visualise Alternative Splicing Data
+PSICQUIC	Paul Shannon	Proteomics Standard Initiative Common QUery InterfaCe
+psygenet2r	Alba Gutierrez-Sacristan	psygenet2r - An R package for querying PsyGeNET and to perform comorbidity studies in psychiatric disorders
+puma	Xuejun Liu	Propagating Uncertainty in Microarray Analysis(including Affymetrix tranditional 3' arrays and exon arrays and Human Transcriptome Array 2.0)
+PureCN	Markus Riester	Copy number calling and SNV classification using targeted short read sequencing
+pvac	Jun Lu, Pierre R. Bushel	PCA-based gene filtering for Affymetrix arrays
+pvca	Jianying LI	Principal Variance Component Analysis (PVCA)
+Pviz	Renan Sauteraud	Peptide Annotation and Data Visualization using Gviz
+PWMEnrich	Robert Stojnic	PWM enrichment analysis
+pwOmics	Astrid Wachter	Pathway-based data integration of omics data
+qcmetrics	Laurent Gatto	A Framework for Quality Control
+QDNAseq	Daoud Sie	Quantitative DNA sequencing for chromosomal aberrations
+qpcrNorm	Jessica Mar	Data-driven normalization strategies for high-throughput qPCR data.
+qpgraph	Robert Castelo	Estimation of genetic and molecular regulatory networks from high-throughput genomics data
+qrqc	Vince Buffalo	Quick Read Quality Control
+qsea	Matthias Lienhard	IP-seq data analysis and vizualization
+QUALIFIER	Mike Jiang	Quality Control of Gated Flow Cytometry Experiments
+quantro	Stephanie Hicks	A test for when to use quantile normalization
+quantsmooth	Jan Oosting	Quantile smoothing and genomic visualization of array data
+QuartPAC	Gregory Ryslik	Identification of mutational clusters in protein quaternary structures.
+QuasR	Michael Stadler	Quantify and Annotate Short Reads in R
+QuaternaryProd	Carl Tony Fakhry	Computes the Quaternary Dot Product Scoring Statistic for Signed and Unsigned Causal Graphs
+QUBIC	Yu Zhang	An R package for qualitative biclustering in support of gene co-expression analyses
+qusage	Christopher Bolen	qusage: Quantitative Set Analysis for Gene Expression
+qvalue	John D. Storey, Andrew J. Bass	Q-value estimation for false discovery rate control
+R3CPET	Mohamed Nadhir Djekidel	3CPET: Finding Co-factor Complexes in Chia-PET experiment using a Hierarchical Dirichlet Process
+r3Cseq	Supat Thongjuea	Analysis of Chromosome Conformation Capture and Next-generation Sequencing (3C-seq)
+R453Plus1Toolbox	Hans-Ulrich Klein	A package for importing and analyzing data from Roche's Genome Sequencer System
+R4RNA	Daniel Lai	An R package for RNA visualization and analysis
+rain	Paul F. Thaben	Rhythmicity Analysis Incorporating Non-parametric Methods
+rama	Raphael Gottardo	Robust Analysis of MicroArrays
+RamiGO	Markus Schroeder	AmiGO visualize R interface
+randPack	Robert Gentleman	Randomization routines for Clinical Trials
+RankProd	Francesco Del Carratore	Rank Product method for identifying differentially expressed genes with application in meta-analysis
+RareVariantVis	Tomasz Stokowy	Visualization of rare variants in whole genome sequencing data
+Rariant	Julian Gehring	Identification and Assessment of Single Nucleotide Variants through Shifts in Non-Consensus Base Call Frequencies
+RbcBook1	Vince Carey	Support for Springer monograph on Bioconductor
+RBGL	Bioconductor Package Maintainer	An interface to the BOOST graph library
+RBioinf	Robert Gentleman	RBioinf
+rBiopaxParser	Frank Kramer	Parses BioPax files and represents them in R
+RBM	Dongmei Li	RBM: a R package for microarray and RNA-Seq data analysis
+Rbowtie	Michael Stadler	R bowtie wrapper
+rbsurv	Soo-heang Eo	Robust likelihood-based survival modeling with microarray data
+Rcade	Jonathan Cairns	R-based analysis of ChIP-seq And Differential Expression - a tool for integrating a count-based ChIP-seq analysis with differential expression summary data
+RCAS	Bora Uyar	RNA Centric Annotation System
+RCASPAR	Douaa Mugahid, Lars Kaderali	A package for survival time prediction based on a piecewise baseline hazard Cox regression model.
+rcellminer	Augustin Luna, Vinodh Rajapakse	rcellminer: Molecular Profiles and Drug Response for the NCI-60 Cell Lines
+rCGH	Frederic Commo	Comprehensive Pipeline for Analyzing and Visualizing Array-Based CGH Data
+Rchemcpp	Guenter Klambauer	Similarity measures for chemical compounds
+RchyOptimyx	Adrin Jalali, Nima Aghaeepour	Optimyzed Cellular Hierarchies for Flow Cytometry
+Rcpi	Nan Xiao	Toolkit for Compound-Protein Interaction in Drug Discovery
+RCyjs	Paul Shannon	Display and manipulate graphs in cytoscape.js
+RCytoscape	Paul Shannon	Display and manipulate graphs in Cytoscape
+RDAVIDWebService	Cristobal Fresno	An R Package for retrieving data from DAVID into R objects using Web Services API.
+rDGIdb	Thomas Thurnherr	R Wrapper for DGIdb
+Rdisop	Steffen Neumann	Decomposition of Isotopic Patterns
+RDRToolbox	Christoph Bartenhagen	A package for nonlinear dimension reduction with Isomap and LLE.
+ReactomePA	Guangchuang Yu	Reactome Pathway Analysis
+readat	Richard Cotton	Functionality to Read and Manipulate SomaLogic ADAT files
+ReadqPCR	James Perkins	Read qPCR data
+reb	Karl J. Dykema	Regional Expression Biases
+recount	Leonardo Collado-Torres	Explore and download data from the recount project
+recoup	Panagiotis Moulos	An R package for the creation of complex genomic profile plots
+RedeR	Mauro Castro	Interactive visualization and manipulation of nested networks
+REDseq	Lihua Julie Zhu	Analysis of high-throughput sequencing data processed by restriction enzyme digestion
+RefNet	Paul Shannon	A queryable collection of molecular interactions, from many sources
+RefPlus	Kai-Ming Chang	A function set for the Extrapolation Strategy (RMA+) and Extrapolation Averaging (RMA++) methods.
+regioneR	Bernat Gel	Association analysis of genomic regions based on permutation tests
+regionReport	Leonardo Collado-Torres	Generate HTML or PDF reports for a set of genomic regions or DESeq2/edgeR results
+regsplice	Lukas M. Weber	Lasso-Based Methods for Detection of Differential Exon Usage
+Repitools	Mark Robinson	Epigenomic tools
+ReportingTools	Jason A. Hackney, Gabriel Becker, Jessica L. Larson	Tools for making reports in various formats
+ReQON	Christopher Cabanski	Recalibrating Quality Of Nucleotides
+rfPred	Hugo Varet	Assign rfPred functional prediction scores to a missense variants list
+rGADEM	Arnaud Droit	de novo motif discovery
+RGalaxy	Bioconductor Package Maintainer	Make an R function available in the Galaxy web platform
+RGraph2js	Stephane Cano	Convert a Graph into a D3js Script
+Rgraphviz	Kasper Daniel Hansen	Provides plotting capabilities for R graph objects
+rGREAT	Zuguang Gu	Client for GREAT Analysis
+RGSEA	Chengcheng Ma	Random Gene Set Enrichment Analysis
+rgsepd	Karl Stamm	Gene Set Enrichment / Projection Displays
+rhdf5	Bernd Fischer	HDF5 interface to R
+Rhtslib	Bioconductor Package Maintainer	HTSlib high-throughput sequencing library as an R package
+rHVDM	Martino Barenco	Hidden Variable Dynamic Modeling
+RiboProfiling	A. Popa	Ribosome Profiling Data Analysis: from BAM to Data Representation and Interpretation
+riboSeqR	Thomas J. Hardcastle	Analysis of sequencing data from ribosome profiling experiments
+RImmPort	Ravi Shankar	RImmPort: Enabling Ready-for-analysis Immunology Research Data
+Ringo	J. Toedling	R Investigation of ChIP-chip Oligoarrays
+RIPSeeker	Yue Li	RIPSeeker: a statistical package for identifying protein-associated transcripts from RIP-seq experiments
+Risa	Alejandra Gonzalez-Beltran	Converting experimental metadata from ISA-tab into Bioconductor data structures
+RLMM	Nusrat Rabbee	A Genotype Calling Algorithm for Affymetrix SNP Arrays
+Rmagpie	Camille Maumet	MicroArray Gene-expression-based Program In Error rate estimation
+RMassBank	RMassBank at Eawag	Workflow to process tandem MS files and build MassBank records
+rMAT	Arnaud Droit and Raphael Gottardo	R implementation from MAT program to normalize and analyze tiling arrays and ChIP-chip data.
+RmiR	Francesco Favero	Package to work with miRNAs and miRNA targets with R
+RNAinteract	Bernd Fischer	Estimate Pairwise Interactions from multidimensional features
+RNAither	Lars Kaderali	Statistical analysis of high-throughput RNAi screens
+RNAprobR	Nikos Sidiropoulos	An R package for analysis of massive parallel sequencing based RNA structure probing data
+rnaseqcomp	Mingxiang Teng	Benchmarks for RNA-seq Quantification Pipelines
+rnaSeqMap	Michal Okoniewski	rnaSeq secondary analyses
+RNASeqPower	Terry M Therneau	Sample size for RNAseq studies
+RnaSeqSampleSize	Shilin Zhao	RnaSeqSampleSize
+RnBeads	Fabian Mueller	RnBeads
+Rnits	Dipen P. Sangurdekar	R Normalization and Inference of Time Series data
+roar	Elena Grassi	Identify differential APA usage from RNA-seq alignments
+ROC	Vince Carey	utilities for ROC, with uarray focus
+Roleswitch	Yue Li	Infer miRNA-mRNA interactions using paired expression data from a single sample
+rols	Laurent Gatto	An R interface to the Ontology Lookup Service
+ROntoTools	Calin Voichita	R Onto-Tools suite
+ropls	Etienne A. Thevenot	PCA, PLS(-DA) and OPLS(-DA) for multivariate analysis and feature selection of omics data
+ROTS	Fatemeh Seyednasrollah	Reproducibility-Optimized Test Statistic
+RPA	Leo Lahti	RPA: Robust Probabilistic Averaging for probe-level analysis
+RpsiXML	Jitao David Zhang	R interface to PSI-MI 2.5 files
+rpx	Laurent Gatto	R Interface to the ProteomeXchange Repository
+Rqc	Welliton Souza	Quality Control Tool for High-Throughput Sequencing Data
+rqubic	Jitao David Zhang	Qualitative biclustering algorithm for expression data analysis in R
+rRDP	Michael Hahsler	Interface to the RDP Classifier
+RRHO	Jonathan Rosenblatt	Inference on agreement between ordered lists
+Rsamtools	Bioconductor Package Maintainer	Binary alignment (BAM), FASTA, variant call (BCF), and tabix file import
+rsbml	Michael Lawrence	R support for SBML, using libsbml
+rSFFreader	Matt Settles	rSFFreader reads in sff files generated by Roche 454 and Life Sciences Ion Torrent sequencers
+Rsubread	Wei Shi	Subread sequence alignment for R
+RSVSim	Christoph Bartenhagen	RSVSim: an R/Bioconductor package for the simulation of structural variations
+rTANDEM	Frederic Fournier	Interfaces the tandem protein identification algorithm in R
+RTCA	Jitao David Zhang	Open-source toolkit to analyse data from xCELLigence System (RTCA)
+RTCGA	Marcin Kosinski	The Cancer Genome Atlas Data Integration
+RTCGAToolbox	Mehmet Kemal Samur	A new tool for exporting TCGA Firehose data
+RTN	Mauro Castro	Reconstruction of transcriptional networks and analysis of master regulators
+RTopper	Luigi Marchionni	This package is designed to perform Gene Set Analysis across multiple genomic platforms
+rtracklayer	Michael Lawrence	R interface to genome browsers and their annotation tracks
+Rtreemix	Jasmina Bogojeska	Rtreemix: Mutagenetic trees mixture models.
+rTRM	Diego Diez	Identification of transcriptional regulatory modules from PPI networks
+rTRMui	Diego Diez	A shiny user interface for rTRM
+RUVcorr	Saskia Freytag	Removal of unwanted variation for gene-gene correlations and related analysis
+RUVnormalize	Laurent Jacob	RUV for normalization of expression array data
+RUVSeq	Davide Risso	Remove Unwanted Variation from RNA-Seq Data
+S4Vectors	Bioconductor Package Maintainer	S4 implementation of vectors and lists
+safe	William T. Barry	Significance Analysis of Function and Expression
+sagenhaft	Tim Beissbarth	Collection of functions for reading and comparing SAGE libraries
+SAGx	Per Broberg,	Statistical Analysis of the GeneChip
+SamSPECTRAL	Habil Zare	Identifies cell population in flow cytometry data.
+sangerseqR	Jonathon Hill	Tools for Sanger Sequencing Data in R
+SANTA	Alex J. Cornish	Spatial Analysis of Network Associations
+sapFinder	Shaohang Xu, Bo Wen	A package for variant peptides detection and visualization in shotgun proteomics.
+savR	R. Brent Calder	Parse and analyze Illumina SAV files
+SBMLR	Tomas Radivoyevitch	SBML-R Interface and Analysis Tools
+SC3	Vladimir Kiselev	Single-Cell Consensus Clustering
+SCAN.UPC	Stephen R. Piccolo	Single-channel array normalization (SCAN) and Universal exPression Codes (UPC)
+scater	Davis McCarthy	Single-cell analysis toolkit for gene expression data in R
+scde	Jean Fan	Single Cell Differential Expression
+ScISI	Tony Chiang	In Silico Interactome
+scran	Aaron Lun	Methods for Single-Cell RNA-Seq Data Analysis
+scsR	Andrea Franceschini, Roger Meier, Christian von Mering	SiRNA correction for seed mediated off-target effect
+segmentSeq	Thomas J. Hardcastle	Methods for identifying small RNA loci from high-throughput sequencing data
+SELEX	Harmen Bussemaker	Functions for analyzing SELEX-seq data
+SemDist	Ian Gonzalez	Information Accretion-based Function Predictor Evaluation
+SEPA	Zhicheng Ji	SEPA
+seq2pathway	Xinan Yang with contribution from Lorenzo Pesce and Ana Marija Sokovic	a novel tool for functional gene-set (or termed as pathway) analysis of next-generation sequencing data
+SeqArray	Xiuwen Zheng	Big Data Management of Whole-genome Sequence Variant Calls
+seqbias	Daniel Jones	Estimation of per-position bias in high-throughput sequencing data
+seqCNA	David Mosen-Ansorena	Copy number analysis of high-throughput sequencing cancer data
+SeqGSEA	Xi Wang	Gene Set Enrichment Analysis (GSEA) of RNA-Seq Data: integrating differential expression and splicing
+seqLogo	Oliver Bembom	Sequence logos for DNA sequence alignments
+seqPattern	Vanja Haberle	Visualising oligonucleotide patterns and motif occurrences across a set of sorted sequences
+seqplots	Przemyslaw Stempor	An interactive tool for visualizing NGS signals and sequence motif densities along genomic features using average plots and heatmaps
+seqTools	Wolfgang Kaisers	Analysis of nucleotide, sequence and quality content on fastq files.
+SeqVarTools	Stephanie M. Gogarten, Xiuwen Zheng, Adrienne Stilp	Tools for variant data
+sevenbridges	Nan Xiao	R Client for Seven Bridges Platform API and CWL Tool Builder in R
+SGSeq	Leonard Goldstein	Splice event prediction and quantification from RNA-seq data
+shinyMethyl	Jean-Philippe Fortin	Interactive visualization for Illumina methylation arrays
+shinyTANDEM	Frederic Fournier	Provides a GUI for rTANDEM
+ShortRead	Bioconductor Package Maintainer	FASTQ input and manipulation
+SICtools	Xiaobin Xing	Find SNV/Indel differences between two bam files with near relationship
+sigaR	Wessel N. van Wieringen	Statistics for Integrative Genomics Analyses in R
+SigCheck	Rory Stark	Check a gene signature's prognostic performance against random signatures, known signatures, and permuted data/metadata
+SigFuge	Patrick Kimes	SigFuge
+siggenes	Holger Schwender	Multiple testing using SAM and Efron's empirical Bayes approaches
+sights	Elika Garg	Statistics and dIagnostic Graphs for HTS
+signeR	Renan Valieris	signeR
+sigPathway	Weil Lai	Pathway Analysis
+sigsquared	UnJin Lee	Gene signature generation for functionally validated signaling pathways
+SIM	Renee X. de Menezes	Integrated Analysis on two human genomic datasets
+SIMAT	Mo R. Nezami Ranjbar	GC-SIM-MS data processing and alaysis tool
+SimBindProfiles	Bettina Fischer	Similar Binding Profiles
+similaRpeak	Astrid Louise Deschenes	Metrics to estimate a level of similarity between two ChIP-Seq profiles
+SIMLR	Daniele Ramazzotti	SIMLR: Single-cell Interpretation via Multi-kernel LeaRning
+simpleaffy	Crispin Miller	Very simple high level analysis of Affymetrix data
+simulatorZ	Yuqing Zhang	Simulator for Collections of Independent Genomic Data Sets
+sincell	Miguel Julia, Antonio Rausell	R package for the statistical assessment of cell state hierarchies from single-cell RNA-seq data
+SISPA	Bhakti Dwivedi	SISPA: Method for Sample Integrated Set Profile Analysis
+sizepower	Weiliang Qiu	Sample Size and Power Calculation in Micorarray Studies
+skewr	Ryan Putney	Visualize Intensities Produced by Illumina's Human Methylation 450k BeadChip
+SLGI	Nolwenn Le Meur	Synthetic Lethal Genetic Interaction
+SLqPCR	Matthias Kohl	Functions for analysis of real-time quantitative PCR data at SIRS-Lab GmbH
+SMAP	Robin Andersson	A Segmental Maximum A Posteriori Approach to Array-CGH Copy Number Profiling
+SMITE	Neil Ari Wijetunga, Andrew Damon Johnston	Significance-based Modules Integrating the Transcriptome and Epigenome
+SNAGEE	David Venet	Signal-to-Noise applied to Gene Expression Experiments
+snapCGH	John Marioni	Segmentation, normalisation and processing of aCGH data.
+snm	John D. Storey	Supervised Normalization of Microarrays
+SNPchip	Robert Scharpf	Visualizations for copy number alterations
+SNPediaR	David Montaner	Query data from SNPedia
+SNPhood	Christian Arnold	SNPhood: Investigate, quantify and visualise the epigenomic neighbourhood of SNPs using NGS data
+SNPRelate	Xiuwen Zheng	Parallel Computing Toolset for Relatedness and Principal Component Analysis of SNP Data
+snpStats	David Clayton	SnpMatrix and XSnpMatrix classes and methods
+soGGi	Tom Carroll	Visualise ChIP-seq, MNase-seq and motif occurrence as aggregate plots Summarised Over Grouped Genomic Intervals
+SomaticSignatures	Julian Gehring	Somatic Signatures
+SpacePAC	Gregory Ryslik	Identification of Mutational Clusters in 3D Protein Space via Simulation.
+specL	Christian Panse, Witold E. Wolski	specL - Prepare Peptide Spectrum Matches for Use in Targeted Proteomics
+SpeCond	Florence Cavalli	Condition specific detection from expression data
+SPEM	Xinyi YANG	S-system parameter estimation method
+SPIA	Adi Laurentiu Tarca	Signaling Pathway Impact Analysis (SPIA) using combined evidence of pathway over-representation and unusual signaling perturbations
+SpidermiR	Claudia Cava	SpidermiR: An R/Bioconductor package for integrative network analysis with miRNA data
+spikeLI	Enrico Carlon	Affymetrix Spike-in Langmuir Isotherm Data Analysis Tool
+spkTools	Matthew N McCall	Methods for Spike-in Arrays
+splicegear	Laurent Gautier	splicegear
+spliceR	Johannes Waage, Kristoffer Vitting-Seerup	Classification of alternative splicing and prediction of coding potential from RNA-seq data.
+spliceSites	Wolfgang Kaisers	A bioconductor package for exploration of alignment gap positions from RNA-seq data
+SplicingGraphs	H. Pagès	Create, manipulate, visualize splicing graphs, and assign RNA-seq reads to them
+splineTimeR	Herbert Braselmann	Time-course differential gene expression data analysis using spline regression models followed by gene association network reconstruction
+SPLINTER	Diana Low	Splice Interpreter Of Transcripts
+splots	Wolfgang Huber	Visualization of high-throughput assays in microtitre plate or slide format
+spotSegmentation	Chris Fraley	Microarray Spot Segmentation and Gridding for Blocks of Microarray Spots
+SQUADD	Martial Sankar	Add-on of the SQUAD Software
+SRAdb	Jack Zhu	A compilation of metadata from NCBI SRA and tools
+sRAP	Charles Warden	Simplified RNA-Seq Analysis Pipeline
+SRGnet	Isar Nassiri	SRGnet An R package for studying synergistic response genes from transcriptomics data
+sscore	Richard Kennedy	S-Score Algorithm for Affymetrix Oligonucleotide Microarrays
+sscu	Yu Sun	Strength of Selected Codon Usage
+sSeq	Danni Yu	Shrinkage estimation of dispersion in Negative Binomial models for RNA-seq experiments with small sample size
+ssize	Gregory R. Warnes	Estimate Microarray Sample Size
+SSPA	Maarten van Iterson	General Sample Size and Power Analysis for Microarray and Next-Generation Sequencing Data
+ssviz	Diana Low	A small RNA-seq visualizer and analysis toolkit
+STAN	Benedikt Zacher	The genomic STate ANnotation package
+staRank	Juliane Siebourg	Stability Ranking
+StarBioTrek	Claudia Cava	StarBioTrek
+Starr	Benedikt Zacher	Simple tiling array analysis of Affymetrix ChIP-chip data
+STATegRa	David Gomez-Cabrero, Patricia Sebastián-León, Gordon Ball	Classes and methods for multi-omics data integration
+statTarget	Hemi Luan	Statistical Analysis of Metabolite Profile
+stepNorm	Yuanyuan Xiao	Stepwise normalization functions for cDNA microarrays
+stepwiseCM	Askar Obulkasim	Stepwise Classification of Cancer Samples using High-dimensional Data Sets
+Streamer	Martin Morgan	Enabling stream processing of large files
+STRINGdb	Alexander Roth	STRINGdb (Search Tool for the Retrieval of Interacting proteins database)
+subSeq	Andrew J. Bass, John D. Storey	Subsampling of high-throughput sequencing count data
+SummarizedExperiment	Bioconductor Package Maintainer	SummarizedExperiment container
+supraHex	Hai Fang	supraHex: a supra-hexagonal map for analysing tabular omics data
+survcomp	Benjamin Haibe-Kains, Markus Schroeder, Catharina Olsen	Performance Assessment and Comparison for Survival Analysis
+Sushi	Douglas H Phanstiel	Tools for visualizing genomics data
+sva	Jeffrey T. Leek, John D. Storey, W. Evan Johnson	Surrogate Variable Analysis
+SVAPLSseq	Sutirtha Chakraborty	SVAPLSseq-An R package to adjust for the hidden factors of variability in differential gene expression studies based on RNAseq data
+SVM2CRM	Guidantonio Malagoli Tagliazucchi	SVM2CRM: support vector machine for cis-regulatory elements detections
+SWATH2stats	Peter Blattmann	Transform and Filter SWATH Data for Statistical Packages
+SwathXtend	Jemma Wu	SWATH extended library generation and satistical data analysis
+SwimR	Randy Blakely	SwimR: A Suite of Analytical Tools for Quantification of C. elegans Swimming Behavior
+switchBox	Bahman Afsari, Luigi Marchionni, Wikum Dinalankara	Utilities to train and validate classifiers based on pair switching using the K-Top-Scoring-Pair (KTSP) algorithm
+switchde	Kieran Campbell	Switch-like differential expression across single-cell trajectories
+synapter	Laurent Gatto and Sebastian Gibb	Label-free data analysis pipeline for optimal identification and quantitation
+synergyfinder	Liye He	Calculate and Visualize Synergy Scores for Drug Combinations
+synlet	Chunxuan Shao	Hits Selection for Synthetic Lethal RNAi Screen Data
+systemPipeR	Thomas Girke	systemPipeR: NGS workflow and report generation environment
+TargetScore	Yue Li	TargetScore: Infer microRNA targets using microRNA-overexpression data and sequence information
+TargetSearch	Alvaro Cuadros-Inostroza	A package for the analysis of GC-MS metabolite profiling data
+TarSeqQC	Gabriela Merino	TARgeted SEQuencing Experiment Quality Control
+TCC	Jianqiang Sun, Tomoaki Nishiyama	TCC: Differential expression analysis for tag count data with robust normalization strategies
+TCGAbiolinks	Antonio Colaprico, Tiago Chedraoui Silva	TCGAbiolinks: An R/Bioconductor package for integrative analysis with TCGA data
+TDARACNE	Zoppoli Pietro	Network reverse engineering from time course data.
+TEQC	Manuela Hummel	Quality control for target capture experiments
+ternarynet	Matthew N. McCall	Ternary Network Estimation
+TFBSTools	Ge Tan	Software Package for Transcription Factor Binding Site (TFBS) Analysis
+tigre	Antti Honkela	Transcription factor Inference through Gaussian process Reconstruction of Expression
+tilingArray	Zhenyu Xu	Transcript mapping with high-density oligonucleotide tiling arrays
+timecourse	Yu Chuan Tai	Statistical Analysis for Developmental Microarray Time Course Data
+TIN	Bjarne Johannessen	Transcriptome instability analysis
+TitanCNA	Gavin Ha, Sohrab P Shah	Subclonal copy number and LOH prediction from whole genome sequencing of tumours
+tkWidgets	J. Zhang	R based tk widgets
+tofsims	Lorenz Gerber	Import, process and analysis of Time-of-Flight Secondary Ion Mass Spectrometry (ToF-SIMS) imaging data
+ToPASeq	Ivana Ihnatova	Package for Topology-based Pathway Analysis of RNASeq data
+topGO	Adrian Alexa	Enrichment Analysis for Gene Ontology
+TPP	Dorothee Childs	Analyze thermal proteome profiling (TPP) experiments
+tracktables	Tom Carroll	Build IGV tracks and HTML reports
+trackViewer	Jianhong Ou	A bioconductor package with minimalist design for drawing elegant tracks or lollipop plot
+transcriptR	Armen R. Karapetyan	An Integrative Tool for ChIP- And RNA-Seq Based Primary Transcripts Detection and Quantification
+tRanslatome	Toma Tebaldi, Erik Dassi	Comparison between multiple levels of gene expression
+TransView	Julius Muller	Read density map construction and accession. Visualization of ChIPSeq and RNASeq data sets
+traseR	li chen	GWAS trait-associated SNP enrichment analyses in genomic intervals
+triform	Thomas Carroll	Triform finds enriched regions (peaks) in transcription factor ChIP-sequencing data
+trigger	John D. Storey	Transcriptional Regulatory Inference from Genetics of Gene ExpRession
+trio	Holger Schwender	Testing of SNPs and SNP Interactions in Case-Parent Trio Studies
+triplex	Jiri Hon	Search and visualize intramolecular triplex-forming sequences in DNA
+TRONCO	BIMIB Group	TRONCO, an R package for TRanslational ONCOlogy
+TSCAN	Zhicheng Ji	TSCAN: Tools for Single-Cell ANalysis
+tspair	Jeffrey T. Leek	Top Scoring Pairs for Microarray Classification
+TSSi	Julian Gehring	Transcription Start Site Identification
+TurboNorm	Maarten van Iterson	A fast scatterplot smoother suitable for microarray normalization
+TVTB	Kevin Rue-Albrecht	TVTB: The VCF Tool Box
+tweeDEseq	Juan R Gonzalez	RNA-seq data analysis using the Poisson-Tweedie family of distributions
+twilight	Stefanie Scheid	Estimation of local false discovery rate
+tximport	Michael Love	Import and summarize transcript-level estimates for gene-level analysis
+TypeInfo	Duncan Temple Lang	Optional Type Specification Prototype
+UNDO	Niya Wang	Unsupervised Deconvolution of Tumor-Stromal Mixed Expressions
+unifiedWMWqPCR	Joris Meys	Unified Wilcoxon-Mann Whitney Test for testing differential expression in qPCR data
+UniProt.ws	Bioconductor Package Maintainer	R Interface to UniProt Web Services
+Uniquorn	'Raik Otto'	Identification of cancer cell lines based on their weighted mutational/ variational fingerprint
+uSORT	Hao Chen	uSORT: A self-refining ordering pipeline for gene selection
+VanillaICE	Robert Scharpf	A Hidden Markov Model for high throughput genotyping arrays
+variancePartition	Gabriel E. Hoffman	Quantify and interpret divers of variation in multilevel gene expression experiments
+VariantAnnotation	Valerie Obenchain	Annotation of Genetic Variants
+VariantFiltering	Robert Castelo	Filtering of coding and non-coding genetic variants
+VariantTools	Michael Lawrence	Tools for Working with Genetic Variants
+vbmp	Nicola Lama	Variational Bayesian Multinomial Probit Regression
+Vega	Sandro Morganella	An R package for copy number data segmentation
+VegaMC	Sandro Morganella	VegaMC: A Package Implementing a Variational Piecewise Smooth Model for Identification of Driver Chromosomal Imbalances in Cancer
+viper	Mariano J Alvarez	Virtual Inference of Protein-activity by Enriched Regulon analysis
+vsn	Wolfgang Huber	Variance stabilization and calibration for microarray data
+vtpnet	VJ Carey	variant-transcription factor-phenotype networks
+wateRmelon	Leo	Illumina 450 methylation array normalization and metrics
+wavClusteR	Federico Comoglio	Sensitive and highly resolved identification of RNA-protein interaction sites in PAR-CLIP data
+waveTiling	Kristof De Beuf	Wavelet-Based Models for Tiling Array Transcriptome Analysis
+weaver	Seth Falcon	Tools and extensions for processing Sweave documents
+webbioc	Colin A. Smith	Bioconductor Web Interface
+widgetTools	Jianhua Zhang	Creates an interactive tcltk widget
+XBSeq	Yuanhang Liu	Test for differential expression for RNA-seq data
+xcms	Steffen Neumann	LC/MS and GC/MS Data Analysis
+XDE	Robert Scharpf	XDE: a Bayesian hierarchical model for cross-study analysis of differential gene expression
+xmapbridge	Chris Wirth	Export plotting files to the xmapBridge for visualisation in X:Map
+xps	Christian Stratowa	Processing and Analysis of Affymetrix Oligonucleotide Arrays including Exon Arrays, Whole Genome Arrays and Plate Arrays
+XVector	Hervé Pagès	Representation and manpulation of external sequences
+yamss	Leslie Myint	Tools for high-throughput metabolomics
+YAPSA	Daniel Huebschmann	Yet Another Package for Signature Analysis
+yaqcaffy	Laurent Gatto	Affymetrix expression data quality control and reproducibility analysis
+yarn	Joseph N Paulson	YARN: Robust Multi-Condition RNA-Seq Preprocessing and Normalization
+zlibbioc	Bioconductor Package Maintainer	An R packaged zlib-1.2.5
