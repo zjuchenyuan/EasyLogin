@@ -76,7 +76,7 @@ class EasyLogin():
           #    pass
         x = self.s.get(url,headers=headers,allow_redirects=False,proxies=self.proxies)
         if result: 
-            if 'Location' in x.headers or len(x.text)==0: return False
+            if not o and 'Location' in x.headers or len(x.text)==0: return False
             else:self.b = BeautifulSoup(x.text.replace("<br>","\n").replace("<BR>","\n"),'html.parser')
         if save:  open(self.cookiefile,"wb").write(pickle.dumps(self.s.cookies))
         if o:#if you need object returned
