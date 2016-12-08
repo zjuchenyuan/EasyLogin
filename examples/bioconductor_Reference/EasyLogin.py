@@ -13,7 +13,7 @@
 import requests,pickle,os,random
 from bs4 import BeautifulSoup
 try:
-    from urllib.parse import urlencode
+    from urllib.parse import urlencode,quote
 except:
     print("Please Use Python3")
     exit()
@@ -124,7 +124,7 @@ class EasyLogin():
          if self.b == None: return ""
          x = self.b.find("input",attrs={"name":"__VIEWSTATE"})
          if x == None: return ""
-         return x["value"]
+         return quote(x["value"])
          
     def save(self,filename="EasyLogin.status"):
         open(filename,"wb").write(pickle.dumps(self))
