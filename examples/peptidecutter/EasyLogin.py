@@ -3,6 +3,8 @@
 #support for json object post; support file upload
 #more document is also needed
 ##UPDATE_LOG:
+#2016/12/15
+#BeautifulSoup using "content" rather than "text" which requests returned
 #2016/12/02
 #adding w function; multiple User-Agent choice; proxies applied to https, get function can have a cachefile
 #2016/11/25
@@ -77,7 +79,7 @@ class EasyLogin():
         x = self.s.get(url,headers=headers,allow_redirects=False,proxies=self.proxies)
         if result: 
             if not o and 'Location' in x.headers or len(x.text)==0: return False
-            else:self.b = BeautifulSoup(x.text.replace("<br>","\n").replace("<BR>","\n"),'html.parser')
+            else:self.b = BeautifulSoup(x.content.replace(b"<br>",b"\n").replace(b"<BR>",b"\n"),'html.parser')
         if save:  open(self.cookiefile,"wb").write(pickle.dumps(self.s.cookies))
         if o:#if you need object returned
             if cache is not None:
@@ -95,7 +97,7 @@ class EasyLogin():
             postheaders=headers
         #print(data)
         x = self.s.post(url,data,headers=postheaders,allow_redirects=False,proxies=self.proxies)
-        if result: self.b = BeautifulSoup(x.text.replace("<br>","\n").replace("<BR>","\n"),'html.parser')
+        if result: self.b = BeautifulSoup(x.content.replace(b"<br>",b"\n").replace(b"<BR>",b"\n"),'html.parser')
         if save:  open(self.cookiefile,"wb").write(pickle.dumps(self.s.cookies))
         return x
 
