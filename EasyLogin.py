@@ -45,7 +45,13 @@ UALIST = [
 
 
 class EasyLogin:
-    def __init__(self, cookie="", cookiefile=None, proxy=None):
+    def __init__(self, cookie={}, cookiefile=None, proxy=None):
+        """
+        example: a = EasyLogin(cookie={"PHPSESSID":"..."}, proxy="socks5://127.0.0.1:1080")
+        :param cookie: a dict of cookie
+        :param cookiefile: the file contain cookie which saved by get or post(save=True)
+        :param proxy: the proxy to use, rememeber schema and `pip install requests[socks]`
+        """
         self.b = None
         self.s = requests.Session()
         self.s.headers.update({'User-Agent': random.choice(UALIST)})
@@ -61,6 +67,10 @@ class EasyLogin:
 
     @property
     def cookie(self):
+        """
+        show cookie
+        :return: str(cookie)
+        """
         c = ""
         for i in self.s.cookies:
             c += i.name + '=' + i.value + ";"
@@ -101,11 +111,17 @@ class EasyLogin:
             return x.text
 
     def post(self, url, data, result=True, save=False, headers=None):
-        postheaders = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-        if headers is not None:
-            # postheaders.update(headers)
-            postheaders = headers
-        # print(data)
+        """
+        HTTP POST method, submit data to server
+        :param url: post target url
+        :param data: the data already quoted
+        :param result: the page returned save to a.b
+        :param save: save cookie to file
+        :param headers: override headers to be sent
+        :return: the requests object
+        """
+        postheaders = headers if headers is not None else \
+            {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         x = self.s.post(url, data, headers=postheaders, allow_redirects=False, proxies=self.proxies)
         if result:
             page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
@@ -115,6 +131,15 @@ class EasyLogin:
         return x
 
     def post_dict(self, url, dict, result=True, save=False, headers=None):
+        """
+        like post but using dict to post
+        :param url: post target url
+        :param dict: the data to be post, in dict form, example: {"age":"19","name":"chenyuan"}
+        :param result: the page returned save to a.b
+        :param save: save cookie to file
+        :param headers: override headers to be sent
+        :return: the requests object
+        """
         data = urlencode(dict)
         return self.post(url, data, result=result, save=save, headers=headers)
 
@@ -218,10 +243,10 @@ class EasyLogin:
                 result.append(data)
         return result
 
+
 if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
     a = EasyLogin()
     page = a.get("http://ip.cn/")
     IP, location = a.f("code", attrs={})
     print(IP)
     print(location)
-
