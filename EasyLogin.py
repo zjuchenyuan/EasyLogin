@@ -45,13 +45,15 @@ UALIST = [
 
 
 class EasyLogin:
-    def __init__(self, cookie={}, cookiefile=None, proxy=None):
+    def __init__(self, cookie=None, cookiefile=None, proxy=None):
         """
         example: a = EasyLogin(cookie={"PHPSESSID":"..."}, proxy="socks5://127.0.0.1:1080")
         :param cookie: a dict of cookie
         :param cookiefile: the file contain cookie which saved by get or post(save=True)
         :param proxy: the proxy to use, rememeber schema and `pip install requests[socks]`
         """
+        if cookie is None:
+            cookie = {}
         self.b = None
         self.s = requests.Session()
         self.s.headers.update({'User-Agent': random.choice(UALIST)})
@@ -182,6 +184,15 @@ class EasyLogin:
 
     getList = getlist
 
+    def img(self):
+        return [i[2:] if i[0:2]=="//" else i for i in self.getlist("","img","src")]
+
+    def css(self):
+        return [i[2:] if i[0:2] == "//" else i for i in self.getlist("css","link","href")]
+
+    def js(self):
+        return [i[2:] if i[0:2] == "//" else i for i in self.getlist("js","script","src")]
+
     def VIEWSTATE(self):
         """
         Useful when you crack the ASP>NET website
@@ -250,3 +261,7 @@ if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
     IP, location = a.f("code", attrs={})
     print(IP)
     print(location)
+    print(a.img())
+    print(a.css())
+    print(a.js())
+    print(";".join(a.text()))
