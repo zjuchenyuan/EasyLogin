@@ -34,8 +34,7 @@ UALIST=[
 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36",
 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36",
 "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0",
-"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 Safari/537.36"
-]
+"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 Safari/537.36"]
 
 class EasyLogin():
     def __init__(self,cookie="",cookiefile=None,proxy=None):
@@ -142,6 +141,20 @@ class EasyLogin():
             return
         with open(filename,method) as fp:
             fp.write(content)
+    
+    def text(self,target=None):
+        if target==None: 
+            target = self.b
+        from bs4 import Comment
+        from bs4.element import NavigableString
+        result = []
+        for descendant in target.descendants:
+            if not isinstance(descendant, NavigableString) or descendant.parent.name=="script" or isinstance(descendant,Comment):
+                continue
+            data=descendant.strip()
+            if len(data)>0:
+                result.append(data)
+        return result
 
 if __name__ == '__main__':#sample code for get ip by "http://ip.cn"
     a = EasyLogin()
