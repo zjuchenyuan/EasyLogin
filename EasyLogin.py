@@ -67,8 +67,7 @@ class EasyLogin:
             except FileNotFoundError:
                 pass
 
-    @property
-    def cookie(self):
+    def showcookie(self):
         """
         show cookie
         :return: str(cookie)
@@ -77,6 +76,7 @@ class EasyLogin:
         for i in self.s.cookies:
             c += i.name + '=' + i.value + ";"
         return c
+    cookie=property(showcookie)
 
     def get(self, url, result=True, save=False, headers=None, o=False, cache=None):
         """
