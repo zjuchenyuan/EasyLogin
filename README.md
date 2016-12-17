@@ -24,7 +24,7 @@ Then, make a get request or post request: 发起一个请求
 
     a.get("http://ip.cn")
 
-Finally, I need the `code` tag: 我需要的东西在<code>标签里面，我们把它拿出来
+Finally, I need the `code` tag: 我需要的东西在`<code>`标签里面，我们把它拿出来
 
     IP,location = a.f("code",attrs={})
     print(IP)
@@ -39,6 +39,6 @@ Moreover, I also need img, css, js and text: 我还需要网页中出现的图片、CSS、JS的
 
 ## Documentation 文档
 
-    待完成...
+待完成...
     
-    简单地说，用get或post后self.b就是BeautifulSoup的对象
+简单地说，用get或post后self.b就是BeautifulSoup的对象
