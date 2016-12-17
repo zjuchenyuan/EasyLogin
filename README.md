@@ -1,6 +1,8 @@
-# EasyLogin
+# EasyLogin.py
 
-## Requirements 请先安装依赖
+对requests和BeautifulSoup进一步封装，写爬虫代码更轻松~
+
+## Requirements 请先安装依赖，仅支持Python3
 
     pip3 install -U requests[socks] -i https://pypi.doubanio.com/simple
     pip3 install bs4 -i https://pypi.doubanio.com/simple
