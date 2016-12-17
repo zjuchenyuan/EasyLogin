@@ -1,6 +1,10 @@
 from EasyLogin import EasyLogin
 a = EasyLogin()
-a.get("http://ip.cn")
-IP,location = a.f("code",attrs={})
+page = a.get("http://ip.cn/")
+IP, location = a.f("code", attrs={})
 print(IP)
 print(location)
+print(a.img())
+print(a.css())
+print(a.js())
+print(";".join(a.text()))
