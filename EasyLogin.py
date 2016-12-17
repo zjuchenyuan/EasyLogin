@@ -203,10 +203,16 @@ class EasyLogin:
     def save(self, filename="EasyLogin.status"):
         """
         save the object to file using pickle
+        to avoid RecursionError, not saving self.b
         :param filename:
         :return:
         """
-        open(filename, "wb").write(pickle.dumps(self))
+        b=self.b
+        self.b=None
+        data=pickle.dumps(self)
+        open(filename, "wb").write(data)
+        self.b=b
+        return
 
     def load(filename='EasyLogin.status'):
         """
@@ -214,7 +220,10 @@ class EasyLogin:
         :param filename: file saved by pickle
         :return: the object
         """
-        return pickle.load(open(filename, "rb"))
+        try:
+            return pickle.load(open(filename, "rb"))
+        except:
+            return EasyLogin()
 
     @staticmethod
     def w(filename, content, method='w', overwrite=False):
