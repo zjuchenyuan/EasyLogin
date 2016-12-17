@@ -4,7 +4,9 @@
 
 ### 使用方法
 
-这是EasyLogin的使用示例，请先访问https://github.com/zjuchenyuan/EasyLogin下载到EasyLogin.py，并完成依赖安装
+这是EasyLogin的使用示例，请先访问https://github.com/zjuchenyuan/EasyLogin
+
+下载好EasyLogin.py，并完成依赖安装
 
     python3 run.py 待上传的文件名 学号 统一通行证密码
 
