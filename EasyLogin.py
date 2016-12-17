@@ -96,9 +96,6 @@ class EasyLogin:
                 return open(cache, "rb").read().decode()
         x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies)
         if result:
-            if not o and 'Location' in x.headers or len(x.text) == 0:
-                return False
-            else:
                 page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
                 self.b = BeautifulSoup(page, 'html.parser')
         if save:
