@@ -1,7 +1,7 @@
 from EasyLogin import EasyLogin
 import re
 from pprint import pprint
-
+from urllib.parse import quote
 a=EasyLogin.load("fangcloud.status")
 
 
@@ -47,6 +47,7 @@ def upload(token,filename,data):
     返回服务器端的文件id
     """
     global a
+    filename=quote(filename)
     x=a.post("https://www.fangcloud.com/apps/files/presign_upload",
              """{"folder_id":0,"file_size":%d}"""%len(data),
              headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest"})
