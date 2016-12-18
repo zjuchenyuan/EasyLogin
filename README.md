@@ -44,3 +44,29 @@ Moreover, I also need img, css, js and text: 我还需要网页中出现的图片、CSS、JS的
 待完成...
     
 简单地说，用get或post后self.b就是BeautifulSoup的对象
+
+## 开发方法
+
+> 论爬虫是怎么简单地被写出来的
+
+1. 先完成一遍手动的不带工具流程，观察把握整体感觉
+
+2. 打开Chrome开发者工具或者Burp，查看关键性的请求包
+
+3. 写点初始化的代码，引入包，a=EasyLogin()
+
+4. 分析请求内容，从网页源代码或者其他请求中找到蛛丝马迹，拼凑出正确的请求包
+
+    这一步就也许需要先get，从源代码得到token的操作和得到cookie
+    
+    （EasyLogin会自己处理好cookie，无需费心）
+
+5. 发出post请求，分析返回的内容
+
+    或许是个json？可以x.json()
+    
+    一般可能就是个页面，那就a.b.find吧
+    
+    （a是EasyLogin的对象，a.b是BeautifulSoup的对象，戳→[这里](http://cuiqingcai.com/1319.html)←看看BeautifulSoup怎么用）
+
+6. 服务器能正确响应就基本完事啦，不妨再提取成函数、封装成类、给我发起一个Pull请求？
