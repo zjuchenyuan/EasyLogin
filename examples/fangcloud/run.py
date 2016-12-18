@@ -1,5 +1,6 @@
 from EasyLogin import EasyLogin
 import re
+from urllib.parse import quote
 a=EasyLogin.load("fangcloud.status")
 
 def login(xh,password):
@@ -34,6 +35,7 @@ def upload(token,filename,data):
     返回服务器端的文件id
     """
     global a
+    filename=quote(filename)
     x=a.post("http://fangcloud.zju.edu.cn:26/html5_upload/own",data,headers={"requesttoken":token,"X-File-Name": filename})
     result=x.json()
     if result.get("success")!=True:
