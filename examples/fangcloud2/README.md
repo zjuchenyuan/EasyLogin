@@ -23,7 +23,7 @@
 #### 函数说明
 
 ```
-login(xh,password) #用户名密码登录亿方云
+login(username,password) #用户名密码登录亿方云
 islogin() #是否已经登录,如果已经登录返回token，否则False
 upload(token,filename,data) #上传文件，返回fileid
 share(token,fileid) #分享文件，返回分享地址file_unique_name
