@@ -91,9 +91,15 @@ class EasyLogin:
         """
         if cache is not None and os.path.exists(cache):
             if o:
-                return pickle.load(open(cache, "rb"))
+                obj = pickle.load(open(cache, "rb"))
+                if result:
+                    self.b = BeautifulSoup(obj.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
+                return obj
             else:
-                return open(cache, "rb").read().decode()
+                page = open(cache, "rb").read()
+                if result:
+                    self.b = BeautifulSoup(page.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
+                return page.decode()
         x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies)
         if result:
                 page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
