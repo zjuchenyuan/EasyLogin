@@ -2,6 +2,8 @@ from EasyLogin import EasyLogin
 import re
 from urllib.parse import quote
 a=EasyLogin.load("fangcloud.status")
+BLOCKSIZE=1024*1024
+BLOCKHINT="MB"
 
 def login(xh,password):
     """
@@ -83,6 +85,21 @@ def download_usingbeautifulsoup(file_uniqe_name):
     x=a.get("http://fangcloud.zju.edu.cn/apps/files/download?file_id={}&scenario=share".format(fileid),o=True)
     return x.headers["Location"]
 
+def block(fp):
+    """
+    使用分块上传解决大文件传输的内存问题
+    每次产生一个BLOCKSIZE的数据进行传输，传输好后再读取下一个BLOCK
+    :param fp: 文件读入，传入open(filename,"rb")
+    :return: 用yield产生的generator，可以被EasyLogin(requests)正常处理
+    """
+    x = fp.read(BLOCKSIZE)
+    i = 1
+    while len(x):
+        print("{}{}".format(i,BLOCKHINT))
+        i+=1
+        yield x
+        del x
+        x = fp.read(BLOCKSIZE)
 
 if __name__=="__main__":
     import sys
@@ -92,7 +109,8 @@ if __name__=="__main__":
         login(sys.argv[2],sys.argv[3])
         a.save("fangcloud.status")
         token=islogin()
-    fileid=upload(token,sys.argv[1],open(sys.argv[1],"rb").read())
+    block_generator=block(open(sys.argv[1],"rb"))
+    fileid=upload(token,sys.argv[1],block_generator)
     file_uniqe_name=share(token,fileid)
     print("fileid:")
     print(fileid)

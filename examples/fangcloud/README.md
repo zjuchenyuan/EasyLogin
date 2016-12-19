@@ -25,7 +25,8 @@
 ```
 login(xh,password) #使用统一通行证的用户名密码登录
 islogin() #是否已经登录,如果已经登录返回token，否则False
-upload(token,filename,data) #上传文件，返回fileid
+upload(token,filename,data) #上传文件，返回fileid，data为文件二进制数据或者block函数产生的generator
 share(token,fileid) #分享文件，返回分享地址file_unique_name
 download(file_uniqe_name) #从文件分享地址得到直接下载链接URL，本函数不要求登录，也不会使用登录状态
+block(fp) #使用分块上传解决大文件传输的内存问题
 ```
