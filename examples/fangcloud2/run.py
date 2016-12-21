@@ -1,9 +1,11 @@
 from EasyLogin import EasyLogin
 import re
-from pprint import pprint
+from os.path import getsize
+
 from urllib.parse import quote
 a=EasyLogin.load("fangcloud.status")
-
+BLOCKSIZE=1024*1024
+BLOCKHINT="MB"
 
 def login(username,password):
     """
@@ -37,7 +39,7 @@ def islogin():
         return t["value"]
 
 
-def upload(token,filename,data):
+def upload(token,filename,data,filesize=None):
     """
     上传文件，与浙大云盘的差异在于上传链接需要额外的请求
     token:islogin()返回的token
@@ -48,8 +50,10 @@ def upload(token,filename,data):
     """
     global a
     filename=quote(filename)
+    if filesize is None:
+        filesize = len(data)
     x=a.post("https://www.fangcloud.com/apps/files/presign_upload",
-             """{"folder_id":0,"file_size":%d}"""%len(data),
+             """{"folder_id":0,"file_size":%d}"""%filesize,
              headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest"})
     result=x.json()
     if result["success"]!=True:
@@ -93,6 +97,21 @@ def download(file_uniqe_name):
     x=a.get("https://www.fangcloud.com/apps/files/download?file_id={}&scenario=share".format(fileid),o=True)
     return x.headers["Location"]
 
+def block(fp):
+    """
+    使用分块上传解决大文件传输的内存问题
+    每次产生一个BLOCKSIZE的数据进行传输，传输好后再读取下一个BLOCK
+    :param fp: 文件读入，传入open(filename,"rb")
+    :return: 用yield产生的generator，可以被EasyLogin(requests)正常处理
+    """
+    x = fp.read(BLOCKSIZE)
+    i = 1
+    while len(x):
+        print("{}{}".format(i,BLOCKHINT))
+        i+=1
+        yield x
+        del x
+        x = fp.read(BLOCKSIZE)
 
 if __name__=="__main__":
     import sys
@@ -102,7 +121,9 @@ if __name__=="__main__":
         login(sys.argv[2],sys.argv[3])
         a.save("fangcloud.status")
         token=islogin()
-    fileid=upload(token,sys.argv[1],open(sys.argv[1],"rb").read())
+    block_generator=block(open(sys.argv[1],"rb"))
+    filesize=getsize(sys.argv[1])
+    fileid=upload(token,sys.argv[1],block_generator,filesize)
     file_uniqe_name=share(token,fileid)
     print("fileid:")
     print(fileid)
