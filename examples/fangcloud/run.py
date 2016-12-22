@@ -71,7 +71,10 @@ def download(file_uniqe_name):
     """
     a=EasyLogin()
     page=a.get("http://fangcloud.zju.edu.cn/share/"+file_uniqe_name,result=False)
-    fileid = finder.search(page).group(1)
+    x = finder.search(page)
+    if x is None:
+        raise Exception("share link does not exist")
+    fileid = x.group(1)
     x=a.get("http://fangcloud.zju.edu.cn/apps/files/download?file_id={}&scenario=share".format(fileid),o=True)
     return x.headers["Location"]
 
