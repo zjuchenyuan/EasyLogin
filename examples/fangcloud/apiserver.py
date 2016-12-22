@@ -6,7 +6,6 @@ https://api.chenyuan.me/fangcloud/448eb45f0d08cbf37c33f35419
 """
 
 import http.server as BaseHTTPServer
-import sys
 from fangcloud import download
 
 def APIhello(self):
@@ -36,8 +35,8 @@ class APIHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
 
 if __name__=="__main__":
-    port=61002
-    print("Running:%d"%port)
+    port=8080
+    print("Running on port %d"%port)
     server_address = ('127.0.0.1', port)
     httpd = BaseHTTPServer.HTTPServer(server_address, APIHandler)
     httpd.serve_forever()
