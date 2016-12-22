@@ -4,8 +4,7 @@
 
 ## Requirements 请先安装依赖，仅支持Python3
 
-    pip3 install -U requests[socks] -i https://pypi.doubanio.com/simple
-    pip3 install bs4 -i https://pypi.doubanio.com/simple
+    pip3 install -U requests[socks] bs4 -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com
     
 ## Note 说明
 
