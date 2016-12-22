@@ -2,13 +2,15 @@
 
 使用EasyLogin完成“浙大云盘”登录、上传、分享、下载直链获取
 
+apiserver.py是使用本api提供网页跳转服务的示例
+
 ### 使用方法
 
 这是EasyLogin的使用示例，请先访问https://github.com/zjuchenyuan/EasyLogin
 
 下载好EasyLogin.py，并完成依赖安装
 
-    python3 run.py 待上传的文件名 学号 浙江大学统一通行证密码
+    python3 fangcloud.py 待上传的文件名 学号 浙江大学统一通行证密码
 
 ![screenshot](screenshot.png)
 
@@ -30,3 +32,10 @@ share(token,fileid) #分享文件，返回分享地址file_unique_name
 download(file_uniqe_name) #从文件分享地址得到直接下载链接URL，本函数不要求登录，也不会使用登录状态
 block(fp) #使用分块上传解决大文件传输的内存问题
 ```
+
+#### API使用示例
+
+    from fangcloud import download
+    print(download("448eb45f0d08cbf37c33f35419"))
+    
+另外，apiserver.py提供了网页跳转服务的示例
