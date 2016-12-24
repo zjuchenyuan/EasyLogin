@@ -270,6 +270,30 @@ class EasyLogin:
                 result.append(data)
         return result
 
+    def find(self,tag,attrs_string,skip=0,text=False):
+        """
+        find more easily with string, return all matched tag
+        :param tag: tag name
+        :param attrs_string: tag attrs, fully match
+        :param skip: skip first tags
+        :param text: need text or tag
+        :return: array of tag or text
+        """
+        tmp_tag=BeautifulSoup("""<%s %s></%s>"""%(tag,attrs_string,tag),"html.parser").find(tag)
+        def mysearch(tag):
+            if tag.attrs == tmp_tag.attrs:
+                return True
+            else:
+                return False
+        data = self.b.find_all(mysearch)
+        for i in range(skip):
+            if not len(data):
+                break
+            del(data[0])
+        if text:
+            return [self.text(i) for i in data]
+        else:
+            return data
 
 if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
     a = EasyLogin()
