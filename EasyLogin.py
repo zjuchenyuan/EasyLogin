@@ -45,7 +45,7 @@ UALIST = [
 
 
 class EasyLogin:
-    def __init__(self, cookie=None, cookiefile=None, proxy=None):
+    def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None):
         """
         example: a = EasyLogin(cookie={"PHPSESSID":"..."}, proxy="socks5://127.0.0.1:1080")
         :param cookie: a dict of cookie
@@ -54,6 +54,10 @@ class EasyLogin:
         """
         if cookie is None:
             cookie = {}
+        if cookiestring is not None:
+            for onecookiestring in cookiestring.split(";"):
+                a,b=onecookiestring.split("=")
+                cookie.update({a:b})
         self.b = None
         self.s = requests.Session()
         self.s.headers.update({'User-Agent': random.choice(UALIST)})
