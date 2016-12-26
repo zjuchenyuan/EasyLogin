@@ -56,8 +56,8 @@ class EasyLogin:
             cookie = {}
         if cookiestring is not None:
             for onecookiestring in cookiestring.split(";"):
-                a,b=onecookiestring.split("=")
-                cookie.update({a:b})
+                a, b = onecookiestring.split("=")
+                cookie.update({a: b})
         self.b = None
         self.s = requests.Session()
         self.s.headers.update({'User-Agent': random.choice(UALIST)})
@@ -80,7 +80,7 @@ class EasyLogin:
         for i in self.s.cookies:
             c += i.name + '=' + i.value + ";"
         return c
-    cookie=property(showcookie)
+    cookie = property(showcookie)
 
     def get(self, url, result=True, save=False, headers=None, o=False, cache=None):
         """
@@ -159,7 +159,8 @@ class EasyLogin:
         :param attrs: dict, exmaple: {"id":"content"}
         :return: list of str(Tag text)
         """
-        if self.b is None: return []
+        if self.b is None:
+            return []
         return [i.text.replace('\r', '').replace('\n', '').replace('\t', '').replace('  ', '')
                 for i in self.b.find_all(name, attrs)]
 
@@ -192,22 +193,24 @@ class EasyLogin:
     getList = getlist
 
     def img(self):
-        return [i[2:] if i[0:2]=="//" else i for i in self.getlist("","img","src")]
+        return [i[2:] if i[0:2] == "//" else i for i in self.getlist("", "img", "src")]
 
     def css(self):
-        return [i[2:] if i[0:2] == "//" else i for i in self.getlist("css","link","href")]
+        return [i[2:] if i[0:2] == "//" else i for i in self.getlist("css", "link", "href")]
 
     def js(self):
-        return [i[2:] if i[0:2] == "//" else i for i in self.getlist("js","script","src")]
+        return [i[2:] if i[0:2] == "//" else i for i in self.getlist("js", "script", "src")]
 
     def VIEWSTATE(self):
         """
         Useful when you crack the ASP>NET website
         :return: quoted VIEWSTATE str
         """
-        if self.b is None: return ""
+        if self.b is None:
+            return ""
         x = self.b.find("input", attrs={"name": "__VIEWSTATE"})
-        if x is None: return ""
+        if x is None:
+            return ""
         return quote(x["value"])
 
     def save(self, filename="EasyLogin.status"):
@@ -217,11 +220,11 @@ class EasyLogin:
         :param filename:
         :return:
         """
-        b=self.b
-        self.b=None
-        data=pickle.dumps(self)
+        b = self.b
+        self.b = None
+        data = pickle.dumps(self)
         open(filename, "wb").write(data)
-        self.b=b
+        self.b = b
         return
 
     def load(filename='EasyLogin.status'):
@@ -262,15 +265,14 @@ class EasyLogin:
         from bs4.element import NavigableString
         result = []
         for descendant in target.descendants:
-            if not isinstance(descendant, NavigableString) or descendant.parent.name in ["script","style"] or \
-                isinstance(descendant, Comment):
+            if not isinstance(descendant, NavigableString) or descendant.parent.name in ["script", "style"] or isinstance(descendant, Comment):
                 continue
             data = descendant.strip()
             if len(data) > 0:
                 result.append(data)
         return result
 
-    def find(self,tag,attrs_string,skip=0,text=False):
+    def find(self, tag, attrs_string, skip=0, text=False):
         """
         find more easily with string, return all matched tag
         :param tag: tag name
@@ -279,7 +281,8 @@ class EasyLogin:
         :param text: need text or tag
         :return: array of tag or text
         """
-        tmp_tag=BeautifulSoup("""<%s %s></%s>"""%(tag,attrs_string,tag),"html.parser").find(tag)
+        tmp_tag = BeautifulSoup("""<%s %s></%s>""" % (tag, attrs_string, tag), "html.parser").find(tag)
+
         def mysearch(tag):
             if tag.attrs == tmp_tag.attrs:
                 return True
@@ -294,6 +297,7 @@ class EasyLogin:
             return [self.text(i) for i in data]
         else:
             return data
+
 
 if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
     a = EasyLogin()
