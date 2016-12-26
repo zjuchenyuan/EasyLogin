@@ -2,8 +2,8 @@ from EasyLogin import EasyLogin
 import re
 from urllib.parse import quote
 a=EasyLogin.load("fangcloud.status")
-BLOCKSIZE=1024*1024
-BLOCKHINT="MB"
+BLOCKSIZE=10*1024*1024
+BLOCKHINT="0MB" #upload unit is 10MB
 
 def login(xh,password):
     """
