@@ -104,6 +104,19 @@ def block(fp):
         del x
         x = fp.read(BLOCKSIZE)
 
+def showdemo(fileid,file_unique_name):
+    print("fileid:")
+    print(fileid)
+    print()
+    print("Share Link:")
+    print("http://fangcloud.zju.edu.cn/share/"+file_unique_name)
+    print()
+    print("Download Link (expire soon):")
+    print(download(file_unique_name))
+
+def save_to_file(uploadfilename,file_unique_name,logfilename):
+    open(logfilename,"a").write("{}\t{}\n".format(uploadfilename,file_unique_name))
+
 if __name__=="__main__":
     import sys
     token = islogin()
@@ -114,12 +127,11 @@ if __name__=="__main__":
         token=islogin()
     block_generator=block(open(sys.argv[1],"rb"))
     fileid=upload(token,sys.argv[1],block_generator)
-    file_uniqe_name=share(token,fileid)
-    print("fileid:")
-    print(fileid)
-    print()
-    print("Share Link:")
-    print("http://fangcloud.zju.edu.cn/share/"+file_uniqe_name)
-    print()
-    print("Download Link (expire soon):")
-    print(download(file_uniqe_name))
+    file_unique_name=share(token,fileid)
+    if(len(sys.argv)==5):
+        from os import pathsep
+        uploadfilename=sys.argv[1].split(pathsep)[-1]
+        save_to_file(uploadfilename,file_unique_name,sys.argv[4])
+        print(uploadfilename,file_unique_name)
+    else:
+        showdemo(fileid,file_unique_name)
