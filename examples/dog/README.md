@@ -8,15 +8,15 @@ http://www.akc.org/news/the-most-popular-dog-breeds-in-america/
 
 ## 怎么写出这个爬虫
 
-1. 打开网页，看到我们需要的数据在table里面
+打开网页，看到我们需要的数据在table里面
 
-2. 查看源代码，搜索RETRIEVERS (LABRADOR)，发现table属性是这样的：
+查看源代码，搜索RETRIEVERS (LABRADOR)，发现table属性是这样的：
 
 ```
 <table border="0" cellpadding="0" cellspacing="0" style="width:100%">
 ```
 
-3. 写代码咯，戳[dog.py](dog.py)
+准备做好了，就开始写代码咯，已经写好的代码戳[dog.py](dog.py)
 
     首先初始化EasyLogin，指定要走代理翻墙
     
