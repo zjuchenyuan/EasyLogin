@@ -132,6 +132,7 @@ if __name__=="__main__":
         from os import pathsep
         uploadfilename=sys.argv[1].split(pathsep)[-1]
         save_to_file(uploadfilename,file_unique_name,sys.argv[4])
+        #Better print for md write
         print("![{}](http://api.chenyuan.me/fangcloud/{})".format(uploadfilename,file_unique_name))
     else:
         showdemo(fileid,file_unique_name)
