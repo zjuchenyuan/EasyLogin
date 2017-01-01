@@ -13,7 +13,7 @@
 ```
 worker函数：
     爬虫函数，使用EasyLogin简单完成爬取任务
-    接受循环参数，返回一个结果的list
+    接受页面id参数，返回一个结果的list
 
 handler函数：
     除第一个meta外需要接受worker的所有返回值
@@ -22,3 +22,11 @@ handler函数：
 main函数：
     打开文件，创建队列，用循环把任务塞入队列，join等待完成
 ```
+
+## 随便写写
+
+多线程能显著提高效率，mpms是做得挺简单的，只要抄模板就好了23333
+
+注意print函数也是一个非常耗时的操作，应该尽量少print
+
+本代码仅仅生成了下载链接，具体的下载需要下一步的处理：对downloadlink.txt加上域名前缀后，用wget --content-disposition -nc -i downloadlink.txt
