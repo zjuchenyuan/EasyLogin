@@ -30,3 +30,7 @@ main函数：
 注意print函数也是一个非常耗时的操作，应该尽量少print
 
 本代码仅仅生成了下载链接，具体的下载需要下一步的处理：对downloadlink.txt加上域名前缀后，用wget --content-disposition -nc -i downloadlink.txt
+
+每写一个例子就发现EasyLogin还有需要改进的地方，这次对EasyLogin的init函数加入了session参数，防止每次worker都创建Session对象而浪费时间
+
+想了想这个EasyLogin对象还是不能共享的，否则，在高并发的时候可能多个线程同时修改a.b，之后的a.getlist就是瞎扯了Orz 所以退而求其次选择在进程级别共享Session对象（注意worker函数是拿不到全局所有线程共享的参数的）
