@@ -4,14 +4,21 @@
 
 ## 请先准备依赖
 
-[mpms](https://github.com/aploium/mpms)
+[简易Python多进程-多线程任务队列 mpms](https://github.com/aploium/mpms)
 
 ## 代码说明
 
 这个代码主要参考mpms给出的例子，而这个例子基本就定下了整个文件的框架，mpms的设计不在此处的讨论范围
 
 ```
-worker函数：爬虫函数，接受循环参数，返回一个结果的list
-handler函数：除第一个meta外需要接受worker的所有返回值；所有的线程同时只会有一个handler在执行，所以只应该完成写文件等耗时较少的操作
-main函数：打开文件，循环塞入任务队列，等待完成
+worker函数：
+    爬虫函数，使用EasyLogin简单完成爬取任务
+    接受循环参数，返回一个结果的list
+
+handler函数：
+    除第一个meta外需要接受worker的所有返回值
+    所有的线程同时只会有一个handler在执行，所以只应该完成写文件等耗时较少的操作
+
+main函数：
+    打开文件，创建队列，用循环把任务塞入队列，join等待完成
 ```
