@@ -38,3 +38,22 @@ main函数：
 至于这样改动EasyLogin以支持高并发有没有效果，待测试咯
 
 使用wget下载似乎有中文乱码问题，一旦产生了乱码的文件名就很难删除，还是用python一个个调用curl -OJ吧
+
+## Example Code for further download
+
+```
+c=input()
+while True:
+    print("http://cn.epubee.com/"+c)
+    try:
+        c=input()
+    except:
+        break
+```
+
+```
+from os import system
+for line in open("filelist.txt"):
+    url=line.replace("\n","")
+    system("curl -OJ \"{}\"".format(url))
+```
