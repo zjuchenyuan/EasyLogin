@@ -33,4 +33,6 @@ main函数：
 
 每写一个例子就发现EasyLogin还有需要改进的地方，这次对EasyLogin的init函数加入了session参数，防止每次worker都创建Session对象而浪费时间
 
-想了想这个EasyLogin对象还是不能共享的，否则，在高并发的时候可能多个线程同时修改a.b，之后的a.getlist就是瞎扯了Orz 所以退而求其次选择在进程级别共享Session对象（注意worker函数是拿不到全局所有线程共享的参数的）
+想了想这个EasyLogin对象还是不能共享的，否则，在高并发的时候可能多个线程同时修改a.b，之后的a.getlist就是瞎扯了Orz 所以退而求其次选择在进程级别共享Session对象（注意worker函数是拿不到全局所有线程共享的变量的）
+
+至于这样改动EasyLogin以支持高并发有没有效果，待测试咯
