@@ -45,31 +45,39 @@ UALIST = [
 
 
 class EasyLogin:
-    def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None):
+    def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None, session=None):
         """
         example: a = EasyLogin(cookie={"PHPSESSID":"..."}, proxy="socks5://127.0.0.1:1080")
         :param cookie: a dict of cookie
         :param cookiefile: the file contain cookie which saved by get or post(save=True)
         :param proxy: the proxy to use, rememeber schema and `pip install requests[socks]`
         """
-        if cookie is None:
-            cookie = {}
-        if cookiestring is not None:
-            for onecookiestring in cookiestring.split(";"):
-                a, b = onecookiestring.split("=")
-                cookie.update({a: b})
         self.b = None
-        self.s = requests.Session()
-        self.s.headers.update({'User-Agent': random.choice(UALIST)})
-        self.s.cookies.update(cookie)
         self.proxies = {'http': proxy, 'https': proxy} if proxy is not None else None
         self.cookiefile = 'cookie.pickle'
+        if session is not None:
+            self.s = session
+            return
+        self.s = requests.Session()
+        self.s.headers.update({'User-Agent': random.choice(UALIST)})
+        if cookie is None:
+            cookie = {}
+        self.s.cookies.update(cookie)
+        self.setcookie(cookiestring)
         if cookiefile is not None:
             self.cookiefile = cookiefile
             try:
                 self.s.cookies = pickle.load(open(cookiefile, "rb"))
             except FileNotFoundError:
                 pass
+
+    def setcookie(self,cookiestring):
+        cookie = {}
+        if cookiestring is not None:
+            for onecookiestring in cookiestring.split(";"):
+                a, b = onecookiestring.split("=")
+                cookie.update({a: b})
+            self.s.cookies.update(cookie)
 
     def showcookie(self):
         """
@@ -82,7 +90,7 @@ class EasyLogin:
         return c
     cookie = property(showcookie)
 
-    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False):
+    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None):
         """
         HTTP GET method, default save soup to self.b
         :param url: a url, example: "http://ip.cn"
@@ -108,6 +116,8 @@ class EasyLogin:
             if headers is None:
                 headers = {"Accept-Encoding": "gzip, deflate, sdch", "Accept-Language": "zh-CN,zh;q=0.8", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Upgrade-Insecure-Requests": "1", "DNT": "1"}
             headers["Referer"] = "/".join(url.split("/")[:3])
+        if cookiestring is not None:
+            headers["Cookie"] = cookiestring
         x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies)
         if result:
                 page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
