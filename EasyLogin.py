@@ -82,7 +82,7 @@ class EasyLogin:
         return c
     cookie = property(showcookie)
 
-    def get(self, url, result=True, save=False, headers=None, o=False, cache=None):
+    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False):
         """
         HTTP GET method, default save soup to self.b
         :param url: a url, example: "http://ip.cn"
@@ -104,6 +104,10 @@ class EasyLogin:
                 if result:
                     self.b = BeautifulSoup(page.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
                 return page.decode()
+        if r:
+            if headers is None:
+                headers = {"Accept-Encoding": "gzip, deflate, sdch", "Accept-Language": "zh-CN,zh;q=0.8", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Upgrade-Insecure-Requests": "1", "DNT": "1"}
+            headers["Referer"] = "/".join(url.split("/")[:3])
         x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies)
         if result:
                 page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
