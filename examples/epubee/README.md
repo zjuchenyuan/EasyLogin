@@ -55,5 +55,6 @@ while True:
 from os import system
 for line in open("filelist.txt"):
     url=line.replace("\n","")
+    print(url)
     system("curl -OJ \"{}\"".format(url))
 ```
