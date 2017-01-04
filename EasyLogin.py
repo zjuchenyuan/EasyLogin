@@ -111,7 +111,7 @@ class EasyLogin:
                 page = open(cache, "rb").read()
                 if result:
                     self.b = BeautifulSoup(page.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
-                return page.decode()
+                return page.decode(errors='replace')
         if r:
             if headers is None:
                 headers = {"Accept-Encoding": "gzip, deflate, sdch", "Accept-Language": "zh-CN,zh;q=0.8", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Upgrade-Insecure-Requests": "1", "DNT": "1"}
