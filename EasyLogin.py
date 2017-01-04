@@ -279,7 +279,11 @@ class EasyLogin:
         from bs4.element import NavigableString
         result = []
         for descendant in target.descendants:
-            if not isinstance(descendant, NavigableString) or descendant.parent.name in ["script", "style"] or isinstance(descendant, Comment):
+            if not isinstance(descendant, NavigableString) \
+                    or descendant.parent.name in ["script", "style"] \
+                    or isinstance(descendant, Comment) \
+                    or "none" in descendant.parent.get("style","")\
+                    or "font-size:0px" in descendant.parent.get("style",""):
                 continue
             data = descendant.strip()
             if len(data) > 0:
