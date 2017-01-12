@@ -1,1 +1,39 @@
 A simple mimic of https://github.com/FindHao/CarPicSpider/blob/master/spider.py
+
+# Cache缓存
+
+本example使用了Cache=True参数，表示将md5(url)作为cache
+
+在此提供已经运行过的cache_files.zip，解压至本目录后即可不发起任何网络请求，实现快速循环
+
+# 函数说明
+
+## gethot
+
+    从汽车之家官网手机版获得热门品牌
+
+    返回一个dict：{ 品牌名称:[详情url，品牌拼音]}
+
+## getbrand(url):
+
+    输入一个品牌的url，此url可以从gethot函数获得
+
+    返回数组，其元素为：[名称，价格，类型，图片url，详情url，id]
+
+    其中图片url做了替换，输出的为640x480（已知最高清）的图片url
+
+## morepic(id):
+
+    从一个车型得到更多的车身图片，id来自getbrand函数的输出
+
+    返回图片url的数组
+
+    其中url做了替换，输出的为640x480（已知最高清）的图片url
+
+
+## 直接运行
+
+直接运行将生成两个文件：`record.txt`和`download_command.bat`
+
+这两个文件我压缩至result.zip
+

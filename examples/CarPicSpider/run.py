@@ -23,7 +23,7 @@ def getbrand(url):
     返回数组，其元素为：[名称，价格，类型，图片url，详情url，id]
     其中图片url做了替换，输出的为640x480（已知最高清）的图片url
     """
-    a.get(url)
+    a.get(url,cache=True)
     items = a.b.find_all("li")
     result = []
     for one in items:
@@ -42,7 +42,7 @@ def morepic(id):
     返回图片url的数组
     其中url做了替换，输出的为640x480（已知最高清）的图片url
     """
-    a.get("http://car.m.autohome.com.cn/pic/series/{}-0-1-0-i0.html".format(id))
+    a.get("http://car.m.autohome.com.cn/pic/series/{}-0-1-0-i0.html".format(id),cache=True)
     items = a.b.find("div",{"id":"listPic"}).find_all("img")
     result = []
     for one in items:
@@ -51,8 +51,16 @@ def morepic(id):
     return result
         
 if __name__ == "__main__":
-    from pprint import pprint
-    print(gethot())
-    #pprint(getbrand("http://car.m.autohome.com.cn/brand/1/#pvareaid=100239"))
-    #pprint(morepic(539))
+    fp1=open("record.txt","w")
+    fp2=open("download_command.bat","w")
+    for brand_name,brand_href_and_pinyin in gethot().items():
+        url = brand_href_and_pinyin[0]
+        for detail in getbrand(url):
+            print(brand_name,detail[0])
+            fp2.write("md \"{}\\{}\" & cd \"{}\\{}\"\n".format(brand_name,detail[0],brand_name,detail[0]))
+            chexin_id = detail[5]
+            for pic_url in morepic(chexin_id):
+                fp1.write("{}\t{}\t{}\n".format(brand_name,detail[0],pic_url))
+                fp2.write("curl -O {}\n".format(pic_url))
+            fp2.write("cd ..\\..\\\n")
     
