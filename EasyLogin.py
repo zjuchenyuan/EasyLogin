@@ -14,6 +14,7 @@ import pickle
 import os
 import random
 from bs4 import BeautifulSoup
+import hashlib
 
 UALIST = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A",
@@ -31,6 +32,8 @@ UALIST = [
     "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0",
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 Safari/537.36"]
 
+def mymd5(input):
+    return hashlib.md5(bytes(input,encoding="utf-8")).hexdigest()
 
 class EasyLogin:
     def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None, session=None):
@@ -89,6 +92,8 @@ class EasyLogin:
         :param cache: filename to write cache, if already exists, use cache rather than really get
         :return page text or object(o=True)
         """
+        if cache is True:
+            cache = mymd5(url)
         if cache is not None and os.path.exists(cache):
             if o:
                 obj = pickle.load(open(cache, "rb"))
@@ -123,7 +128,7 @@ class EasyLogin:
                 open(cache, "wb").write(x.content)
             return x.text
 
-    def post(self, url, data, result=True, save=False, headers=None,cache=False):
+    def post(self, url, data, result=True, save=False, headers=None,cache=None):
         """
         HTTP POST method, submit data to server
         :param url: post target url
@@ -133,6 +138,8 @@ class EasyLogin:
         :param headers: override headers to be sent
         :return: the requests object
         """
+        if cache is True:
+            cache = mymd5(url)
         if cache is not None and os.path.exists(cache):
                 obj = pickle.load(open(cache, "rb"))
                 if result:
@@ -150,7 +157,7 @@ class EasyLogin:
             open(cache, "wb").write(pickle.dumps(x))
         return x
 
-    def post_dict(self, url, dict, result=True, save=False, headers=None,cache=False):
+    def post_dict(self, url, dict, result=True, save=False, headers=None,cache=None):
         """
         like post but using dict to post
         :param url: post target url
