@@ -7,7 +7,7 @@ def gethot():
     从汽车之家官网手机版获得热门品牌
     返回一个dict：{ 品牌名称:[详情url，品牌拼音]}
     """
-    a.get("http://m.autohome.com.cn/")
+    a.get("http://m.autohome.com.cn/",cache=True)
     brands = a.b.find("div",{"class":"brand"})
     result = {}
     for one in brands.find_all("a"):
@@ -52,7 +52,7 @@ def morepic(id):
         
 if __name__ == "__main__":
     from pprint import pprint
-    #print(gethot())
-    pprint(getbrand("http://car.m.autohome.com.cn/brand/1/#pvareaid=100239"))
-    pprint(morepic(539))
+    print(gethot())
+    #pprint(getbrand("http://car.m.autohome.com.cn/brand/1/#pvareaid=100239"))
+    #pprint(morepic(539))
     

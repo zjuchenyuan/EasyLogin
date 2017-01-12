@@ -89,7 +89,7 @@ class EasyLogin:
         :param save: save cookie or not
         :param headers: more headers to be sent
         :param o: return object or just page text
-        :param cache: filename to write cache, if already exists, use cache rather than really get
+        :param cache: filename to write cache, if already exists, use cache rather than really get; using cache=True to use md5(url) as cache file name
         :return page text or object(o=True)
         """
         if cache is True:
@@ -136,10 +136,11 @@ class EasyLogin:
         :param result: the page returned save to a.b
         :param save: save cookie to file
         :param headers: override headers to be sent
+        :param cache: filename to write cache, if already exists, use cache rather than really get; using cache=True to use md5(url+data) as cache file name
         :return: the requests object
         """
         if cache is True:
-            cache = mymd5(url)
+            cache = mymd5(url+data)
         if cache is not None and os.path.exists(cache):
                 obj = pickle.load(open(cache, "rb"))
                 if result:
