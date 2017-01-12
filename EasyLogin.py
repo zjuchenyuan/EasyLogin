@@ -15,6 +15,7 @@ import os
 import random
 from bs4 import BeautifulSoup
 import hashlib
+from collections import OrderedDict
 
 UALIST = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A",
@@ -168,6 +169,8 @@ class EasyLogin:
         :param headers: override headers to be sent
         :return: the requests object
         """
+        if cache is True:
+            dict = OrderedDict(sorted(dict.items(), key=lambda t: t[0]))
         data = urlencode(dict)
         return self.post(url, data, result=result, save=save, headers=headers,cache=cache)
 
