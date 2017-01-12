@@ -3,18 +3,6 @@
 # TODO:
 #   support for json object post; support file upload
 #   more document is also needed
-# UPDATE_LOG:
-#  2016/12/16
-#    Using PyCharm to write better code
-#  2016/12/15
-#    BeautifulSoup using "content" rather than "text" which requests returned
-#  2016/12/02
-#    adding w function; multiple User-Agent choice; proxies applied to https, get function can have a cachefile
-#  2016/11/25
-#    adding VIEWSTATE,save,load function
-#  2016/10/28
-#    "result=True" by default, delete "from_encoding=x.encoding"
-
 
 try:
     from urllib.parse import urlencode, quote
