@@ -1,10 +1,20 @@
 A simple mimic of https://github.com/FindHao/CarPicSpider/blob/master/spider.py
 
+## 直接运行
+
+直接运行将生成两个文件：`record.txt`和`download_command.bat`
+
+    record.txt的格式为：品牌名\t车型名称\t图片url
+
+    download_command.bat：调用curl.exe执行下载命令
+
+`result.zip`提供这两个文件，**下载前请先Star本项目**
+
 # Cache缓存
 
-本example使用了Cache=True参数，表示将md5(url)作为cache
+本example使用了`Cache=True`参数，表示将`md5(url)`作为`缓存文件的文件名`
 
-在此提供已经运行过的cache_files.zip，解压至本目录后即可不发起任何网络请求，实现快速循环
+提供`cache_files.zip`，解压至本目录后即可不发起任何网络请求，实现快速循环
 
 # 函数说明
 
@@ -29,11 +39,4 @@ A simple mimic of https://github.com/FindHao/CarPicSpider/blob/master/spider.py
     返回图片url的数组
 
     其中url做了替换，输出的为640x480（已知最高清）的图片url
-
-
-## 直接运行
-
-直接运行将生成两个文件：`record.txt`和`download_command.bat`
-
-这两个文件我压缩至result.zip
 
