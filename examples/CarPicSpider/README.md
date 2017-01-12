@@ -1,4 +1,8 @@
-A simple mimic of https://github.com/FindHao/CarPicSpider/blob/master/spider.py
+# CarPicSpider
+
+爬取汽车之家的汽车车身图片
+
+Inspired by https://github.com/FindHao/CarPicSpider
 
 ## 直接运行
 
@@ -10,21 +14,21 @@ A simple mimic of https://github.com/FindHao/CarPicSpider/blob/master/spider.py
 
 `result.zip`提供这两个文件，**下载前请先Star本项目**
 
-# Cache缓存
+## Cache缓存
 
 本example使用了`Cache=True`参数，表示将`md5(url)`作为`缓存文件的文件名`
 
 提供`cache_files.zip`，解压至本目录后即可不发起任何网络请求，实现快速循环
 
-# 函数说明
+## 函数说明
 
-## gethot
+### gethot
 
     从汽车之家官网手机版获得热门品牌
 
     返回一个dict：{ 品牌名称:[详情url，品牌拼音]}
 
-## getbrand(url):
+### getbrand(url):
 
     输入一个品牌的url，此url可以从gethot函数获得
 
@@ -32,7 +36,7 @@ A simple mimic of https://github.com/FindHao/CarPicSpider/blob/master/spider.py
 
     其中图片url做了替换，输出的为640x480（已知最高清）的图片url
 
-## morepic(id):
+### morepic(id):
 
     从一个车型得到更多的车身图片，id来自getbrand函数的输出
 
