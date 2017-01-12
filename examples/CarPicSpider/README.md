@@ -4,6 +4,10 @@
 
 Inspired by https://github.com/FindHao/CarPicSpider
 
+![screenshot](screenshot.jpg)
+
+[pic_result.rar](https://api.chenyuan.me/fangcloud2/210001485088) 427.63MB，**下载前请先Star本项目**
+
 ## 直接运行
 
 直接运行将生成两个文件：`record.txt`和`download_command.bat`
@@ -13,8 +17,6 @@ Inspired by https://github.com/FindHao/CarPicSpider
     download_command.bat：调用curl.exe执行下载命令
 
 `result.zip`提供这两个文件，**下载前请先Star本项目**，[戳我下载](https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/CarPicSpider/result.zip)
-
-![screenshot](screenshot.jpg)
 
 ## Cache缓存
 
