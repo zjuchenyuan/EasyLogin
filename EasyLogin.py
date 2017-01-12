@@ -135,7 +135,7 @@ class EasyLogin:
                 open(cache, "wb").write(x.content)
             return x.text
 
-    def post(self, url, data, result=True, save=False, headers=None):
+    def post(self, url, data, result=True, save=False, headers=None,cache=False):
         """
         HTTP POST method, submit data to server
         :param url: post target url
@@ -145,6 +145,11 @@ class EasyLogin:
         :param headers: override headers to be sent
         :return: the requests object
         """
+        if cache is not None and os.path.exists(cache):
+                obj = pickle.load(open(cache, "rb"))
+                if result:
+                    self.b = BeautifulSoup(obj.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
+                return obj
         postheaders = headers if headers is not None else \
             {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         x = self.s.post(url, data, headers=postheaders, allow_redirects=False, proxies=self.proxies)
@@ -153,9 +158,11 @@ class EasyLogin:
             self.b = BeautifulSoup(page, 'html.parser')
         if save:
             open(self.cookiefile, "wb").write(pickle.dumps(self.s.cookies))
+        if cache is not None:
+            open(cache, "wb").write(pickle.dumps(x))
         return x
 
-    def post_dict(self, url, dict, result=True, save=False, headers=None):
+    def post_dict(self, url, dict, result=True, save=False, headers=None,cache=False):
         """
         like post but using dict to post
         :param url: post target url
@@ -166,7 +173,7 @@ class EasyLogin:
         :return: the requests object
         """
         data = urlencode(dict)
-        return self.post(url, data, result=result, save=save, headers=headers)
+        return self.post(url, data, result=result, save=save, headers=headers,cache=cache)
 
     def f(self, name, attrs):
         """
