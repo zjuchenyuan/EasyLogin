@@ -3,6 +3,10 @@ from pypinyin import lazy_pinyin
 a=EasyLogin()
 
 def gethot():
+    """
+    从汽车之家官网手机版获得热门品牌
+    返回一个dict：{ 品牌名称:[详情url，品牌拼音]}
+    """
     a.get("http://m.autohome.com.cn/")
     brands = a.b.find("div",{"class":"brand"})
     result = {}
@@ -15,8 +19,9 @@ def gethot():
 
 def getbrand(url):
     """
-    输入一个品牌的url
+    输入一个品牌的url，此url可以从gethot函数获得
     返回数组，其元素为：[名称，价格，类型，图片url，详情url，id]
+    其中图片url做了替换，输出的为640x480（已知最高清）的图片url
     """
     a.get(url)
     items = a.b.find_all("li")
@@ -32,6 +37,11 @@ def getbrand(url):
     return result
 
 def morepic(id):
+    """
+    从一个车型得到更多的车身图片，id来自getbrand函数的输出
+    返回图片url的数组
+    其中url做了替换，输出的为640x480（已知最高清）的图片url
+    """
     a.get("http://car.m.autohome.com.cn/pic/series/{}-0-1-0-i0.html".format(id))
     items = a.b.find("div",{"id":"listPic"}).find_all("img")
     result = []
