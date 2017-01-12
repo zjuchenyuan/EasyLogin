@@ -27,7 +27,7 @@ def getbrand(url):
         leixin = one.find("p",{"class":"infor"}).text
         picture_url = "http://"+one.find("img")["src"][2:].replace("192x144_0_q30_","640x480_0_q40_")
         detail_url = "http://"+one.find("a")["href"][2:]
-        id = detail.url.replace("http://m.autohome.com.cn/","").split("/")[0]
+        id = detail_url.replace("http://m.autohome.com.cn/","").split("/")[0]
         result.append([name,price,leixin,picture_url,detail_url,id])
     return result
 
