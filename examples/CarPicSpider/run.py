@@ -32,9 +32,17 @@ def getbrand(url):
     return result
 
 def morepic(id):
-    a.get("http://car.autohome.com.cn/pic/series/{}.html".format(id))
-
+    a.get("http://car.m.autohome.com.cn/pic/series/{}-0-1-0-i0.html".format(id))
+    items = a.b.find("div",{"id":"listPic"}).find_all("img")
+    result = []
+    for one in items:
+        url = "http://"+one["src"][2:].replace("280x210_0_q30","640x480")
+        result.append(url)
+    return result
+        
 if __name__ == "__main__":
     from pprint import pprint
     #print(gethot())
     pprint(getbrand("http://car.m.autohome.com.cn/brand/1/#pvareaid=100239"))
+    pprint(morepic(539))
+    
