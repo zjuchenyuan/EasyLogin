@@ -1,0 +1,1 @@
+A simple mimic of https://github.com/FindHao/CarPicSpider/blob/master/spider.py
