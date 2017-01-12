@@ -57,12 +57,14 @@ if __name__ == "__main__":
         url = brand_href_and_pinyin[0]
         for detail in getbrand(url):
             print(brand_name,detail[0])
-            fp2.write("md \"{}\\{}\" & cd \"{}\\{}\"\n".format(brand_name,detail[0],brand_name,detail[0]))
+            #创建目录并切换至子目录，这是BAT命令，only for windows
+            fp2.write("""md "{}\\{}" & cd "{}\\{}" \n""".format(brand_name,detail[0],brand_name,detail[0]))
             chexin_id = detail[5]
             for pic_url in morepic(chexin_id):
                 fp1.write("{}\t{}\t{}\n".format(brand_name,detail[0],pic_url))
+                #调用curl.exe完成下载操作，您需要下载curl，我的notebook提供下载
                 fp2.write("curl -O {}\n".format(pic_url))
-            fp2.write("cd ..\\..\\\n")
+            fp2.write("cd ..\\..\\ \n")#切换到上级目录
     fp1.close()
     fp2.close()
     
