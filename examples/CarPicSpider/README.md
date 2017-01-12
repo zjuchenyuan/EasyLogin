@@ -14,6 +14,8 @@ Inspired by https://github.com/FindHao/CarPicSpider
 
 `result.zip`提供这两个文件，**下载前请先Star本项目**，[戳我下载](https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/CarPicSpider/result.zip)
 
+![screenshot](screenshot.jpg)
+
 ## Cache缓存
 
 本example使用了`Cache=True`参数，表示将`md5(url)`作为`缓存文件的文件名`
