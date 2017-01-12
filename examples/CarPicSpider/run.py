@@ -63,4 +63,6 @@ if __name__ == "__main__":
                 fp1.write("{}\t{}\t{}\n".format(brand_name,detail[0],pic_url))
                 fp2.write("curl -O {}\n".format(pic_url))
             fp2.write("cd ..\\..\\\n")
+    fp1.close()
+    fp2.close()
     
