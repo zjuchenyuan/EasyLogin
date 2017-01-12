@@ -12,13 +12,13 @@ Inspired by https://github.com/FindHao/CarPicSpider
 
     download_command.bat：调用curl.exe执行下载命令
 
-`result.zip`提供这两个文件，**下载前请先Star本项目**
+`result.zip`提供这两个文件，**下载前请先Star本项目**，[戳我下载](https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/CarPicSpider/result.zip)
 
 ## Cache缓存
 
 本example使用了`Cache=True`参数，表示将`md5(url)`作为`缓存文件的文件名`
 
-提供`cache_files.zip`，解压至本目录后即可不发起任何网络请求，实现快速循环
+提供`cache_files.zip`，解压至本目录后即可不发起任何网络请求，从而实现快速循环，[戳我下载](https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/CarPicSpider/cache_files.zip)
 
 ## 函数说明
 
