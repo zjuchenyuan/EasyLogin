@@ -15,7 +15,8 @@ def gethot():
 
 def getbrand(url):
     """
-    返回数组，其元素为：[名称，价格，类型，图片url，详情url]
+    输入一个品牌的url
+    返回数组，其元素为：[名称，价格，类型，图片url，详情url，id]
     """
     a.get(url)
     items = a.b.find_all("li")
@@ -24,10 +25,14 @@ def getbrand(url):
         name = one.find("h4").text
         price = one.find("p",{"class":"price"}).text
         leixin = one.find("p",{"class":"infor"}).text
-        picture_url = "http://"+one.find("img")["src"][2:]
+        picture_url = "http://"+one.find("img")["src"][2:].replace("192x144_0_q30_","640x480_0_q40_")
         detail_url = "http://"+one.find("a")["href"][2:]
-        result.append([name,price,leixin,picture_url,detail_url])
+        id = detail.url.replace("http://m.autohome.com.cn/","").split("/")[0]
+        result.append([name,price,leixin,picture_url,detail_url,id])
     return result
+
+def morepic(id):
+    a.get("http://car.autohome.com.cn/pic/series/{}.html".format(id))
 
 if __name__ == "__main__":
     from pprint import pprint
