@@ -2,6 +2,8 @@
 
 对requests和BeautifulSoup进一步封装，写爬虫代码更轻松~
 
+不用再考虑UserAgent, Cookies, and Cache，让您专注于爬虫核心代码
+
 ## 请先安装依赖，仅支持Python3
 
     pip3 install -U requests[socks] bs4 -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com
@@ -77,3 +79,9 @@
     （a是EasyLogin的对象，a.b是BeautifulSoup的对象，戳→[这里](http://cuiqingcai.com/1319.html)←看看BeautifulSoup怎么用）
 
 6. 服务器能正确响应就基本完事啦，不妨再提取成函数、封装成类、给我发起一个Pull请求？
+
+## 例子们
+
+[戳我看看例子们](examples/) 
+
+基于EasyLogin开发了很多有趣的爬虫，这是一些我写的项目，如浙大云盘API、浙大教务网课表查询、汽车之家图片下载，供您参考~
