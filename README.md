@@ -23,15 +23,30 @@ First, import it and create an object:  首先导入包并创建一个对象
     
 Then, make a get request or post request: 发起一个请求
 
-    a.get("http://ip.cn")
+    html = a.get("http://ip.cn") #该网页源代码中的code标签内含有我们需要的 `自己的IP` 和 `自己所处的地理位置`
 
 Finally, I need the `code` tag: 我需要的东西在`<code>`标签里面，我们把它拿出来
 
-    IP,location = a.f("code",attrs={})
-    print(IP)
-    print(location)
+A general method is use `a.b` as a BeautifulSoup object: 在执行了get或post后，a.b就是一个BeautifulSoup对象
+
+    code_tags = a.b.find_all("code",attrs={}) #find_all是BeautifulSoup的方法，传入 `标签名称` 和 `标签属性的字典`
+    myIP = code_tags[0].text
+    mylocation = code_tags[1].text
+
+> To simplify this, I created a `f` method, return text of all tags that match tag name and attrs: 
+
+> 为了简化这个操作我提供了f方法（其实一般用不着这个东西），为了提取符合条件的所有标签的文本内容
+
+>    myIP,mylocation = a.f("code",attrs={})
+
+Finally, just print them~ 获得了IP和location就能print啦~
+
+    print(myIP) #将输出自己的IP
+    print(mylocation) #例如“浙江省杭州市 电信”
 
 Moreover, I also need img, css, js and text: 我还需要网页中出现的图片、CSS、JS的链接以及文本
+
+这些方法也不常用，看看就好
 
     print(a.img())
     print(a.css())
