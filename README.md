@@ -1,6 +1,6 @@
 # EasyLogin.py
 
-[ÖÐÎÄ°æÎÄµµ](README_ZH.md)
+[ä¸­æ–‡ç‰ˆæ–‡æ¡£](README_ZH.md)
 
 ## Requirements, only support Python3
 

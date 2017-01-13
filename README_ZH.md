@@ -1,79 +1,79 @@
 # EasyLogin.py
 
-¶ÔrequestsºÍBeautifulSoup½øÒ»²½·â×°£¬Ð´ÅÀ³æ´úÂë¸üÇáËÉ~
+å¯¹requestså’ŒBeautifulSoupè¿›ä¸€æ­¥å°è£…ï¼Œå†™çˆ¬è™«ä»£ç æ›´è½»æ¾~
 
-## ÇëÏÈ°²×°ÒÀÀµ£¬½öÖ§³ÖPython3
+## è¯·å…ˆå®‰è£…ä¾èµ–ï¼Œä»…æ”¯æŒPython3
 
     pip3 install -U requests[socks] bs4 -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com
     
-## ËµÃ÷
+## è¯´æ˜Ž
 
-Ö»ÐèÒªÏÂÔØEasyLogin.py¾Í¹»ÁË£¬examplesÎÄ¼þ¼ÐÊÇÊ¹ÓÃEasyLogin¿ª·¢µÄÀý×ÓÃÇ
+åªéœ€è¦ä¸‹è½½EasyLogin.pyå°±å¤Ÿäº†ï¼Œexamplesæ–‡ä»¶å¤¹æ˜¯ä½¿ç”¨EasyLoginå¼€å‘çš„ä¾‹å­ä»¬
 
-## À´ÊÔÊÔ¿´°É~
+## æ¥è¯•è¯•çœ‹å§~
 
-Ê×ÏÈµ¼Èë°ü²¢´´½¨Ò»¸ö¶ÔÏó
+é¦–å…ˆå¯¼å…¥åŒ…å¹¶åˆ›å»ºä¸€ä¸ªå¯¹è±¡
 
     from EasyLogin import EasyLogin
     a = EasyLogin()
     
-È»ºó·¢ÆðÒ»¸öÇëÇó
+ç„¶åŽå‘èµ·ä¸€ä¸ªè¯·æ±‚
 
-    html = a.get("http://ip.cn") #¸ÃÍøÒ³Ô´´úÂëÖÐµÄcode±êÇ©ÄÚº¬ÓÐÎÒÃÇÐèÒªµÄ `×Ô¼ºµÄIP` ºÍ `×Ô¼ºËù´¦µÄµØÀíÎ»ÖÃ`
+    html = a.get("http://ip.cn") #è¯¥ç½‘é¡µæºä»£ç ä¸­çš„codeæ ‡ç­¾å†…å«æœ‰æˆ‘ä»¬éœ€è¦çš„ `è‡ªå·±çš„IP` å’Œ `è‡ªå·±æ‰€å¤„çš„åœ°ç†ä½ç½®`
 
-ÎÒÐèÒªµÄ¶«Î÷ÔÚ`<code>`±êÇ©ÀïÃæ£¬ÎÒÃÇ°ÑËüÄÃ³öÀ´
+æˆ‘éœ€è¦çš„ä¸œè¥¿åœ¨`<code>`æ ‡ç­¾é‡Œé¢ï¼Œæˆ‘ä»¬æŠŠå®ƒæ‹¿å‡ºæ¥
 
-ºËÐÄ£ºÔÚÖ´ÐÐÁËget»òpostºó£¬a.b¾ÍÊÇÒ»¸öBeautifulSoup¶ÔÏó
+æ ¸å¿ƒï¼šåœ¨æ‰§è¡Œäº†getæˆ–poståŽï¼Œa.bå°±æ˜¯ä¸€ä¸ªBeautifulSoupå¯¹è±¡
 
-    #find_allÊÇBeautifulSoupµÄ·½·¨£¬´«Èë `±êÇ©Ãû³Æ` ºÍ `±êÇ©ÊôÐÔµÄ×Öµä`
+    #find_allæ˜¯BeautifulSoupçš„æ–¹æ³•ï¼Œä¼ å…¥ `æ ‡ç­¾åç§°` å’Œ `æ ‡ç­¾å±žæ€§çš„å­—å…¸`
     code_tags = a.b.find_all("code",attrs={}) 
     myIP = code_tags[0].text
     mylocation = code_tags[1].text
 
-> ÎªÁË¼ò»¯Õâ¸ö²Ù×÷ÎÒÌá¹©ÁËf·½·¨£¨ÆäÊµÒ»°ãÓÃ²»×ÅÕâ¸ö¶«Î÷£©£¬ÎªÁËÌáÈ¡·ûºÏÌõ¼þµÄËùÓÐ±êÇ©µÄÎÄ±¾ÄÚÈÝ
+> ä¸ºäº†ç®€åŒ–è¿™ä¸ªæ“ä½œæˆ‘æä¾›äº†fæ–¹æ³•ï¼ˆå…¶å®žä¸€èˆ¬ç”¨ä¸ç€è¿™ä¸ªä¸œè¥¿ï¼‰ï¼Œä¸ºäº†æå–ç¬¦åˆæ¡ä»¶çš„æ‰€æœ‰æ ‡ç­¾çš„æ–‡æœ¬å†…å®¹
 
 >    myIP,mylocation = a.f("code",attrs={})
 
-»ñµÃÁËIPºÍlocation¾ÍÄÜprintÀ²~
+èŽ·å¾—äº†IPå’Œlocationå°±èƒ½printå•¦~
 
-    print(myIP) #½«Êä³ö×Ô¼ºµÄIP
-    print(mylocation) #ÀýÈç¡°Õã½­Ê¡º¼ÖÝÊÐ µçÐÅ¡±
+    print(myIP) #å°†è¾“å‡ºè‡ªå·±çš„IP
+    print(mylocation) #ä¾‹å¦‚â€œæµ™æ±Ÿçœæ­å·žå¸‚ ç”µä¿¡â€
 
-ÎÒ»¹ÐèÒªÍøÒ³ÖÐ³öÏÖµÄÍ¼Æ¬¡¢CSS¡¢JSµÄÁ´½ÓÒÔ¼°ÎÄ±¾£¬ÕâÐ©·½·¨Ò²²»³£ÓÃ£¬¿´¿´¾ÍºÃ
+æˆ‘è¿˜éœ€è¦ç½‘é¡µä¸­å‡ºçŽ°çš„å›¾ç‰‡ã€CSSã€JSçš„é“¾æŽ¥ä»¥åŠæ–‡æœ¬ï¼Œè¿™äº›æ–¹æ³•ä¹Ÿä¸å¸¸ç”¨ï¼Œçœ‹çœ‹å°±å¥½
 
     print(a.img())
     print(a.css())
     print(a.js())
     print(";".join(a.text()))
 
-## ÎÄµµ
+## æ–‡æ¡£
 
-´ýÍê³É...
+å¾…å®Œæˆ...
     
-¼òµ¥µØËµ£¬ÓÃget»òpostºóself.b¾ÍÊÇBeautifulSoupµÄ¶ÔÏó
+ç®€å•åœ°è¯´ï¼Œç”¨getæˆ–poståŽself.bå°±æ˜¯BeautifulSoupçš„å¯¹è±¡
 
-## ¿ª·¢·½·¨
+## å¼€å‘æ–¹æ³•
 
-> ÂÛÅÀ³æÊÇÔõÃ´¼òµ¥µØ±»Ð´³öÀ´µÄ
+> è®ºçˆ¬è™«æ˜¯æ€Žä¹ˆç®€å•åœ°è¢«å†™å‡ºæ¥çš„
 
-1. ÏÈÍê³ÉÒ»±éÊÖ¶¯µÄ²»´ø¹¤¾ßÁ÷³Ì£¬¹Û²ì°ÑÎÕÕûÌå¸Ð¾õ
+1. å…ˆå®Œæˆä¸€éæ‰‹åŠ¨çš„ä¸å¸¦å·¥å…·æµç¨‹ï¼Œè§‚å¯ŸæŠŠæ¡æ•´ä½“æ„Ÿè§‰
 
-2. ´ò¿ªChrome¿ª·¢Õß¹¤¾ß»òÕßBurp£¬²é¿´¹Ø¼üÐÔµÄÇëÇó°ü
+2. æ‰“å¼€Chromeå¼€å‘è€…å·¥å…·æˆ–è€…Burpï¼ŒæŸ¥çœ‹å…³é”®æ€§çš„è¯·æ±‚åŒ…
 
-3. Ð´µã³õÊ¼»¯µÄ´úÂë£¬ÒýÈë°ü£¬a=EasyLogin()
+3. å†™ç‚¹åˆå§‹åŒ–çš„ä»£ç ï¼Œå¼•å…¥åŒ…ï¼Œa=EasyLogin()
 
-4. ·ÖÎöÇëÇóÄÚÈÝ£¬´ÓÍøÒ³Ô´´úÂë»òÕßÆäËûÇëÇóÖÐÕÒµ½ÖëË¿Âí¼££¬Æ´´Õ³öÕýÈ·µÄÇëÇó°ü
+4. åˆ†æžè¯·æ±‚å†…å®¹ï¼Œä»Žç½‘é¡µæºä»£ç æˆ–è€…å…¶ä»–è¯·æ±‚ä¸­æ‰¾åˆ°è››ä¸é©¬è¿¹ï¼Œæ‹¼å‡‘å‡ºæ­£ç¡®çš„è¯·æ±‚åŒ…
 
-    ÕâÒ»²½¾ÍÒ²ÐíÐèÒªÏÈget£¬´ÓÔ´´úÂëµÃµ½tokenµÄ²Ù×÷ºÍµÃµ½cookie
+    è¿™ä¸€æ­¥å°±ä¹Ÿè®¸éœ€è¦å…ˆgetï¼Œä»Žæºä»£ç å¾—åˆ°tokençš„æ“ä½œå’Œå¾—åˆ°cookie
     
-    £¨EasyLogin»á×Ô¼º´¦ÀíºÃcookie£¬ÎÞÐè·ÑÐÄ£©
+    ï¼ˆEasyLoginä¼šè‡ªå·±å¤„ç†å¥½cookieï¼Œæ— éœ€è´¹å¿ƒï¼‰
 
-5. ·¢³öpostÇëÇó£¬·ÖÎö·µ»ØµÄÄÚÈÝ
+5. å‘å‡ºpostè¯·æ±‚ï¼Œåˆ†æžè¿”å›žçš„å†…å®¹
 
-    »òÐíÊÇ¸öjson£¿¿ÉÒÔx.json()
+    æˆ–è®¸æ˜¯ä¸ªjsonï¼Ÿå¯ä»¥x.json()
     
-    Ò»°ã¿ÉÄÜ¾ÍÊÇ¸öÒ³Ãæ£¬ÄÇ¾Ía.b.find°É
+    ä¸€èˆ¬å¯èƒ½å°±æ˜¯ä¸ªé¡µé¢ï¼Œé‚£å°±a.b.findå§
     
-    £¨aÊÇEasyLoginµÄ¶ÔÏó£¬a.bÊÇBeautifulSoupµÄ¶ÔÏó£¬´Á¡ú[ÕâÀï](http://cuiqingcai.com/1319.html)¡û¿´¿´BeautifulSoupÔõÃ´ÓÃ£©
+    ï¼ˆaæ˜¯EasyLoginçš„å¯¹è±¡ï¼Œa.bæ˜¯BeautifulSoupçš„å¯¹è±¡ï¼Œæˆ³â†’[è¿™é‡Œ](http://cuiqingcai.com/1319.html)â†çœ‹çœ‹BeautifulSoupæ€Žä¹ˆç”¨ï¼‰
 
-6. ·þÎñÆ÷ÄÜÕýÈ·ÏìÓ¦¾Í»ù±¾ÍêÊÂÀ²£¬²»·ÁÔÙÌáÈ¡³Éº¯Êý¡¢·â×°³ÉÀà¡¢¸øÎÒ·¢ÆðÒ»¸öPullÇëÇó£¿
+6. æœåŠ¡å™¨èƒ½æ­£ç¡®å“åº”å°±åŸºæœ¬å®Œäº‹å•¦ï¼Œä¸å¦¨å†æå–æˆå‡½æ•°ã€å°è£…æˆç±»ã€ç»™æˆ‘å‘èµ·ä¸€ä¸ªPullè¯·æ±‚ï¼Ÿ
