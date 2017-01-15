@@ -324,6 +324,25 @@ class EasyLogin:
         else:
             return data
 
+    def d(self,tag,attrs,all=False):
+        """
+        delete some useless tags
+        :param tag: tag name
+        :param attrs: tag attrs
+        :param all: delete all matches or just the first one
+        :return: False when not found any matches
+        """
+        if self.b is None:
+            return False
+        tags=self.b.find_all(tag,attrs=attrs)
+        if len(tags)==0:
+            return False
+        if all == False:
+            tags = tags[0:1]
+        for tag in tags:
+            tag.extract()
+        return True
+
 
 if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
     a = EasyLogin()
