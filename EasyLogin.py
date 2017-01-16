@@ -343,6 +343,17 @@ class EasyLogin:
             tag.extract()
         return True
 
+    @staticmethod
+    def safefilename(filename):
+        """
+        convert a string to a safe filename
+        :param filename: a string, may be url or name
+        :return: special chars replaced with _
+        """
+        for i in "\\/:*?\"<>|":
+            filename=filename.replace(i,"_")
+        return filename
+
 
 if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
     a = EasyLogin()
