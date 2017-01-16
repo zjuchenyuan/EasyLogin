@@ -82,7 +82,7 @@ class EasyLogin:
         return c
     cookie = property(showcookie)
 
-    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None):
+    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None):
         """
         HTTP GET method, default save soup to self.b
         :param url: a url, example: "http://ip.cn"
@@ -115,6 +115,11 @@ class EasyLogin:
                 headers = {}
             headers["Cookie"] = cookiestring
         x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies)
+        if failstring is not None:
+            class EasyLogin_ValidateFail:
+                pass
+            if failstring in x.text:
+                raise EasyLogin_ValidateFail
         if result:
                 page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
                 self.b = BeautifulSoup(page, 'html.parser')
