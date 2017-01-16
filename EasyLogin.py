@@ -91,6 +91,7 @@ class EasyLogin:
         :param headers: more headers to be sent
         :param o: return object or just page text
         :param cache: filename to write cache, if already exists, use cache rather than really get; using cache=True to use md5(url) as cache file name
+        :param failstring: if failstring occurs in text, raise an exception
         :return page text or object(o=True)
         """
         if cache is True:
@@ -355,7 +356,7 @@ class EasyLogin:
         :param filename: a string, may be url or name
         :return: special chars replaced with _
         """
-        for i in "\\/:*?\"<>|":
+        for i in "\\/:*?\"<>|$":
             filename=filename.replace(i,"_")
         return filename
 
