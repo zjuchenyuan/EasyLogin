@@ -315,8 +315,10 @@ class EasyLogin:
         """
         tmp_tag = BeautifulSoup("""<%s %s></%s>""" % (tag, attrs_string, tag), "html.parser").find(tag)
 
-        def mysearch(tag):
-            if tag.attrs == tmp_tag.attrs:
+        def mysearch(itag):
+            if itag.name != tag:
+                return False
+            if itag.attrs == tmp_tag.attrs:
                 return True
             else:
                 return False
