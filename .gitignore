@@ -1,5 +1,8 @@
-# Byte-compiled / optimized / DLL files
+# Userconfig
 *.status
+config.py
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
