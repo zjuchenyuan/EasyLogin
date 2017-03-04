@@ -23,16 +23,26 @@ def islogin():
 
 def purge_rule_request(urls):
     """
+    urls is multiple urls(must contain *) separated by '\n'
     :param urls: "\n".join([url1,url2])
     """
     global a
-    x=a.get("https://console.upyun.com/purge/purge_rule/",o=True)
+    a.get("https://console.upyun.com/purge/purge_rule/",result=False)
     xsrftoken=a.s.cookies["XSRF-TOKEN"]
     x=a.post_json("https://console.upyun.com/api/buckets/purge/batch/",{"source_url": urls, "nofi": 0, "delay": 3600},headers={"x-xsrf-token":xsrftoken})
     return [i["status"] for i in x["data"]]
 
 if __name__=="__main__":
-    import config
-    if not islogin():
-        login(config.USERNAME,config.PASSWORD)
-    print(purge_rule_request("https://py3.io/*"))
+    try:
+        import config
+        config.USERNAME
+        config.PASSWORD
+    except:
+        print("Please write your USERNAME and PASSWORD in config.py")
+        exit(1)
+    if len(sys.argv)<2:
+        print("Example: python3 upyun.py https://py3.io/*")
+    else:
+        if not islogin():
+            login(config.USERNAME,config.PASSWORD)
+        print(purge_rule_request("\n".join(sys.argv[1:])))
