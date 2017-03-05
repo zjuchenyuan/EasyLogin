@@ -72,12 +72,20 @@ __cookiestring__: You can copy this string from Chrome
 
 __cookiefile__: this file is created by `save=True`, which we will talk about later. If this file does not exist, nothing will happen.
 
-## get/post
+## Make a request: get/post
 
-Here are a lot of useful methods in EasyLogin, but the essential one must be `get` and `post`
+Here are a lot of useful methods in EasyLogin, but the essential ones must be `get` and `post`
 
 ```
 def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None)
 
 def post(self, url, data, result=True, save=False, headers=None,cache=None)
 ```
+
+### Before we continue...
+
+Do you know about HTTP protocol? If not, look at [this](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol).
+
+Here is a screenshot of using Chrome Developer Tools to inspect the http(s) request, in this picture, you can see some headers are sent to the server. Among these headers, `Cookie` and `User-Agent`(case-insensitive) are the most important for us writing a spider, by the way, sometimes the `Referer` is also essential.
+
+![](img/screenshot.jpg)
