@@ -1,7 +1,7 @@
 # coding:utf-8
 
 # TODO:
-#   support for json object post; support file upload
+#   support file upload
 #   more document is also needed
 
 try:
