@@ -90,6 +90,31 @@
 
 ![](img/chrome.jpg)
 
+### 比较用与不用EasyLogin的代码区别
+
+这个比较的例子其实就是我写`EasyLogin`的原因，BeautifulSoup这么长的单词，还有User-Agent的好烦噢...
+
+#### 不用EasyLogin，仅仅使用requests和BeautifulSoup：
+
+```
+import requests
+from bs4 import BeautifulSoup
+x = requests.get("http://ip.cn",headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"})
+soup = BeautifulSoup(x.content.decode(),"html.parser")
+for i in soup.find_all("code"):
+    print(i.text)
+```
+
+#### 使用EasyLogin
+
+```
+from EasyLogin import EasyLogin
+a=EasyLogin()
+a.get("http://ip.cn")
+for i in a.b.find_all("code"):
+    print(i.text)
+```
+
 ## 例子们
 
 [戳我看看例子们](examples/) 
