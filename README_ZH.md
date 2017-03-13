@@ -60,7 +60,7 @@
 
 1. 先完成一遍手动的不带工具流程，观察把握整体感觉
 
-2. 打开Chrome开发者工具或者Burp，查看关键性的请求包
+2. 打开Chrome开发者工具或者Burp，查看关键性的请求包，具体开发者工具截图见下文
 
 3. 写点初始化的代码，引入包，a=EasyLogin()
 
@@ -84,7 +84,11 @@
 
 你是否足够了解HTTP协议？来看看[HTTP协议入门](http://www.ruanyifeng.com/blog/2016/08/http.html)吧
 
+书写爬虫的时候有几个关键词需要理解：Cookie, User-Agent, Referer, Proxy，如果不理解没关系，Google就好了嘛
 
+这里展示一个使用Chrome开发人员工具的屏幕截图，图中显示出了一个请求中浏览器向服务器发送了一些请求头(Headers)，其中就有关键的`Cookie`与`User-Agent` (大小写不敏感)，有时候如果对方有反爬虫措施，表示请求来源的`Referer`也是必要的。
+
+![](img/chrome.jpg)
 
 ## 例子们
 
