@@ -75,11 +75,11 @@ a=EasyLogin(cookie={"a":"b","c":"d"},cookiestring="e=f;g=h",cookiefile="my.statu
 
 When you create the object, you can specify cookie by using `cookie` or `cookiestring`, or even restore cookie status from a file `cookiefile`. And for debug or bypass GFW, you can set the proxy.
 
-__cookie__ : a dict, key-value
+_cookie_ : a dict, key-value
 
-__cookiestring__: You can copy this string from Chrome
+_cookiestring_: You can copy this string from Chrome
 
-__cookiefile__: this file is created by `save=True`, which we will talk about later. If this file does not exist, nothing will happen.
+_cookiefile_: this file is created by `save=True`, which we will talk about later. If this file does not exist, nothing will happen.
 
 ## Make a request: get/post
 

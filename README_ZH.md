@@ -92,7 +92,7 @@
 
 ### 比较用与不用EasyLogin的代码区别
 
-这个比较的例子其实就是我写`EasyLogin`的原因，BeautifulSoup这么长的单词，还有User-Agent的好烦噢...
+这个比较的例子其实就是我写`EasyLogin`的原因，BeautifulSoup这么长的单词，还有User-Agent的好烦噢... 本例子仅仅比较了最基础的用法
 
 #### 不用EasyLogin，仅仅使用requests和BeautifulSoup：
 
@@ -114,6 +114,27 @@ a.get("http://ip.cn")
 for i in a.b.find_all("code"):
     print(i.text)
 ```
+
+### 对象初始化
+
+```
+def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None, session=None)
+```
+
+举个例子：
+
+```
+from EasyLogin import EasyLogin
+a=EasyLogin(cookie={"a":"b","c":"d"},cookiestring="e=f;g=h",cookiefile="my.status",proxy="socks5://127.0.0.1:1080")
+```
+
+EasyLogin的构造时，可以提供`cookie`字典,`cookiestring`字符串或者一个`cookiefile`文件。另外，为了调试或网络加速，你也可以指定代理，这个代理将用于以后所有的http和https请求。
+
+_cookie_ : 一个字典，键-值
+
+_cookiestring_ : 你可以从Chrome开发者工具复制这个字符串
+
+_cookiefile_ : 本参数传入一个文件名，这个文件由之后提到的`save=True`生成。如果指定的这个文件不存在，没有任何警告/异常。
 
 ## 例子们
 
