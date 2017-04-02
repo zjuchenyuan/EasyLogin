@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<script type="text/javascript">
+if (document.domain != 'qlmoney.com' && document.domain != 'www.qlmoney.com' && document.domain != 'm.qlmoney.com' && document.domain !=  'wenhuayaowen.qlmoney.com' && document.domain !=  'wenhuashoucang.qlmoney.com' && document.domain !=  'puhui.qlmoney.com'){  
+	window.location.href='http://www.cyberpolice.cn/wfjb/';  
+} 
+</script>
+<html>
+<head>
+<meta charset="utf-8">
+<title>刘士余：股市直接持有制度占优势 将完善跨境交易 - 齐鲁财富网</title>
+<meta name="keywords" content="刘士余股市,中国股市,直接持有股票,跨境交易">
+<meta name="description" content="齐鲁财富网：在近日证监会会同中国证券登记结算有限责任公司在京承办了国际统一私法协会(UNIDROIT)新兴市场委员会第四次会议暨金融法研讨会上，证监会主席刘士余发表讲话。他表示，中国股票市场实行“直接持有”制度，这一透明持有体系是中国资本市场的一大特色。">
+<meta property="qc:admins" content="3070107217614576516375" />
+<base href="http://www.qlmoney.com">
+<base target="_self" />
+<meta name="date" content="2017-04-01 16:14:50" />
+<meta name="mobile-agent" content="format=html5;url=http://m.qlmoney.com/content/20170401-258437.html">
+<script src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js">
+//声明_czc对象:
+var _czc = _czc || [];
+//绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+_czc.push(["_setAccount", "1258289815"]);
+</script>
+<link rel="stylesheet" href="http://www.qlmoney.com/Public/Css/base.css"  />
+<link rel="stylesheet" href="http://www.qlmoney.com/Public/Css/style.css"  />
+</head>
+<body>
+	<!--<div id="top">
+		<div class="main_box f_r register">
+			<span><a href="http://www.qlmoney.com/index.php?m=member&c=content&a=publish" target="_self">我要投稿</a></span>
+						<span><a href="http://www.qlmoney.com/index.php?m=member&c=index&a=login" target="_self">登录</a></span>
+			<span>|</span>
+			<span><a href="http://www.qlmoney.com/index.php?m=member&c=index&a=register" target="_self">注册</a></span>
+					</div>
+	</div>-->
+	<div style="height:55px">
+	<div style="width: 100%; position: fixed; top: 0px; left: 0px; margin: 0px auto; z-index: 9999; border-bottom: 1px solid rgb(237, 238, 240); border-top: 3px solid rgb(253, 102, 57); background: rgb(255, 255, 255) none repeat scroll 0% 0%; height: 42px;">
+	<div id="top">
+		<div style="float:left;height:40px;line-height:40px"><a  href="#">齐鲁财富网首页</a></div>
+		<div class="main_box f_r register">
+			<span><a href="/index.php?m=member&c=content&a=publish" target="_self" >我要投稿</a></span>
+						<span><a href="/index.php?m=member&c=index&a=login" target="_self" style="color: #fff;background:#fd6639;padding:3px 6px;border-radius:4px">登录</a></span>
+			<span>|</span>
+			<span><a href="/index.php?m=member&c=index&a=register" target="_self" >注册</a></span>
+					</div>
+	</div>
+	</div>
+	</div>
+	<div id="header">
+		<div class="ad_banner">
+			<ul>
+				<li><a id= "gg_cbsl" href="/changbaishan/" target="_blank"><img src="http://www.qlmoney.com/Public/Img/cbslhq.jpg" /></a></li>
+				<li><a id= "gg_yt" style="display:none" href="/yuantong/"><img src="http://www.qlmoney.com/Public/Img/temp2.jpg" /></a></li>
+				<!--<li><a href="http://hmk.qlmoney.com"><img src="http://www.qlmoney.com/Public/Img/temp2.gif" /></a></li>-->
+<!--				<li><a href="http://www.qlmoney.com/index.php?m=vote&c=index&a=show&show_type=1&subjectid=9"><img src="http://www.qlmoney.com/Public/Img/temp3.png" /></a></li>
+-->			</ul>
+		</div>
+		<div class="bk10"></div>
+		<div class="main_box">
+			<div class="logo f_l"><a href="/"><img src="http://www.qlmoney.com/Public/Img/logo.png" /></a></div>
+			
+			<!--<div class="logo_ad f_l"><a href="/content/20150401-26638.html"><img src="http://www.qlmoney.com/Public/Img/temp4.gif"></a></div>
+			
+			<div class="logo_ad f_l"><a href="http://stock.qlmoney.com"><img src="http://www.qlmoney.com/Public/Img/temp4.gif"></a></div>
+			-->
+			<div class="logo_ad f_l"><a rel="nofollow" href="http://www.qlpe8.com"><img src="http://www.qlmoney.com/Public/Img/qlpe8.gif"></a></div>
+			<div class="search f_r" id="search_box">
+
+				
+			</div>
+		</div>
+	</div>
+	<div class="bk10"></div>
+			<script language="JavaScript" type="text/JavaScript">
+				var counter = 0;
+				$("#gg_cbsl").show();
+				$("#gg_yt").hide();
+				function changeGG(){
+					if(counter == 0){
+						$("#gg_cbsl").show();
+						$("#gg_yt").hide();
+						counter = 1;
+					}else{
+						$("#gg_cbsl").hide();
+						$("#gg_yt").show();
+						counter = 0;
+					}
+				}
+				var timer = window.setInterval("changeGG()", 5000);
+			</script><!--<div id="nav">
+		<span><a class="f_bold" href="/" target="_self" title="齐鲁财富网-山东财经门户">首页</a></span>
+		<span>|</span>
+		<span class="f_bold"><a href="http://www.qlmoney.com/caijinglushang/" target="_self">财经</a></span>
+		<span><a href="http://www.qlmoney.com/company/" target="_self">公司</a></span>
+		<span><a href="http://www.qlmoney.com/cjls/" target="_self">鲁商</a></span>
+
+		<span>|</span>
+		<span class="f_bold"><a href="http://www.qlmoney.com/tzhlwjr/" target="_self">投资</a></span>
+		<span><a href="http://www.qlmoney.com/xsb/" target="_self">新三板</a></span>
+		<span><a href="http://www.qlmoney.com/hulianwangjinrong/" target="_self">P2P</a></span>
+		<span>|</span>
+		<span class="f_bold"><a href="http://www.qlmoney.com/kjhlw/" target="_self">科技</a></span>
+		<span><a href="http://www.qlmoney.com/hulianwang/" target="_self">互联网+</a></span>
+		<span><a href="http://www.qlmoney.com/yunyundianshang/" target="_self">电商</a></span>
+		<span>|</span>
+		<span class="f_bold"><a href="http://www.qlmoney.com/minshengxiaofei/" target="_self">民生</a></span>
+		<span><a href="http://www.qlmoney.com/shenghuoxiaofei/" target="_self">消费</a></span>
+		<span><a href="http://www.qlmoney.com/shenghuobaozhang/" target="_self">保障</a></span>
+		<span>|</span>
+		<span class="f_bold"><a href="http://www.qlmoney.com/wenhuashoucang/index.html" target="_self">文化</a></span>
+		<span><a href="http://www.qlmoney.com/yishushichang/" target="_self">收藏</a></span>
+		<span><a href="http://www.qlmoney.com/shuhuamingjia/" target="_self">名家</a></span>
+		<span>|</span>
+		<span class="f_bold"><a href="http://www.qlmoney.com/sixiangzhuanlan/" target="_self">思想</a></span>
+		<span><a href="http://www.qlmoney.com/caijingguancha/" target="_self">观点</a></span>
+		<span><a href="http://www.qlmoney.com/mingjiashidian/" target="_self">专栏</a></span>	
+		<span>|</span>
+		<span class="f_bold"><a href="http://www.qlmoney.com/caifushenghuo/" target="_self">财富生活</a></span>
+		<span><a href="http://www.qlmoney.com/renshengbaitai/" target="_self">百态</a></span>
+		<span><a href="http://www.qlmoney.com/shendujiemi/" target="_self">揭秘</a></span>
+		<span>|</span>
+		<span class="f_bold"><a style="padding-left: 15px;background: url(http://www.qlmoney.com/Public/Img/icon.png) no-repeat left -763px;" href="http://hmk.qlmoney.com" target="_blank">黑煤客</a></span>
+</div>
+
+-->
+<!-- 导航开始 -->
+
+		<div id="nav">
+			<div class="nav-mod-1 nav-mod-w">
+				<ul>
+					<li><a target="_blank" href="http://www.qlmoney.com/zhengjing/"><b>政经</b></a></li>
+				</ul>
+				<ul>
+					<li><a target="_blank" href="http://www.qlmoney.com/sd/"><b>山东</b></a></li>
+				</ul>
+
+			</div>
+			<div class="nav-mod-1">
+				<div class="lgsc_icon fr">
+					<!--<a href="http://puhui.qlmoney.com/"><img src="http://www.qlmoney.com/Public/Img/puhui_icon.jpg"></a> -->
+					<a href="http://www.qlmoney.com/phjr/"><img src="http://www.qlmoney.com/Public/Img/puhui_icon.jpg"></a>
+					
+				</div>
+				<div class="fl">
+					<ul>
+						<li><a target="_blank" href="http://www.qlmoney.com/caijinglushang/"><b>财经</b></a></li>
+						<li><a target="_blank" href="http://www.qlmoney.com/company/">公司</a></li>
+						<li><a target="_blank" href="http://www.qlmoney.com/cjls/">鲁商</a></li>
+						<li><a target="_blank" href="http://www.qlmoney.com/chanjing/">产经</a></li>
+					</ul>
+					<ul>
+						<li><a target="_blank" href="http://www.qlmoney.com/tzhlwjr/"><b>投资</b></a></li>
+						<li><a target="_blank" href="http://www.qlmoney.com/xsb/">新三板</a></li>
+						<li><a target="_blank" href="http://www.qlmoney.com/hulianwangjinrong/">P2P</a></li>
+						<li><a target="_blank" href="http://www.qlmoney.com/licai/">理财</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="nav-mod-1" style="width: 215px;background-position: 203px 7px;">
+				<ul>
+					<li><a target="_blank" href="http://www.qlmoney.com/kjhlw/"><b>科技</b></a></li>
+					<li style="width: 56px;"><a target="_blank" href="http://www.qlmoney.com/hulianwang/">互联网+</a></li>
+					<li><a target="_blank" href="http://www.qlmoney.com/yunyundianshang/">电商</a></li>
+					<li><a target="_blank" href="http://www.qlmoney.com/itrenyu/"> IT人</a></li>
+				</ul>
+				<ul>
+					<li><a target="_blank" href="http://www.qlmoney.com/minshengxiaofei/"><b>民生</b></a></li>
+					<li style="width: 56px;"><a target="_blank" href="http://www.qlmoney.com/shenghuoxiaofei/">消&nbsp;&nbsp;&nbsp;&nbsp;费</a></li>
+					<li><a target="_blank" href="http://www.qlmoney.com/jujiachuxing/"> 出行</a></li>
+					<li><a target="_blank" href="http://www.qlmoney.com/shenghuobaozhang/"> 保障</a></li>
+				</ul>
+
+			</div>
+			<div class="nav-mod-1" style="width: 143px;background-position: 140px 7px;">
+				<ul>
+					<li><a target="_blank" href="http://www.qlmoney.com/sixiangzhuanlan/"><b>思想</b></a></li>
+					<li><a target="_blank" href="http://www.qlmoney.com/caijingguancha/">观点</a></li>
+					<li><a target="_blank" href="http://www.qlmoney.com/mingjiashidian/">专栏</a></li>
+				</ul>
+				<ul>
+					<li><a target="_blank" href="http://www.qlmoney.com/wenhuashoucang/"><b>文化</b></a></li>
+					<li style="width:80px;"><a target="_blank" href="http://www.qlmoney.com/caifushenghuo/"><b>财富&nbsp;&nbsp;·&nbsp;&nbsp;生活</b></a></li>
+				</ul>
+
+			</div>
+			<div class="nav-mod-1" style="width: 255px;background-position: 250px 7px;">
+				<div class="lgsc_icon fl">
+					<a rel="nofollow" target="_blank" href="http://stock.qlmoney.com/"><img src="http://www.qlmoney.com/Public/Img/lgsc_icon.jpg" /></a>
+				</div>
+				<div class="fl">
+					<ul>
+						<li><a rel="nofollow" target="_blank" href="http://stock.qlmoney.com/news/ShiChangGuanCha.html">观察</a></li>
+						<li><a rel="nofollow" target="_blank" href="http://stock.qlmoney.com/news/LuGuZhiShu.html">指数</a></li>
+						<li><a rel="nofollow" target="_blank" href="http://stock.qlmoney.com/market/hqzx_hslg.html">行情</a></li>
+						<li><a rel="nofollow" target="_blank" href="http://stock.qlmoney.com/data/index.html">数据</a></li>
+					</ul>
+					<ul>
+						<li><a rel="nofollow" target="_blank" href="http://stock.qlmoney.com/news/JingXuanYanBao.html">研究</a></li>
+						<li><a rel="nofollow" target="_blank" href="http://stock.qlmoney.com/news/FaGuiZhengQuan.html">法规</a></li>
+						<!--<li><a target="_blank" href="http://stock.qlmoney.com/news/ZhuanTiZhengQuan.html">专题</a></li>
+						-->
+						<li><a rel="nofollow" target="_blank" href="http://stock.qlmoney.com/news/PaiHangBang.html">排行</a></li>
+						<li><a rel="nofollow" target="_blank" style="color:red" href="http://blog.qlmoney.com">博客</a></li>
+						<!--<li><a rel="nofollow" target="_blank" style="color:red" href="http://www.qlmoney.cn">论坛</a></li>
+						-->
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="nav-mod-1 nav-mod-w-none">
+				<div class="lgsc_icon fl">
+					<a rel="nofollow" target="_blank" href="http://firm.qlmoney.com/"><img src="http://www.qlmoney.com/Public/Img/qyk_icon.png" /></a>
+				</div>
+				<!--<ul>
+					<li><a target="_blank" href="http://firm.qlmoney.com//"><b>企业库</b></a></li>
+				</ul>
+		
+				<ul>
+					<li><a target="_blank" href="http://hmk.qlmoney.com/"><b>黑煤客</b></a></li>
+				</ul>
+				-->
+			</div>
+		</div>
+	
+		
+		<!-- 导航结束 --><div id="main">
+	<div id="content_l" class="f_l">
+		<div class="main_box position"><a href="/" rel="nofollow">首页</a>&gt;<span><a href="http://www.qlmoney.com/tzhlwjr/">投资·互联网金融</a> > <a href="http://www.qlmoney.com/gushi/">股市</a> > 正文</span></div>
+		<div class="main_box">
+			<h1 class="text_c business_title" style="font-size: 24px;">刘士余：股市直接持有制度占优势 将完善跨境交易</h1>
+		</div>
+		<div class="main_box content_info ">
+			<span>2017-04-01 16:14:50</span>
+			<span>来源：华夏时报</span>
+			<span>浏览：559</span>
+		</div>
+		<div class="main_box descripition">
+			<p style="height: 82px;">
+									在近日证监会会同中国证券登记结算有限责任公司在京承办了国际统一私法协会(UNIDROIT)新兴市场委员会第四次会议暨金融法研讨会上，证监会主席刘士余发表讲话。他表示，中国股票市场实行“直接持有”制度，这一透明持有体系是中国资本市场的一大特色。							</p>
+		</div>
+		<div class="main_box content_show">
+			　　原标题：刘士余：中国股市直接持有制度优势明显&nbsp;
+<p>　　3月31日，证监会新闻发言人邓舸表示，在近日证监会会同中国证券登记结算有限责任公司在京承办了国际统一私法协会(UNIDROIT)新兴市场委员会第四次会议暨金融法研讨会上，证监会主席刘士余发表讲话。他表示，中国股票市场实行&ldquo;直接持有&rdquo;制度，这一透明持有体系是中国资本市场的一大特色，是实施&ldquo;看穿式&rdquo;市场监管和有效保护投资者权益的重要基础，在保障市场公开透明、落实&ldquo;三公&rdquo;原则方面具有独特的制度优势。</p>
+<p>　　刘士余在会上指出，UNIDROIT起草制定的《中介化证券实体法公约》是国际上重要的基础性法律制度，虽然与中国的做法存在很大不同，但值得中国证监会和证券行业的高度重视。要处理好对外开放过程中与境外不同制度的协调衔接，需要进一步加强对国际市场法律制度的跟踪研究和吸收移植，同时使中国的法治建设从中受益。</p>
+<p>　　刘士余强调，健全与完善资本市场的基础性法律制度是资本市场稳健发展的根本保障。特别是在金融全球化的大背景下，解决好跨境、跨业和跨市场的金融市场国际性法律问题，对于充分保护境内外投资者的合法权益，有效实施跨境监管合作，具有特别重大的现实意义。</p>
+<p>　　刘士余指出，要抓住《证券法》修订和《期货法》制定工作的契机，完善资本市场跨境交易活动与跨境监管协作制度，在保持自身制度特色和优势的同时，认真借鉴国际做法和经验，以前瞻性和国际化的视野研究解决市场开放过程中遇到的问题和挑战。</p>
+		</div>
+		<div class="pages text_c"></div>
+		
+		<div class="main_box">
+			<div class="main_box f_l content_tag">
+				
+															</div>
+			<div class="main_box f_r content_editor">
+				<span>责任编辑：谭雅文</span>
+			</div>
+		</div>
+		<div class="bk10"></div>
+		<div class="main_box">
+			<ul>
+			<li>上一篇：<a href="http://www.qlmoney.com/content/20170401-258408.html">第三批自贸区今挂牌 七大自贸区概念股有哪些丨附股</a></li>
+			<li>下一篇：<a href="javascript:alert('最后一页');">最后一页</a></li>
+			</ul>
+		</div>
+		<div class="bk10"></div>
+		<div class="main_box">
+			<div class="main_box" style="border-bottom: 1px solid #ccc;">相关文章</div>
+			<div class="bk10"></div>
+			<div class="main_box">
+				<ul>
+															<li class="dot_orange"><a href="http://www.qlmoney.com/content/20141123-4992.html" title="新“庄股”：新华社调查中国股市操纵之手">新“庄股”：新华社调查中国股市操纵之手</a></li>
+										<li class="dot_orange"><a href="http://www.qlmoney.com/content/20150226-19760.html" title="中国股市十人炒九人亏 国企成唯一受益者">中国股市十人炒九人亏 国企成唯一受益者</a></li>
+										<li class="dot_orange"><a href="http://www.qlmoney.com/content/20150401-26530.html" title="“中国大妈”玩转中国股市 能否创造人类证券史上的奇迹？">“中国大妈”玩转中国股市 能否创造人类证券史上的奇迹？</a></li>
+										<li class="dot_orange"><a href="http://www.qlmoney.com/content/20150708-53652.html" title="BFS牛汇：希腊和中国股市担忧续挫原油">BFS牛汇：希腊和中国股市担忧续挫原油</a></li>
+										<li class="dot_orange"><a href="http://www.qlmoney.com/content/20150719-58611.html" title="股市分析：A股中期仍有波动可能 五条建议救市">股市分析：A股中期仍有波动可能 五条建议救市</a></li>
+															
+				</ul>
+			</div>
+		</div>
+		<!-- UJian Button BEGIN -->
+<!--<div class="ujian-hook"></div>
+<script type="text/javascript" rel="nofollow">var ujian_config = {showType:1,picSize:84,textHeight:45};</script>
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js" rel="nofollow"></script>
+<a rel="nofollow"  href="http://www.ujian.cc" style="border:0;"><img src="http://img.ujian.cc/pixel.png" alt="友荐云推荐" style="border:0;padding:0;margin:0;" /></a>
+--><!-- UJian Button END -->
+		<!-- baidu tuijian -->
+		<script>document.write(unescape('%3Cdiv id="hm_t_115147"%3E%3C/div%3E%3Cscript charset="utf-8" src="http://crs.baidu.com/t.js?siteId=b4e25a74388c0ec0d8b96620e71673d0&planId=115147&async=0&referer=') + encodeURIComponent(document.referrer) + '&title=' + encodeURIComponent(document.title) + '&rnd=' + (+new Date) + unescape('"%3E%3C/script%3E'));</script>		<!--<script type="text/javascript">
+			/*660*84 创建于 2016-01-07*/
+			var cpro_id = "u2481775";
+		</script>
+		<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+		-->
+		<div class="bk10"></div>
+                <div class="main_box">
+                    <div class="share_c">
+                        <!-- JiaThis Button BEGIN -->
+                        <div class="jiathis_style_32x32"><span class="jiathis_txt">分享到：</span>
+                            <a class="jiathis_button_weixin"></a>
+                            <a class="jiathis_button_tsina"></a>
+                            <a class="jiathis_button_qzone"></a>
+                            <a class="jiathis_button_tieba"></a>
+                            <a class="jiathis_button_cqq"></a>
+                        </div>
+                        <script type="text/javascript" >
+                        var jiathis_config={
+                                data_track_clickback:true,
+                                summary:"",
+                                shortUrl:false,
+                                hideMore:true
+                        }
+                        </script>
+                        <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2068958" charset="utf-8"></script>
+                        <!-- JiaThis Button END -->
+                    </div>
+
+                    <a href="javascript:void(0);" id="favorite" onclick="add_favorite('刘士余：股市直接持有制度占优势 将完善跨境交易',258437);return false;" class="add_collect" title="我的收藏">
+                        加入收藏
+                    </a> 
+                </div>
+		<div class="bk10"></div>
+		
+		<a><img src="http://www.qlmoney.com/Public/Img/wj.jpg" /></a>
+                <link href="/css/embed.default.css" rel="stylesheet" type="text/css" />
+                <script src="/static/js/sea.js"></script>
+                <script>
+                        seajs.use('post');
+                </script>
+                <div class="main_box">
+                                        <div class="pinglun">
+                        <div class="ds-thread" id="ds-thread" data-thread-key="258437"></div>
+                    </div>
+                </div>
+		<div class="clear"></div>
+	</div>
+	<div id="list_r" class="f_r">
+    <div class="main_box">
+        <div class="jiaoyi">
+            <div class="jy_weibo"><a href="http://weibo.com/qlcaifu" target="_blank" rel="nofollow"><img src="images/bg/sina_weibo.png" alt="新浪微博"></a><a href="" target="_blank"><img src="images/bg/qq_weibo.png" alt="腾讯微博"></a></div>
+            <div class="imgtxt03">
+                <div class="img"><span class="it02ib"><img src="images/bg/caifu.png" width="65" height="66" alt="齐鲁财富网"></span></div>
+                <div class="txt">
+                    <div class="f_bold">齐鲁财富网移动客户端</div>
+                    <p>
+                    <table width="206" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;">
+                        <tr>
+                            <td width="59"><a href="https://itunes.apple.com/cn/app/id1079248150?mt=8" target="_blank"><img src="images/bg/icon_ios.png" alt="IOS" /></a></td>
+                            <td width="83"><a href="http://219.146.241.17/imtt.dd.qq.com/16891/4F9191065431E40870F51EFA1C7FCBF0.apk?mkey=58c1db952e621ecf&f=cf87&c=0&fsname=com.qlmoney_1.0.3_3.apk&csr=1bbd&p=.apk"><img src="images/bg/icon_android.png" alt="android" /></a></td>
+                            <td width="64">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td width="59"><img src="images/bg/icon_weixin.png" width="59" alt="微信"></td>
+                            <td width="83"><img src="images/bg/icon_kehuduan.png" width="83" alt="手机客户端"></td>
+                            <td width="64"><img src="images/bg/icon_tellook.png" width="64" alt="手机浏览器"></td>
+                        </tr>
+                    </table>
+                    </p>
+                    <div class="xuanfuk" style="z-index:100;"><img width="200" height="200" src="images/bg/liantu.png" alt="二维码"></div>
+                </div>
+                <div style="clear:both; font-size:0; line-height:0;"></div>
+            </div>
+        </div>		
+    </div>
+    <div class="bk10"></div>
+    <div class="main_box list_left">
+        <div class="main_box "><h3 style="width: 100px;">24小时热点</h3></div>
+        <div class="main_box hot_rank">
+            <ul>
+                                                <li class="f12 border-dot" ><span class="f_white f_l text_c">1</span><a href="http://www.qlmoney.com/content/20170402-258475.html" target="_blank" title="山东省委书记刘家义：从今天开始 我就是一名山东人">山东省委书记刘家义：从今天开始 我就是一名山东人</a></li>
+                <li class="f12 border-dot"><span class="f_white f_l text_c">2</span><a href="http://www.qlmoney.com/content/20170402-258472.html" target="_blank" title="济南新市委常委班子亮相 王文涛当选济南市委书记">济南新市委常委班子亮相 王文涛当选济南市委书记</a></li>
+                <li class="f12 border-dot"><span class="f_white f_l text_c">3</span><a href="http://www.qlmoney.com/content/20170402-258488.html" target="_blank" title="济南连续5个月退出全国十大污染城市 清明最高温24℃">济南连续5个月退出全国十大污染城市 清明最高温24℃</a></li>
+                <li class="f12 border-dot" style="background-position-y:-184px;"><span class="f_white f_l text_c">4</span><a href="http://www.qlmoney.com/content/20170402-258489.html" target="_blank" title="山东召回15万辆美利达自行车 24种车快拆杆存缺陷">山东召回15万辆美利达自行车 24种车快拆杆存缺陷</a></li>
+                <li class="f12 border-dot" style="background-position-y:-184px;"><span class="f_white f_l text_c">5</span><a href="http://www.qlmoney.com/content/20170402-258466.html" target="_blank" title="河北雄安新区已定 目前三县都已冻结全部房产过户">河北雄安新区已定 目前三县都已冻结全部房产过户</a></li>
+                <li class="f12 border-dot" style="background-position-y:-184px;"><span class="f_white f_l text_c">6</span><a href="http://www.qlmoney.com/content/20170402-258498.html" target="_blank" title="网信办关停18款传播低俗信息直播类应用 附名单">网信办关停18款传播低俗信息直播类应用 附名单</a></li>
+                            </ul>
+        </div>
+    </div>
+    <div class="bk10"></div>
+    <div class="main_box list_left">
+        <div class="main_box "><h3>热点专题</h3></div>
+        <div class="main_box">
+                                    <div class="index_specal">
+                <a class="f_l" href="http://www.qlmoney.com/special/faguogouzhoubei/" target="_blank"><img src="http://www.qlmoney.com/uploadfile/2016/0613/20160613093553589.png"></a>
+                <div class="f_r">
+                    <div class="f12 f_bold"><a href="http://www.qlmoney.com/special/faguogouzhoubei/" target="_blank">2016年法国欧洲杯烽烟再起 赛程表分组阵容一览</a></div>
+                    <p class="f12">2016法国欧洲杯于北京时间6月11日凌晨开战</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+                        <div class="index_specal">
+                <a class="f_l" href="http://www.qlmoney.com/special/gongke/" target="_blank"><img src="http://www.qlmoney.com/uploadfile/2016/0531/20160531032327231.png"></a>
+                <div class="f_r">
+                    <div class="f12 f_bold"><a href="http://www.qlmoney.com/special/gongke/" target="_blank">济南弓客射箭俱乐部地址 齐鲁财富网送票体验活动开启</a></div>
+                    <p class="f12">济南市弓客射箭俱乐部成立于2011年9月，目</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+                                </div>
+    </div>
+    <!--<script type="text/javascript">
+            /*300*250 创建于 2016-01-06*/
+            var cpro_id = "u2479874";
+            </script>
+    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>-->
+    <a rel="nofollow" href="http://www.ruogucaotang.cn" target="_blank"><img src="http://www.qlmoney.com/Public/Img/rgct_ad.jpg" /></a>
+    <!--<script>var star_uid="800692";var star_tid="17";var star_w="300";var star_h="250";</script><script charset="utf-8" src="http://vip.jixing8.com/js/cpc_i.js"></script>-->
+    <div class="bk10"></div>
+    <div class="main_box list_left">
+        <div class="main_box "><h3>出色生活</h3></div>
+        <div class="main_box">
+                                    <div class="cat_pic_6 line15 f_l">
+                <a href="http://www.qlmoney.com/content/20170402-258510.html" title="张亮儿子天天摆地摊卖玩具 粉丝吆喝：千万不要错过" target="_blank"><img src="http://www.qlmoney.com/uploadfile/2017/0402/thumb_140_90_20170402020359688.jpg" alt="张亮儿子天天摆地摊卖玩具 粉丝吆喝：千万不要错过" title="张亮儿子天天摆地摊卖玩具 粉丝吆喝：千万不要错过"></a>
+                <span><a href="http://www.qlmoney.com/content/20170402-258510.html" title="张亮儿子天天摆地摊卖玩具 粉丝吆喝：千万不要错过" class="f12" target="_blank">张亮儿子天天摆地摊卖玩具 粉丝吆喝：千万不要</a></span>
+            </div>
+                        <div class="cat_pic_6 line15 f_r">
+                <a href="http://www.qlmoney.com/content/20170402-258509.html" title="山西浮山民宅爆炸最新消息：9人死亡 搜救仍在继续" target="_blank"><img src="http://www.qlmoney.com/uploadfile/2017/0402/thumb_140_90_20170402020053859.jpg" alt="山西浮山民宅爆炸最新消息：9人死亡 搜救仍在继续" title="山西浮山民宅爆炸最新消息：9人死亡 搜救仍在继续"></a>
+                <span><a href="http://www.qlmoney.com/content/20170402-258509.html" title="山西浮山民宅爆炸最新消息：9人死亡 搜救仍在继续" class="f12" target="_blank">山西浮山民宅爆炸最新消息：9人死亡 搜救仍在</a></span>
+            </div>
+                        <div class="cat_pic_6 line15 f_l">
+                <a href="http://www.qlmoney.com/content/20170402-258507.html" title="男子掌掴女儿最新消息：女儿被前妻带走 男子被刑拘" target="_blank"><img src="http://www.qlmoney.com/uploadfile/2017/0402/thumb_140_90_20170402111508543.jpg" alt="男子掌掴女儿最新消息：女儿被前妻带走 男子被刑拘" title="男子掌掴女儿最新消息：女儿被前妻带走 男子被刑拘"></a>
+                <span><a href="http://www.qlmoney.com/content/20170402-258507.html" title="男子掌掴女儿最新消息：女儿被前妻带走 男子被刑拘" class="f12" target="_blank">男子掌掴女儿最新消息：女儿被前妻带走 男子被</a></span>
+            </div>
+                        <div class="cat_pic_6 line15 f_r">
+                <a href="http://www.qlmoney.com/content/20170402-258506.html" title="山西浮山县一居民楼爆炸：6人遇难3人被埋 原因未知" target="_blank"><img src="http://www.qlmoney.com/uploadfile/2017/0402/thumb_140_90_20170402105719435.jpg" alt="山西浮山县一居民楼爆炸：6人遇难3人被埋 原因未知" title="山西浮山县一居民楼爆炸：6人遇难3人被埋 原因未知"></a>
+                <span><a href="http://www.qlmoney.com/content/20170402-258506.html" title="山西浮山县一居民楼爆炸：6人遇难3人被埋 原因未知" class="f12" target="_blank">山西浮山县一居民楼爆炸：6人遇难3人被埋 原因</a></span>
+            </div>
+                                </div>
+    </div>
+    <!--<script type="text/javascript">
+            /*300*250 创建于 2016-01-07*/
+            var cpro_id = "u2481745";
+    </script>
+    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>-->
+    <!--<a rel="nofollow" href="http://esf.jn.fang.com/zt/201606/qgindex.html?utm_source=huodong1&utm_medium=click&utm_term=xutian.jn&utm_content=qlcfw&utm_campaign=jnhezuo" target="_blank"><img src="http://www.qlmoney.com/Public/Img/ftj.jpg" /></a>-->
+    <a rel="nofollow" href="http://esf.jn.fang.com/newsecond/news/22757402.htm?utm_source=huodong1&utm_medium=click&utm_term=wangzhenjn&utm_content=qlcfw&utm_campaign=jnhezuo" target="_blank"><img src="http://www.qlmoney.com/Public/Img/ccj.gif" /></a>
+    <div class="bk10"></div>
+    <div class="main_box list_left">
+        <div class="main_box "><h3>专家专栏</h3></div>
+        <div class="bk15"></div>
+                        <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/6326.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/7/6326/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/6326.html" title="">李锦</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/40.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/1/40/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/40.html" title="">胡汝银</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/17.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/1/17/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/17.html" title="">易宪容</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/4014.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/5/4014/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/4014.html" title="">孙国茂</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/20.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/1/20/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/20.html" title="">吴晓求</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/22.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/1/22/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/22.html" title="">巴曙松</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/55.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/1/55/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/55.html" title="">贾康</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/37.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/1/37/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/37.html" title="">李迅雷</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/5171.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/6/5171/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/5171.html" title="">余丰慧</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/5174.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/6/5174/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/5174.html" title="">李光斗</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/5961.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/6/5961/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/5961.html" title="">王赟</a></p>
+        </div>
+                <div class="tjzj f_l">
+            <div class="main_box"><a target="_blank" href="/author/155.html"><img src="http://www.qlmoney.com/uploadfile/avatar/1/1/155/90x90.jpg"></a></div>
+            <p class="text_c f12 "><a target="_blank" href="/author/155.html" title="">李松</a></p>
+        </div>
+                    </div>
+    <div class="clear"></div>
+    <!--<script type="text/javascript">
+            /*250*200 创建于 2016-01-06*/
+            var cpro_id = "u2479870";
+    </script>
+    <script src="http://cpro.baidustatic.com/cpro/ui/f.js" type="text/javascript"></script>
+    -->
+</div></div>
+<div class="clear"></div>
+<div style="display: none;">
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258036154'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1258036154' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260617920'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260617920' type='text/javascript'%3E%3C/script%3E"));</script></div>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!--联盟广告-->
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+/*var sc_project=10780719; 
+var sc_invisible=0; 
+var sc_security="b8c89e70"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+*/
+</script>
+<noscript><div class="statcounter"><a title="site stats" href="http://statcounter.com/" target="_blank"><img class="statcounter" src="http://c.statcounter.com/10780719/0/b8c89e70/0/" alt="site stats"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+</div>
+
+
+<div id="footer">
+    <div class="footer f_white text_c">
+        <div class="bk10"></div>
+        <div class="main_box">
+            <span target="_self" onclick="var strHref = window.location.href;this.style.behavior = 'url(#default#homepage)';this.setHomePage('http://www.qlmoney.com');" style="CURSOR: hand">要将齐鲁财富网设为上网首页吗</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span target="_self" onclick="window.external.addfavorite(location.href, '齐鲁财富网');return false">要将齐鲁财富网添加到收藏夹吗</span>
+        </div>
+        <!--<div class="bk10"></div>-->
+        <div class="main_box">
+            <span><a href="/aboutus/index.html">关于我们</a></span>
+            <span>|</span>
+            <span><a href="/contactus/index.html">联系我们</a></span>
+            <span>|</span>
+            <span><a href="/ggfw">广告服务</a></span>
+            <span>|</span>
+            <span><a href="/zhaopin/">诚聘英才</a></span>
+            <span>|</span>
+            <span><a href="/sitemap.html">网站地图</a></span>
+            <span>|</span>
+            <!--<span><a href="/tag.html">网站标签</a></span>-->
+        </div>
+        <div class="main_box">
+            <span>齐鲁财富网,</span>
+            <span><a href="/">山东财经信息</a></span>
+            <span>门户( qlmoney.com) 服务于大众的财经信息网,部分资讯引用互联网金融信息,如有侵权,我们将立即删除!</span>
+        </div>
+        <p>
+            All Rights Reserved.&nbsp;&nbsp; 备案号 : 鲁ICP备14029185号
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254884434'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254884434%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+			<a rel="nofollow" href="http://webscan.360.cn/index/checkwebsite/url/www.qlmoney.com"><img border="0"  rel="nofollow" src="http://img.webscan.360.cn/status/pai/hash/3599e8d6ecc779a0e89bea380ec53715"/></a>
+		</p>
+    </div>
+    <div class="floattop">
+        <ul id="jump">
+            <li style="display:none;height:50px;"><a id="floattop" href="javascript:scroll(0,0)"></a></li>
+            <li style="height:50px">
+                <a id="sina" rel="nofollow" href="http://weibo.com/qlcaifu/" target="_blank" onmouseover="showEWM('sina')" onmouseout="hideEWM('sina')"><div id="EWM_sina"><img src="http://www.qlmoney.com/Public/Img/qlmoneysina.jpg" /></div></a>
+            </li>
+            <li style="height:50px">
+                <a id="weixin" href="javascript:void(0)" onmouseover="showEWM('weixin')" onmouseout="hideEWM('weixin')"><div id="EWM_weixin"><img src="http://www.qlmoney.com/Public/Img/qlmoneycode.jpg" /></div></a>
+            </li>
+            <li style="height:50px">
+                <a id="app" href="javascript:void(0)" onmouseover="showEWM('app')" onmouseout="hideEWM('app')"><div id="EWM_app"><img src="http://www.qlmoney.com/Public/Img/qlmoneyapp.jpg" /></div></a>
+            </li>
+        </ul>
+    </div>
+    <div style="display:none;">
+        <!--<script type="text/javascript">
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb4e25a74388c0ec0d8b96620e71673d0' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+		-->
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?b4e25a74388c0ec0d8b96620e71673d0";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+
+
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#welcome').fadeTo(2000, 1).delay(2000).animate({
+                opacity: 0,
+                marginTop: '-=200'
+            },
+            1000,
+            function () {
+                $('#welcome').hide();
+            });
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 50) {
+                    $('#jump li:eq(0)').fadeIn(800);
+                } else {
+                    $('#jump li:eq(0)').fadeOut(800);
+                }
+            });
+        });
+        function showEWM(id){
+            document.getElementById("EWM_"+id).style.display = 'block';
+        }
+        function hideEWM(id)
+        {
+            document.getElementById("EWM_"+id).style.display = 'none';
+        }
+    </script>
+    <script type="text/javascript">
+    //
+        var html = unescape('%3Cdiv id="bdcs"%3E%3C/div%3E%3Cscript charset="utf-8" src="http://znsv.baidu.com/customer_search/api/js?sid=1009934870724485084') + '&plate_url=' + (encodeURIComponent(window.location.href)) + '&t=' + (Math.ceil(new Date() / 3600000)) + unescape('"%3E%3C/script%3E');
+        $("#search_box").html(html);
+        if (document.domain != 'qlmoney.com' && document.domain != 'www.qlmoney.com' && document.domain != 'm.qlmoney.com' && document.domain != 'wenhuayaowen.qlmoney.com' && document.domain != 'wenhuashoucang.qlmoney.com' && document.domain != 'puhui.qlmoney.com') {
+            window.location.href = 'http://www.cyberpolice.cn/wfjb/';
+        }
+    </script>
+	
+</div>
+</div>
+</body>
+</html><script src="/index.php?m=tongji&c=index&a=view_add&nid=258437&ntitle=刘士余：股市直接持有制度占优势 将完善跨境交易&url=http%3A%2F%2Fwww.qlmoney.com%2Fcontent%2F20170401-258437.html"></script>
