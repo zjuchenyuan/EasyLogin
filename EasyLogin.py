@@ -137,7 +137,7 @@ class EasyLogin:
                 open(cache, "wb").write(x.content)
             return x.text
 
-    def post(self, url, data, result=True, save=False, headers=None,cache=None):
+    def post(self, url, data, result=True, save=False, headers=None, cache=None, dont_change_cookie=False):
         """
         HTTP POST method, submit data to server
         :param url: post target url
@@ -146,6 +146,7 @@ class EasyLogin:
         :param save: save cookie to file
         :param headers: override headers to be sent
         :param cache: filename to write cache, if already exists, use cache rather than really get; using cache=True to use md5(url+data) as cache file name
+        :param dont_change_cookie: make the cookie unchanged during this function
         :return: the requests object
         """
         if cache is True:
@@ -157,7 +158,11 @@ class EasyLogin:
                 return obj
         postheaders = headers if headers is not None else \
             {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        if dont_change_cookie:
+            self.stash_cookie()
         x = self.s.post(url, data, headers=postheaders, allow_redirects=False, proxies=self.proxies)
+        if dont_change_cookie:
+            self.pop_cookie()
         if result:
             page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
             self.b = BeautifulSoup(page, 'html.parser')
