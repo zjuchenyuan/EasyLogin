@@ -46,6 +46,7 @@ class EasyLogin:
         :param proxy: the proxy to use, rememeber schema and `pip install requests[socks]`
         """
         self.b = None
+        self.cookiestack = []
         self.proxies = {'http': proxy, 'https': proxy} if proxy is not None else None
         self.cookiefile = 'cookie.pickle'
         if session is not None:
@@ -377,6 +378,26 @@ class EasyLogin:
         for i in "\\/:*?\"<>|$":
             filename=filename.replace(i,"_")
         return filename
+
+    def stash_cookie(self):
+        """
+        stash the cookie status to a stack
+        :return: None
+        """
+        try:
+            self.cookiestack
+        except AttributeError:
+            self.cookiestack = []
+        self.cookiestack.append(self.s.cookies.copy())
+
+    def pop_cookie(self):
+        """
+        pop the cookie from the stack
+        :return: False when pop from empty stack, else None
+        """
+        if len(self.cookiestack) == 0:
+            return False
+        self.s.cookies = self.cookiestack.pop()
 
 
 if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
