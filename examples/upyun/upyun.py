@@ -8,7 +8,7 @@ def login(username,password):
     data={"username":username,"password":password}
     print("Login...",end="")
     x=a.post_json("https://console.upyun.com/accounts/signin/",data,save=True)
-    status=(x.get("location","")=="/#/dashboard/")
+    status=(x.get("msg",{}).get("messages",["error"])[0]=="登录成功")
     if status:
         print("Success")
     else:
