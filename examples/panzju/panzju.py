@@ -11,6 +11,9 @@ BLOCKHINT="MB"
 DOMAIN = "https://pan.zju.edu.cn"
 
 def login(username,password):
+    """
+    使用统一通行证登录新版浙大云盘pan.zju.edu.cn
+    """
     global a
     x=a.get("https://pan.zju.edu.cn/sso/login",o=True)
     login_page=x.headers["Location"]
@@ -41,7 +44,7 @@ def islogin():
 
 def upload(token,filename,data,filesize=None):
     """
-    上传文件，与浙大云盘的差异在于上传链接需要额外的请求
+    上传文件，与亿方云基本一致，但需要引入dont_change_cookie
     token:islogin()返回的token
     filename: 存储的文件名
     data:文件二进制数据
@@ -113,7 +116,7 @@ def block(fp):
         del x
         x = fp.read(BLOCKSIZE)
 
-if 1:
+if __name__=="__main__":
     import sys
     token = islogin()
     if not token:
