@@ -136,6 +136,36 @@ _cookiestring_ : 你可以从Chrome开发者工具复制这个字符串
 
 _cookiefile_ : 本参数传入一个文件名，这个文件由之后提到的`save=True`生成。如果指定的这个文件不存在，没有任何警告/异常。
 
+### 发起一个http请求：get或者post
+
+EasyLogin类提供了很多方法，但最重要的还是get和post
+
+```
+def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None)
+
+def post(self, url, data, result=True, save=False, headers=None,cache=None)
+```
+
+__result__: 得到的结果是否要使用BeautifulSoup解析，默认为True，解析产生的soup对象交给self.b；如果你在乎运行速率，请设置result=False，之后自行使用re模块或任何你喜欢的模块去解析你得到的东西。
+
+__save__: 用于登录请求，默认为False，如果设置则将得到的cookie写入文件，写入的文件名由初始化时的cookiefile参数给定（默认是cookie.pickle）
+
+__headers__: 类似于这样的字典 {"csrf-token":"xxxxxx"}, 将加入到请求的headers中
+
+__cache__: 缓存文件名或者True时将写入缓存文件，如果文件已经存在则将直接读取缓存而不真正发起请求；为了偷懒可以设置cache=True，则将采用md5(url)或md5(url+postdata)作为缓存文件名
+
+__failestring__: 如果failstring出现在返回的网页中，抛出一个异常
+
+对于每个请求，url都是必须的；如果对方没有任何反爬措施，只给定url就能发起GET，get方法将返回得到的HTML（如果需要get方法返回requests对象，设置o=True）
+
+```
+>>> page=a.get("http://ip.cn")
+>>> print(len(page))
+3133
+```
+
+
+
 ## 例子们
 
 [戳我看看例子们](examples/) 
