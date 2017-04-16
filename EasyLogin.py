@@ -5,7 +5,7 @@
 #   more document is also needed
 
 try:
-    from urllib.parse import urlencode, quote
+    from urllib.parse import urlencode, quote, unquote
 except ImportError:
     print("Please Use Python3")
     exit()
@@ -69,7 +69,11 @@ class EasyLogin:
         cookie = {}
         if cookiestring is not None:
             for onecookiestring in cookiestring.split(";"):
-                a, b = onecookiestring.split("=")
+                tmp = onecookiestring.split("=")
+                if len(tmp)!=2:
+                    continue
+                a, b = tmp
+                a = quote(unquote(a).strip())
                 cookie.update({a: b})
             self.s.cookies.update(cookie)
 
