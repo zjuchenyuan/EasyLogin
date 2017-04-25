@@ -316,10 +316,11 @@ class EasyLogin:
         if target is None:
             target = self.b
         from bs4 import Comment
-        from bs4.element import NavigableString
+        from bs4.element import NavigableString,Doctype
         result = []
         for descendant in target.descendants:
             if not isinstance(descendant, NavigableString) \
+                    or isinstance(descendant,Doctype) \
                     or descendant.parent.name in ["script", "style"] \
                     or isinstance(descendant, Comment) \
                     or "none" in descendant.parent.get("style","")\
