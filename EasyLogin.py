@@ -307,10 +307,11 @@ class EasyLogin:
         with open(filename, method) as fp:
             fp.write(content)
 
-    def text(self, target=None):
+    def text(self, target=None, ignore_pureascii_words=False):
         """
         Get all text in HTML, skip script and comment
         :param target: the BeatuifulSoup object, default self.b
+        :param ignore_pureascii_words: if set True, only return words that contains Chinese charaters (may be useful for English version website)
         :return: list of str
         """
         if target is None:
@@ -328,7 +329,8 @@ class EasyLogin:
                 continue
             data = descendant.strip()
             if len(data) > 0:
-                result.append(data)
+                if not ignore_pureascii_words or any([ord(i)>127 for i in data]):
+                    result.append(data)
         return result
 
     def find(self, tag, attrs_string, skip=0, text=False):
