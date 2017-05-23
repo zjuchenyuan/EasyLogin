@@ -4,7 +4,7 @@
 
 不用再考虑UserAgent, Cookies, and Cache，让您专注于爬虫核心代码
 
-## 请先安装依赖，仅支持Python3
+## 请先安装依赖，建议使用Python3
 
     pip3 install -U requests[socks] bs4 -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com
     

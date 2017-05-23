@@ -6,9 +6,10 @@
 
 try:
     from urllib.parse import urlencode, quote, unquote
+    PY2 = False
 except ImportError:
-    print("Please Use Python3")
-    exit()
+    from urllib import urlencode, quote, unquote
+    PY2 = True
 import requests
 import pickle
 import os
@@ -35,7 +36,10 @@ UALIST = [
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 Safari/537.36"]
 
 def mymd5(input):
-    return hashlib.md5(bytes(input,encoding="utf-8")).hexdigest()
+    if PY2:
+        return hashlib.md5(bytes(input)).hexdigest()
+    else:
+        return hashlib.md5(bytes(input,encoding="utf-8")).hexdigest()
 
 class EasyLogin:
     def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None, session=None):
@@ -330,7 +334,10 @@ class EasyLogin:
             data = descendant.strip()
             if len(data) > 0:
                 if not ignore_pureascii_words or any([ord(i)>127 for i in data]):
-                    result.append(data)
+                    if PY2:
+                        result.append(data.encode())
+                    else:
+                        result.append(data)
         return result
 
     def find(self, tag, attrs_string, skip=0, text=False):

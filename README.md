@@ -6,7 +6,7 @@ Just forget UserAgent, Cookies, and Cache... Let EasyLogin take care of all thes
 
 [中文版文档](README_ZH.md)
 
-## Requirements, only support Python3
+## Requirements, better using Python3
 
     pip3 install -U requests[socks] bs4 -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com
 
