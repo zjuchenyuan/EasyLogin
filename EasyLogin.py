@@ -284,7 +284,9 @@ class EasyLogin:
         open(filename, "wb").write(data)
         self.b = b
         return
-
+    
+    export = save
+    
     def load(filename='EasyLogin.status'):
         """
         load an object from file
@@ -295,7 +297,9 @@ class EasyLogin:
             return pickle.load(open(filename, "rb"))
         except:
             return EasyLogin()
-
+    
+    _import = load
+    
     @staticmethod
     def w(filename, content, method='w', overwrite=False):
         """
