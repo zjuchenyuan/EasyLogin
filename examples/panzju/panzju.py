@@ -34,8 +34,8 @@ def islogin():
     是否已经登录,如果已经登录返回token，否则False
     """
     global a
-    x=a.get(DOMAIN+"/apps/files/home",o=True)
-    t=a.b.find("input",{"id":"oc_requesttoken"})
+    x=a.get(DOMAIN+"/apps/files/desktop/own",o=True)
+    t=a.b.find("input",{"id":"request_token"})
     if t is None:
         return False
     else:
