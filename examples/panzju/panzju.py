@@ -47,7 +47,8 @@ def upload(token,filename,data,filesize=None):
     上传文件，与亿方云基本一致，但需要引入dont_change_cookie
     token:islogin()返回的token
     filename: 存储的文件名
-    data:文件二进制数据
+    data:文件二进制数据, 也可以为block generator
+    filesize: 文件总大小，如果data为block generator，必须填入
 
     返回服务器端的文件id
     """
