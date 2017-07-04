@@ -3,6 +3,7 @@ from urllib.parse import unquote
 import re
 from os.path import getsize
 from urllib.parse import quote
+import ntpath
 
 a=EasyLogin.load("panzju.status")
 BLOCKSIZE=1024*1024
@@ -41,6 +42,9 @@ def islogin():
     else:
         return t["value"]
 
+def getfilename(path):
+    head, tail = ntpath.split(path)
+    return tail or ntpath.basename(head)
 
 def upload(token,filename,data,filesize=None):
     """
@@ -53,7 +57,7 @@ def upload(token,filename,data,filesize=None):
     返回服务器端的文件id
     """
     global a
-    filename=quote(filename)
+    filename=quote(getfilename(filename))
     if filesize is None:
         filesize = len(data)
     x=a.post(DOMAIN+"/apps/files/presign_upload",
@@ -65,8 +69,9 @@ def upload(token,filename,data,filesize=None):
     upload_url=result["upload_url"]
     x=a.post(upload_url,
              data,
-             headers={"requesttoken": token,"X-File-Name":filename},dont_change_cookie=True)
+             headers={"requesttoken": token,"X-File-Name": filename},dont_change_cookie=True)
     result=x.json()
+    #print(result)
     if result["success"]!=True:
         return False
     return result["new_file"]["typed_id"]
