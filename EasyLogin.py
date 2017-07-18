@@ -19,6 +19,8 @@ import hashlib
 from collections import OrderedDict
 import json
 
+__version__ = 20170719
+
 UALIST = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A",
     "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0",
@@ -92,7 +94,7 @@ class EasyLogin:
         return c
     cookie = property(showcookie)
 
-    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None):
+    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None, debug=False):
         """
         HTTP GET method, default save soup to self.b
         :param url: a url, example: "http://ip.cn"
@@ -104,6 +106,8 @@ class EasyLogin:
         :param failstring: if failstring occurs in text, raise an exception
         :return page text or object(o=True)
         """
+        if debug:
+            print(url)
         if cache is True:
             cache = mymd5(url)
         if cache is not None and os.path.exists(cache):
