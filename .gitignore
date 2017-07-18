@@ -1,6 +1,7 @@
 # Userconfig
 *.status
 config.py
+testconfig.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

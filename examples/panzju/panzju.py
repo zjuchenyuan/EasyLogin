@@ -40,6 +40,9 @@ API使用说明：
 TODO: 支持缩短API网址，提供API服务器部署说明
 """
 
+"""
+登录部分
+"""
 def login(username,password):
     """
     使用统一通行证登录新版浙大云盘pan.zju.edu.cn
@@ -70,6 +73,10 @@ def islogin():
         return False
     else:
         return t["value"]
+
+"""
+上传 分享 下载
+"""
 
 def getfilename(path):
     """
@@ -156,6 +163,150 @@ def block(fp):
         del x
         x = fp.read(BLOCKSIZE)
 
+"""
+文件管理部分
+"""
+
+def timestamp_to_string(timestamp):
+    from datetime import datetime
+    local_str_time = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+    return local_str_time
+
+def mkdir(token, name, parent_id=0):
+    """
+    创建文件夹
+    参数为：request_token、文件夹名称、文件夹父节点id（0表示根目录）
+    返回新创建的文件夹str(id)，如"455000335224"
+    """
+    global a
+    x = a.post(DOMAIN+"/apps/files/new_folder",
+        """{"parent_folder_id":%s,"name":"%s"}"""%(str(parent_id), name),
+        headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"}
+        )
+    data = x.json()
+    assert data["success"], "mkdir failed"
+    return str(data["new_folder"]["id"])
+
+def file_info(token, typed_id):
+    """
+    查询文件/文件夹信息
+    typed_id: "folder_455000087071"
+    返回[文件名称, 创建时间戳, 最后修改时间戳, 大小]
+    """
+    global a
+    x = a.get(DOMAIN+"/apps/files/get_info?item_typed_id="+typed_id, 
+        headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"},
+        result=False, o=True
+        )
+    data = x.json()
+    assert data["success"], "get file info failed"
+    item = data["item"]
+    return [item["name"], item["created_at"], item["modified_at"], item["size"]]
+
+def lsdir(a, folder_id, from_share=False, onlyneed=None, onlydirs=False):
+    """
+    a: EasyLogin的对象，可以为登录后的a也可以是访问分享页面后的a
+    folder_id: 文件夹id, int和str类型均可
+    from_share: 是否来自于分享
+    
+    返回[[名字, typed_id, 大小], ...]
+    如果给出了onlyneed,则只返回这个元素的typed_id
+    如果给定onlydirs=True,则只返回目录元素
+    """
+    print("lsdir: folderid="+str(folder_id))
+    pageid = 1
+    from_share_string = "scenario=share&" if from_share else ""
+    data = a.get(DOMAIN+"/apps/files/file_list/{folder_id}?page_number={pageid}&{from_share_string}page_size=100".format(pageid=pageid, folder_id=folder_id, from_share_string=from_share_string),result=False,o=True).json()
+    page_count = data["page_count"]
+    result = []
+    while pageid <= page_count:
+        if pageid>1:
+            data = a.get(DOMAIN+"/apps/files/file_list/{folder_id}?page_number={pageid}&{from_share_string}page_size=100".format(pageid=pageid, folder_id=folder_id, from_share_string=from_share_string),result=False,o=True).json()
+        for child in data["children"]:
+            one = [child["name"], child["typed_id"], child["size"]]
+            if child["name"] == onlyneed:
+                return child["typed_id"]
+            if onlydirs and child["typed_id"].startswith("file_"):
+                continue
+            result.append(one)
+        pageid+=1
+    #sumsize = sum(i[2] for i in result)
+    #print("Whole size: %f GB"%(sumsize/1024/1024/1024))
+    return result
+
+def path_to_typed_id(filepath):
+    """
+    将虚拟文件路径转为typed_id
+    filepath: "/test/test2/test3"
+    the last test3 can be folder or file
+    return 'file_455003487756' or 'folder_455000086301', specially when path == '/', it returns '0' 
+    """
+    global a
+    fid = "0"
+    for name in filepath.split("/")[1:]:
+        if name=="":
+            continue
+        fid = lsdir(a, fid, onlyneed=name).replace("folder_","")
+    result = "folder_"+fid if not fid.startswith("f") else fid
+    return result
+    
+def lsdir_recursive(path, fid=None, onlydirs=False):
+    """
+    输入路径或folder id，返回文件系统
+    如果onlydirs=True，则返回文件夹的部分
+    
+    path: "/"
+    return: {
+        "目录名称": ("folder", "目录id", 整个文件夹字节数int),
+        "文件名称": ("file", "文件id", 文件字节数int),
+        "目录id": {又一个目录结构}
+        ...
+    }
+    TODO: 我需要的数据结构应该是，需要平坦的数据结构而不是递归的模式:
+    {
+        "a": ("file", "文件id", 文件字节数),
+        "b": ("folder", "目录id", 目录字节数),
+        "b/c": ("file", ...)
+    }
+    """
+    global a
+    if fid is None:
+        fid = path_to_typed_id(path).replace("folder_","")
+    result = {}
+    for item in lsdir(a, fid, onlydirs=onlydirs):
+        type, fileid = item[1].split("_")
+        if type=="folder":
+            result[item[0]] = ("folder", fileid, item[2])
+            result[fileid] = lsdir_recursive("", fileid, onlydirs=onlydirs)
+        elif type=="file":
+            result[item[0]] = ("file", fileid, item[2])
+    return result
+
+def path_to_id_via_cache(relative_path, cached_fs):
+    """
+    查询缓存得到(类型"file"或者"folder", fileid)
+    """
+    fs = cached_fs
+    type, fileid = "folder", "0"
+    for name in relative_path.split("/"):
+        if name=="":
+            continue
+        if name not in fs:
+            return False
+        type, fileid, size = fs[name]
+        if type=="file":
+            return type,fileid
+        else:
+            fs = fs[fileid]
+    return type,fileid
+
+def mkdir_and_update_cache(token, name, parent_path, cached_fs):
+    pass
+
+"""
+匿名上传部分
+"""
+
 def upload_by_collection(upload_link, path_to_file):
     """
     upload_link: 文件收集的链接，例如"abbee5b422f7a072b3bdaba4dba4ad3b"
@@ -208,35 +359,18 @@ def upload_by_collection_detailed(token, processid, filename, filesize, data):
         return False
     return fileid
 
-def share_typed_id(share_link):
-    global a
-    a.get(DOMAIN+"/share/"+share_link)
-    return a.b.find("input",{"id":"typed_id"})["value"]
-
 def dirshare_listdir(share_link):
     """
     share_link: 分享链接，例如"28c25672a486641f094c98f999"
     return [ [filename, file_typedid, filesize], ... ]
     """
-    global a
-    typed_id = share_typed_id(share_link)
+    a = EasyLogin()
+    a.get(DOMAIN+"/share/"+share_link)
+    typed_id = a.b.find("input",{"id":"typed_id"})["value"]
     if "folder_" not in typed_id:
         return False
     folder_id = typed_id.split("folder_")[1]
-    pageid = 1
-    data = a.get(DOMAIN+"/apps/files/file_list/{folder_id}?page_number={pageid}&scenario=share&page_size=100".format(pageid=pageid, folder_id=folder_id),result=False,o=True).json()
-    page_count = data["page_count"]
-    result = []
-    while pageid <= page_count:
-        if pageid>1:
-            data = a.get(DOMAIN+"/apps/files/file_list/{folder_id}?page_number={pageid}&scenario=share&page_size=100".format(pageid=pageid, folder_id=folder_id),result=False,o=True).json()
-        for child in data["children"]:
-            one = [child["name"], child["typed_id"], child["size"]]
-            result.append(one)
-        pageid+=1
-    #sumsize = sum(i[2] for i in result)
-    #print("Whole size: %f GB"%(sumsize/1024/1024/1024))
-    return result
+    return lsdir(a, folder_id, from_share=True)
 
 def dirshare_download(share_link, fileid):
     """
@@ -314,7 +448,7 @@ if __name__=="__main__":
     if len(sys.argv)<2:
         print("Usage: python3 {} filename".format(sys.argv[0]))
         exit(1)
-    if os.path.exists("config.py"):
+    try:
         import config
         if getattr(config,"anonymous",False):
             print("anonymous upload!")
@@ -323,4 +457,5 @@ if __name__=="__main__":
         if getattr(config,"username",None) is not None:
             UI_login_upload(config.username, config.password)
             exit()
-    UI_login_upload()
+    except ImportError:
+        UI_login_upload()
