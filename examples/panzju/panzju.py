@@ -4,8 +4,10 @@ import re
 from os.path import getsize
 from urllib.parse import quote
 import ntpath
+import os
+import sys
 
-__all__ = ['download', 'upload_by_collection', 'dirshare_listdir', 'dirshare_download']
+__all__ = ['download', 'upload_by_collection', 'dirshare_listdir', 'dirshare_download', 'upload_directory']
 
 a=EasyLogin.load("panzju.status")
 BLOCKSIZE=1024*1024*10
@@ -85,22 +87,24 @@ def getfilename(path):
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
 
-def upload(token,filename,data,filesize=None):
+def upload(token, filename, data, filesize=None, folder_id=0):
     """
     上传文件，与亿方云基本一致，但需要引入dont_change_cookie
     token:islogin()返回的token
     filename: 存储的文件名
     data:文件二进制数据, 也可以为block generator
     filesize: 文件总大小，如果data为block generator，必须填入
+    folder_id: 上传的目的文件夹id
 
     返回服务器端的文件id
     """
     global a
+    print("upload: filename={filename}, folder_id={folder_id}".format(**locals()))
     filename=quote(getfilename(filename))
     if filesize is None:
         filesize = len(data)
     x=a.post(DOMAIN+"/apps/files/presign_upload",
-             """{"folder_id":0,"file_size":%d}"""%filesize,
+             """{"folder_id":%s,"file_size":%d}"""%(str(folder_id),filesize),
              headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest"})
     result=x.json()
     if result["success"]!=True:
@@ -147,17 +151,20 @@ def download(file_uniqe_name):
     x=a.get(DOMAIN+"/apps/files/download?file_id={}&scenario=share".format(fileid),o=True)
     return x.headers["Location"]
 
-def block(fp):
+def block(fp, showhint=True):
     """
     使用分块上传解决大文件传输的内存问题
     每次产生一个BLOCKSIZE的数据进行传输，传输好后再读取下一个BLOCK
     :param fp: 文件读入，传入open(filename,"rb")
+    :param showhint: 是否显示上传进度提示，默认设置为每上传10MB前提示一次
+    
     :return: 用yield产生的generator，可以被EasyLogin(requests)正常处理
     """
     x = fp.read(BLOCKSIZE)
     i = 1
     while len(x):
-        print("{}{}".format(i,BLOCKHINT))
+        if showhint:
+            print("{}{}".format(i,BLOCKHINT))
         i+=1
         yield x
         del x
@@ -177,14 +184,17 @@ def mkdir(token, name, parent_id=0):
     创建文件夹
     参数为：request_token、文件夹名称、文件夹父节点id（0表示根目录）
     返回新创建的文件夹str(id)，如"455000335224"
+    如果重名文件夹已经存在，抛出FileExistsError异常
     """
     global a
+    print("mkdir: name={name}, parent_id={parent_id}".format(**locals()))
     x = a.post(DOMAIN+"/apps/files/new_folder",
-        """{"parent_folder_id":%s,"name":"%s"}"""%(str(parent_id), name),
+        ("""{"parent_folder_id":%s,"name":"%s"}"""%(str(parent_id), name)).encode('utf-8'),
         headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"}
         )
     data = x.json()
-    assert data["success"], "mkdir failed"
+    if "success" not in data or data["success"]!=True:
+        raise FileExistsError("failed to create {name} under folder_{parent_id}. data={data}".format(**locals()))
     return str(data["new_folder"]["id"])
 
 def file_info(token, typed_id):
@@ -203,14 +213,14 @@ def file_info(token, typed_id):
     item = data["item"]
     return [item["name"], item["created_at"], item["modified_at"], item["size"]]
 
-def lsdir(a, folder_id, from_share=False, onlyneed=None, onlydirs=False):
+def lsdir(a, folder_id, from_share=False, onlyneed=None, onlydirs=False, onlyneed_return_size=False):
     """
     a: EasyLogin的对象，可以为登录后的a也可以是访问分享页面后的a
     folder_id: 文件夹id, int和str类型均可
     from_share: 是否来自于分享
     
     返回[[名字, typed_id, 大小], ...]
-    如果给出了onlyneed,则只返回这个元素的typed_id
+    如果给出了onlyneed,则只返回这个元素的typed_id; 如果同时又给出了onlyneed_return_size=True，则返回(type, fileid, size)
     如果给定onlydirs=True,则只返回目录元素
     """
     print("lsdir: folderid="+str(folder_id))
@@ -225,83 +235,199 @@ def lsdir(a, folder_id, from_share=False, onlyneed=None, onlydirs=False):
         for child in data["children"]:
             one = [child["name"], child["typed_id"], child["size"]]
             if child["name"] == onlyneed:
-                return child["typed_id"]
+                if not onlyneed_return_size:
+                    return child["typed_id"]
+                else:
+                    return (one[1].split("_")[0], one[1].split("_")[1], one[2])
             if onlydirs and child["typed_id"].startswith("file_"):
                 continue
             result.append(one)
         pageid+=1
     #sumsize = sum(i[2] for i in result)
     #print("Whole size: %f GB"%(sumsize/1024/1024/1024))
+    if onlyneed is not None:
+        raise FileNotFoundError(onlyneed+" does not exist in folder "+folder_id)
     return result
 
-def path_to_typed_id(filepath):
+def path_to_typed_id(filepath, cache=None, onerror="raise"):
     """
-    将虚拟文件路径转为typed_id
-    filepath: "/test/test2/test3"
-    the last test3 can be folder or file
-    return 'file_455003487756' or 'folder_455000086301', specially when path == '/', it returns '0' 
+    将路径path转为(type,fileid)
+    如果有缓存且缓存的path匹配，则只查询缓存, 此时的输入应该为相对路径, 也支持输入绝对路径自动替换
+    filepath: "/test/test2/test3" #the last test3 can be folder or file
+    cache: 缓存的文件系统，由generate_fscache得到
+    onerror: 默认为"raise"，表示没找到文件时抛出异常；改为"skip"其他值表示没找到文件时返回False
+    
+    return ('file','455003487756') or ('folder','455000086301'), specially when path == '/', it returns ('folder','0')
     """
     global a
-    fid = "0"
+    if cache is not None:
+        if filepath == '':
+            return 'folder', cache["fid"]
+        if filepath.startswith(cache["path"]):
+            filepath = filepath.replace(cache["path"],"",1)
+        assert not filepath.startswith("/"), "cache not matched: filepath='%s', while cache['path']='%s'"%(filepath,cache['path'])
+        if filepath not in cache["fs"]:
+            if onerror=="raise":
+                raise FileNotFoundError(filepath+" not in cache")
+            else:
+                return False
+        return cache["fs"][filepath][0:2]
+    type, fid = 'folder', '0'
     for name in filepath.split("/")[1:]:
         if name=="":
             continue
-        fid = lsdir(a, fid, onlyneed=name).replace("folder_","")
-    result = "folder_"+fid if not fid.startswith("f") else fid
-    return result
+        try:
+            type,fid = lsdir(a, fid, onlyneed=name).split("_")
+        except FileNotFoundError:
+            if onerror=="raise":
+                raise
+            else:
+                return False
+    return type, fid
     
-def lsdir_recursive(path, fid=None, onlydirs=False):
+def generate_fscache(path, fid=None, onlydirs=False, prefix = None):
     """
     输入路径或folder id，返回文件系统
     如果onlydirs=True，则返回文件夹的部分
     
     path: "/"
-    return: {
-        "目录名称": ("folder", "目录id", 整个文件夹字节数int),
-        "文件名称": ("file", "文件id", 文件字节数int),
-        "目录id": {又一个目录结构}
-        ...
-    }
-    TODO: 我需要的数据结构应该是，需要平坦的数据结构而不是递归的模式:
+    return: 
     {
-        "a": ("file", "文件id", 文件字节数),
-        "b": ("folder", "目录id", 目录字节数),
-        "b/c": ("file", ...)
+        "fs": { #扁平化的文件系统
+            "a": ("file", "文件id", 文件字节数),
+            "b": ("folder", "目录id", 目录字节数),
+            "b/c": ("file", ...),
+            ...
+        }, 
+        "path": 输入的路径,
+        "fid": 输入路径对应的id，特别地 根目录为"0"
     }
     """
     global a
+    if prefix is None:
+        prefix = ""
     if fid is None:
-        fid = path_to_typed_id(path).replace("folder_","")
-    result = {}
+        typetmp, fid = path_to_typed_id(path)
+        assert typetmp == "folder", "lsdir only accept folder"
+    fs = {}
     for item in lsdir(a, fid, onlydirs=onlydirs):
         type, fileid = item[1].split("_")
         if type=="folder":
-            result[item[0]] = ("folder", fileid, item[2])
-            result[fileid] = lsdir_recursive("", fileid, onlydirs=onlydirs)
+            fs[prefix+item[0]] = ("folder", fileid, item[2])
+            fs.update(generate_fscache("", fileid, onlydirs = onlydirs, prefix = prefix+item[0]+"/"))
         elif type=="file":
-            result[item[0]] = ("file", fileid, item[2])
-    return result
+            fs[prefix+item[0]] = ("file", fileid, item[2])
+    if prefix != "": #用于递归的返回，只返回文件系统部分
+        return fs
+    else:
+        if not path.endswith("/"):
+            path += '/'
+        result = {
+            "fs": fs,
+            "path": path,
+            "fid": fid
+        }
+        return result #被其他函数调用则返回这个包含path和fid的数据结构
 
-def path_to_id_via_cache(relative_path, cached_fs):
+def mkdir_and_update_cache(token, name, parent_relative_path, cache, onerror='raise'):
     """
-    查询缓存得到(类型"file"或者"folder", fileid)
+    通过缓存层来创建目录，以减少缓存的强制更新，并且能阻止重复的创建
+    token: request_token
+    name: 需要创建的文件夹名称
+    parent_relative_path: 相对于cache["path"]的相对目录, 这个文件夹应该存在，否则返回False
+    cache: 缓存的文件系统，由generate_fscache生成
+    onerror: 如果待创建的文件夹已经存在，'raise'表示抛出FileExistsError异常, 其他表示读取/更新缓存后返回已存在的fileid
+    
+    返回生成的文件夹的fileid，当onerror='skip'时可能返回False
     """
-    fs = cached_fs
-    type, fileid = "folder", "0"
-    for name in relative_path.split("/"):
-        if name=="":
-            continue
-        if name not in fs:
-            return False
-        type, fileid, size = fs[name]
-        if type=="file":
-            return type,fileid
+    abspath=(cache["path"]+parent_relative_path+"/"+name).replace("//","/")
+    key = parent_relative_path+"/"+name
+    if key in cache['fs']:
+        if onerror=='raise':
+            raise FileExistsError("{abspath} already exists".format(**locals()))
         else:
-            fs = fs[fileid]
-    return type,fileid
+            return cache['fs'][key][1]
+    parent_folder = path_to_typed_id(parent_relative_path,cache, onerror='skip')
+    if parent_folder == False:
+        print("[Error] parent_folder {parent_folder} does not exist".format(**locals()))
+        return False
+    parent_id = parent_folder[1]
+    size = 0
+    try:
+        fileid = mkdir(token, name, parent_id)
+    except FileExistsError:
+        if onerror=='raise':
+            raise
+        else:
+            _, fileid, size = lsdir(a, parent_id, onlyneed=name,onlyneed_return_size=True)
+    cache["fs"][key] = ("folder", fileid, size)
+    return fileid
 
-def mkdir_and_update_cache(token, name, parent_path, cached_fs):
-    pass
+def mkdir_p(token, path, cache):
+    """
+    给出相对路径（绝对路径也支持），以mkdir -p的方式同时创建父文件夹
+    """
+    if path.startswith(cache["path"]):
+        path = path.replace(cache["path"],"",1)
+    assert not path.startswith("/"), "cache not matched! path={path}".format(**locals())
+    fid = cache["fid"]
+    type = "folder"
+    key = ""
+    for name in path.split("/"):
+        key += "/{name}".format(**locals())
+        if key[1:] in cache["fs"]:
+            type, fid, _ = cache["fs"][key[1:]]
+            assert type=="folder", "there is a file {cache_path}{key} in the way".format(cache_path=cache["path"], key=key[1:])
+        else:
+            try:
+                fid = mkdir(token, key.split("/")[-1], fid)
+                cache["fs"][key[1:]] = ("folder", fid, 0)
+            except FileExistsError:
+                type, fid, size = lsdir(a, fid, onlyneed=name, onlyneed_return_size=True)
+                cache["fs"][key[1:]] = (type, fid, size)
+                assert type=="folder", "there is a file {cache_path}{key} in the way".format(cache_path=cache["path"], key=key[1:])
+    return fid
+
+def upload_directory(token, local_dir, target_folder_path, cache, skip_existed=False, show_skip_info=True):
+    """
+    token: request_token
+    local_dir: 需要上传的文件夹, 如r"d:\to_be_uploaded"
+    target_folder_path: 上传的目标位置(相对路径,也支持绝对路径)，如"/uploaded"，注意应该加上本地的文件夹名称，否则将文件夹内容合并到已存在的文件夹下
+    
+    这个函数不是递归函数，使用os.walk mkdir_p upload完成上传任务
+    如果目标文件夹已经存在，会print一行[WARN]; 如果目标文件已经存在，会以在文件末尾添加(1)的形式上传 而不是替换！
+    """
+    if target_folder_path.startswith(cache["path"]):
+        target_folder_path = target_folder_path.replace(cache["path"],"",1)
+    assert not target_folder_path.startswith("/"), "cache not matched! path={target_folder_path}".format(**locals())
+    assert os.path.isdir(local_dir), "expected a folder, local_dir={local_dir}".format(**locals())
+    if target_folder_path in cache["fs"]:
+        print("[WARN] folder {target_folder_path} alreay exsits".format(**locals()))
+    fid = mkdir_p(token, target_folder_path, cache)
+    for root, dirs, files in os.walk(local_dir):
+        for dir in dirs:
+            dirname = root.replace(local_dir,"",1).replace("\\",'/')+"/"+dir #"/Image/aha"
+            mkdir_p(token, target_folder_path+dirname, cache)
+        for filename in files:
+            relative_root = root.replace(local_dir,"",1).replace("\\",'/') #"/Image/aha"或者""
+            remote_abs_folder = target_folder_path+relative_root #"uploaded/Image/aha"或者"uploaded" 注意虽然叫做abs实际上还是相对于cache["path"]的相对目录
+            remote_abs_filepath = remote_abs_folder+"/"+filename #"uploaded/Image/aha/example.jpg"或者"uploaded/example.jpg"
+            type, folder_id = path_to_typed_id(remote_abs_folder, cache)
+            assert type=="folder", "expected folder {remote_abs_folder}".format(**locals())
+            local_filepath = os.path.join(local_dir, relative_root[1:], filename)
+            if skip_existed and remote_abs_filepath in cache["fs"]:
+                if show_skip_info:
+                    print("skip existed file: {remote_abs_filepath}".format(**locals()))
+                continue
+            filesize = getsize(local_filepath)
+            if filesize>BLOCKSIZE:
+                data=block(open(local_filepath,"rb"), showhint=False)
+            else:
+                data=open(local_filepath,"rb").read()
+            newfileid = upload(token,filename,data,filesize,folder_id=folder_id)
+            cache["fs"][remote_abs_filepath] = ("file", newfileid, filesize)
+    return fid
+
 
 """
 匿名上传部分
@@ -437,6 +563,7 @@ def UI_login_upload(username=None, password=None):
     print()
     print("Download Link (expire soon):")
     print(download(sharelink))
+
 
 if __name__=="__main__":
     """
