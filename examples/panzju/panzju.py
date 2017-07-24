@@ -443,7 +443,7 @@ def upload_by_collection(upload_link, path_to_file):
     a.get(DOMAIN+"/collection/"+ upload_link)
     token = a.b.find("input",{"id":"request_token"})["value"]
     processid=a.b.find("input",{"id":"process"})["value"].split(":")[1].split(",")[0]
-    filename=quote(getfilename(path_to_file))
+    filename=getfilename(path_to_file) #注意不能quote
     return upload_by_collection_detailed(token, processid, filename, getsize(path_to_file), block(open(path_to_file,"rb")))
     
 def upload_by_collection_detailed(token, processid, filename, filesize, data):
@@ -452,26 +452,28 @@ def upload_by_collection_detailed(token, processid, filename, filesize, data):
     需要先从上传页面中得到token和processid
     上传过程类似upload. 但多了一步collection_submit的操作
     返回上传文件得到的服务器端的文件id
+    
+    如果失败，抛出Exception
     """
     global a
     x = a.post(DOMAIN + "/apps/processes/presign_upload",
-            """{"process_id":%s,"file_name":"%s","file_size":%d,"total_size":%d}"""%(processid, filename, filesize, filesize),
+            ("""{"process_id":%s,"file_name":"%s","file_size":%d,"total_size":%d}"""%(processid, filename, filesize, filesize)).encode('utf-8'), #在格式化字符串之后再进行编码
             headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"}
         )
     result=x.json()
-    if result["success"]!=True:
+    if "success" not in result or result["success"]!=True:
         print("[FAILED] presign_upload")
         print(result)
-        return False
+        raise Exception("presign_upload failed")
     upload_url=result["upload_url"]
     x=a.post(upload_url,
              data,
-             headers={"requesttoken": token,"X-File-Name": filename},dont_change_cookie=True)
+             headers={"requesttoken": token,"X-File-Name": quote(filename)},dont_change_cookie=True) #header中的还是需要quote的
     result=x.json()
-    if result["success"]!=True:
+    if "success" not in result or result["success"]!=True:
         print("[FAILED] upload")
         print(result)
-        return False
+        raise Exception("upload failed")
     fileid = result["new_file"]["id"]
     x = a.post(DOMAIN+"/apps/processes/collection_submit", 
         """{"user_name":".","process_id":%s,"file_ids":[%s]}"""%(processid,fileid),
@@ -479,10 +481,10 @@ def upload_by_collection_detailed(token, processid, filename, filesize, data):
         dont_change_cookie=True
         )
     result=x.json()
-    if result["success"]!=True:
+    if "success" not in result or result["success"]!=True:
         print("[FAILED] collection_submit")
         print(result)
-        return False
+        raise Exception("collection_submit failed")
     return fileid
 
 def dirshare_listdir(share_link):
