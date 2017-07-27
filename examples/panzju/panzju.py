@@ -442,14 +442,14 @@ def upload_by_collection(upload_link, path_to_file):
     global a
     a.get(DOMAIN+"/collection/"+ upload_link)
     token = a.b.find("input",{"id":"request_token"})["value"]
-    processid=a.b.find("input",{"id":"process"})["value"].split(":")[1].split(",")[0]
     filename=getfilename(path_to_file) #注意不能quote
-    return upload_by_collection_detailed(token, processid, filename, getsize(path_to_file), block(open(path_to_file,"rb")))
+    return upload_by_collection_detailed(token, upload_link, filename, getsize(path_to_file), block(open(path_to_file,"rb")))
     
-def upload_by_collection_detailed(token, processid, filename, filesize, data):
+def upload_by_collection_detailed(token, collection_code, filename, filesize, data):
     """
     详细的真实匿名上传过程 通过文件收集任务上传
-    需要先从上传页面中得到token和processid
+    需要先从上传页面中得到token
+    collection_code即为配置文件中的upload_link
     上传过程类似upload. 但多了一步collection_submit的操作
     返回上传文件得到的服务器端的文件id
     
@@ -457,7 +457,7 @@ def upload_by_collection_detailed(token, processid, filename, filesize, data):
     """
     global a
     x = a.post(DOMAIN + "/apps/processes/presign_upload",
-            ("""{"process_id":%s,"file_name":"%s","file_size":%d,"total_size":%d}"""%(processid, filename, filesize, filesize)).encode('utf-8'), #在格式化字符串之后再进行编码
+            ("""{"code":"%s","file_name":"%s","file_size":%d}"""%(collection_code, filename, filesize)).encode('utf-8'), #在格式化字符串之后再进行编码
             headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"}
         )
     result=x.json()
@@ -476,7 +476,7 @@ def upload_by_collection_detailed(token, processid, filename, filesize, data):
         raise Exception("upload failed")
     fileid = result["new_file"]["id"]
     x = a.post(DOMAIN+"/apps/processes/collection_submit", 
-        """{"user_name":".","process_id":%s,"file_ids":[%s]}"""%(processid,fileid),
+        """{"user_name":".","code":"%s","file_ids":[%s]}"""%(collection_code,fileid),
         headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"},
         dont_change_cookie=True
         )
