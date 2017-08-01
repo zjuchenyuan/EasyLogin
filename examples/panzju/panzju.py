@@ -9,7 +9,14 @@ import sys
 
 __all__ = ['download', 'upload_by_collection', 'dirshare_listdir', 'dirshare_download', 'upload_directory']
 
-a=EasyLogin.load("panzju.status")
+
+try:
+    import config as _config
+    _statusfile = _config.statusfile
+except:
+    _statusfile = "./panzju.status"
+
+a=EasyLogin.load(_statusfile)
 BLOCKSIZE=1024*1024*10
 BLOCKHINT="0MB" # 10MB as an unit
 
@@ -553,7 +560,7 @@ def UI_login_upload(username=None, password=None):
             password = sys.argv[3]
         print("Login!")
         assert login(username, password)!=False, "Login failed"
-        a.save("panzju.status")
+        a.save(_statusfile)
         token=islogin()
     fileid, sharelink = logined_upload(token, sys.argv[1])
     print("fileid:")
