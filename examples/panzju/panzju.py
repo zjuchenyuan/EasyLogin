@@ -273,29 +273,38 @@ def path_to_typed_id(filepath, cache=None, onerror="raise"):
         if filepath.startswith(cache["path"]):
             filepath = filepath.replace(cache["path"],"",1)
         assert not filepath.startswith("/"), "cache not matched: filepath='%s', while cache['path']='%s'"%(filepath,cache['path'])
-        if filepath not in cache["fs"]:
+        if filepath in cache["fs"]:
+            return cache["fs"][filepath][0:2]
+        else: #缓存中不存在
             if onerror=="raise":
                 raise FileNotFoundError(filepath+" not in cache")
-            else:
+            elif onerror=="returnFalse":
                 return False
-        return cache["fs"][filepath][0:2]
+            else:
+                # 缓存没有命中就继续吧
+                pass
     type, fid = 'folder', '0'
-    for name in filepath.split("/")[1:]:
+    for name in filepath.split("/"):
         if name=="":
             continue
         try:
             type,fid = lsdir(a, fid, onlyneed=name).split("_")
         except FileNotFoundError:
-            if onerror=="raise":
-                raise
+            if onerror=="returnFalse":
+                return False #lsdir都没发现 还是raise吧，除非特意指定returnFalse
             else:
-                return False
+                raise
     return type, fid
     
-def generate_fscache(path, fid=None, onlydirs=False, prefix = None):
+def generate_fscache(path, fid=None, onlydirs=False, prefix = None, only1depth = False, cache=None):
     """
     输入路径或folder id，返回文件系统
-    如果onlydirs=True，则返回文件夹的部分
+    path: 必须以"/"开头，递归时如果fid给出了就可以为""
+    fid: 如"0"
+    onlydirs: 如果为True，则返回文件夹的部分
+    prefix: 必须以"/"结束，用于递归过程，如果给定了则只返回fs的部分 方便用于cache["fs"].update
+    only1depth: 如果为True， 则仅仅返回一层,不递归进入下层
+    cache: 本函数是用来生成缓存的，为啥还要输入缓存呢。。。为了让path_to_typed_id加速执行呗
     
     path: "/"
     return: 
@@ -303,7 +312,7 @@ def generate_fscache(path, fid=None, onlydirs=False, prefix = None):
         "fs": { #扁平化的文件系统
             "a": ("file", "文件id", 文件字节数),
             "b": ("folder", "目录id", 目录字节数),
-            "b/c": ("file", ...),
+            "b/c": ("file", ...), #注意没有开头的/
             ...
         }, 
         "path": 输入的路径,
@@ -314,14 +323,16 @@ def generate_fscache(path, fid=None, onlydirs=False, prefix = None):
     if prefix is None:
         prefix = ""
     if fid is None:
-        typetmp, fid = path_to_typed_id(path)
+        typetmp, fid = path_to_typed_id(path, cache=cache, onerror='when_cache_fails_continue_search_by_using_lsdir')
         assert typetmp == "folder", "lsdir only accept folder"
     fs = {}
+    fs[prefix if len(prefix) else "/"]=True
     for item in lsdir(a, fid, onlydirs=onlydirs):
         type, fileid = item[1].split("_")
         if type=="folder":
             fs[prefix+item[0]] = ("folder", fileid, item[2])
-            fs.update(generate_fscache("", fileid, onlydirs = onlydirs, prefix = prefix+item[0]+"/"))
+            if not only1depth:
+                fs.update(generate_fscache("", fileid, onlydirs = onlydirs, prefix = prefix+item[0]+"/"))
         elif type=="file":
             fs[prefix+item[0]] = ("file", fileid, item[2])
     if prefix != "": #用于递归的返回，只返回文件系统部分
@@ -395,22 +406,63 @@ def mkdir_p(token, path, cache):
                 assert type=="folder", "there is a file {cache_path}{key} in the way".format(cache_path=cache["path"], key=key[1:])
     return fid
 
-def upload_directory(token, local_dir, target_folder_path, cache, skip_existed=False, show_skip_info=True):
+
+def fillup_cache(abs_path, cache=None):
+    """
+    输入绝对目录路径(需要已经存在)，返回按路径沿路更新后的cache
+    abs_path: "/a/b" 最后的/会被忽略
+    将通过lsdir更新根目录、a、b文件夹的缓存
+    
+    为简化问题复杂度，目前只支持cache为根目录的情况
+    由于mkdir_p本身就会沿着路径得到fid，真正需要关注的不是父目录缓存而是已经存在的目录的缓存，所以这个函数目前没有用处
+    为了支持这个函数给generate_fscache加上了only1depth参数
+    """
+    if abs_path.endswith("/"):
+        abs_path = abs_path[:-1]
+    if cache is None:
+        cache = {"fs":{}, "path":"/", "fid":"0"}
+    assert cache["path"] == "/", "cache invalid, cache path must be /"
+    assert abs_path.startswith("/"), "build_cache need absolute path"
+    abs_path = abs_path[1:]
+    
+    root_cache = generate_fscache("/", only1depth = True)
+    cache["fs"].update(root_cache["fs"])
+    path_splited = abs_path.split("/")
+    for i in range(len(path_splited)):
+        nowpath = "/".join(path_splited[:i+1])
+        cache["fs"].update(generate_fscache("/"+nowpath, prefix=nowpath+"/", only1depth = True, cache=cache))
+    return cache
+
+def upload_directory(token, local_dir, target_folder_path, cache=None, skip_existed=False, show_skip_info=True):
     """
     token: request_token
     local_dir: 需要上传的文件夹, 如r"d:\to_be_uploaded"
-    target_folder_path: 上传的目标位置(相对路径,也支持绝对路径)，如"/uploaded"，注意应该加上本地的文件夹名称，否则将文件夹内容合并到已存在的文件夹下
+    target_folder_path: 上传的目标位置(相对路径,也支持绝对路径)，不能以/结尾，如"/uploaded"，注意应该加上本地的文件夹名称，否则将文件夹内容合并到已存在的文件夹下
     
     这个函数不是递归函数，使用os.walk mkdir_p upload完成上传任务
     如果目标文件夹已经存在，会print一行[WARN]; 如果目标文件已经存在，会以在文件末尾添加(1)的形式上传 而不是替换！
     """
+    
+    #缓存如果没有给出，使用默认缓存
+    if cache is None:
+        try:
+            cache = fillup_cache(target_folder_path)
+        except FileNotFoundError:
+            cache = {"fs":{}, "path":"/", "fid":"0"}
+    
+    #检查target_folder_path的合理性：与cache匹配，末尾不是/
     if target_folder_path.startswith(cache["path"]):
         target_folder_path = target_folder_path.replace(cache["path"],"",1)
     assert not target_folder_path.startswith("/"), "cache not matched! path={target_folder_path}".format(**locals())
+    assert not target_folder_path.endswith("/"), "target_folder_path should not end with /"
+    
+    #检查本地目录要是一个目录
     assert os.path.isdir(local_dir), "expected a folder, local_dir={local_dir}".format(**locals())
-    if target_folder_path in cache["fs"]:
-        print("[WARN] folder {target_folder_path} alreay exsits".format(**locals()))
+    
     fid = mkdir_p(token, target_folder_path, cache)
+    cache["fs"].update(generate_fscache("", fid = fid, prefix=target_folder_path+"/", cache=cache))
+    if target_folder_path in cache["fs"] and cache["fs"][target_folder_path][2]>0:
+        print("[WARN] folder {target_folder_path} alreay exsits".format(**locals()))
     for root, dirs, files in os.walk(local_dir):
         for dir in dirs:
             dirname = root.replace(local_dir,"",1).replace("\\",'/')+"/"+dir #"/Image/aha"
