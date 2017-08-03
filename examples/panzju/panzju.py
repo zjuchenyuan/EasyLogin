@@ -6,6 +6,7 @@ from urllib.parse import quote
 import ntpath
 import os
 import sys
+import json
 
 __all__ = ['download', 'upload_by_collection', 'dirshare_listdir', 'dirshare_download', 'upload_directory']
 
@@ -94,7 +95,7 @@ def getfilename(path):
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
 
-def upload(token, filename, data, filesize=None, folder_id=0):
+def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
     """
     上传文件，与亿方云基本一致，但需要引入dont_change_cookie
     token:islogin()返回的token
@@ -113,8 +114,15 @@ def upload(token, filename, data, filesize=None, folder_id=0):
     x=a.post(DOMAIN+"/apps/files/presign_upload",
              """{"folder_id":%s,"file_size":%d}"""%(str(folder_id),filesize),
              headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest"})
-    result=x.json()
+    try:
+        result=x.json()
+    except json.decoder.JSONDecodeError:
+        if retry>0:
+            return upload(token, filename, data, filesize, folder_id, retry = retry-1)
+        else:
+            raise
     if result["success"]!=True:
+        print(result)
         return False
     upload_url=result["upload_url"]
     x=a.post(upload_url,
