@@ -95,6 +95,11 @@ def getfilename(path):
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
 
+def safefilename(filename):
+    for x in r"""\/?:*"'><|""":
+        filename = filename.replace(x,"")
+    return filename
+
 def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
     """
     上传文件，与亿方云基本一致，但需要引入dont_change_cookie
@@ -108,7 +113,12 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
     """
     global a
     print("upload: filename={filename}, folder_id={folder_id}".format(**locals()))
-    filename=quote(getfilename(filename))
+    _filename = safefilename(getfilename(filename))
+    try:
+        filename=quote(_filename)
+    except:
+        print("[ERROR] filename encoding is not utf-8! \nYou may need to convert filename encoding to utf-8 before we can continue. Have a look at https://py3.io/code/fixgbknames.py")
+        raise
     if filesize is None:
         filesize = len(data)
     x=a.post(DOMAIN+"/apps/files/presign_upload",
@@ -129,8 +139,8 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
              data,
              headers={"requesttoken": token,"X-File-Name": filename},dont_change_cookie=True)
     result=x.json()
-    #print(result)
-    if result["success"]!=True:
+    if "success" not in result or result["success"]!=True:
+        print(result)
         return False
     return result["new_file"]["typed_id"]
 
