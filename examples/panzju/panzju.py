@@ -488,7 +488,7 @@ def upload_directory(token, local_dir, target_folder_path, cache=None, skip_exis
         for filename in files:
             relative_root = root.replace(local_dir,"",1).replace("\\",'/') #"/Image/aha"或者""
             remote_abs_folder = target_folder_path+relative_root #"uploaded/Image/aha"或者"uploaded" 注意虽然叫做abs实际上还是相对于cache["path"]的相对目录
-            remote_abs_filepath = remote_abs_folder+"/"+filename #"uploaded/Image/aha/example.jpg"或者"uploaded/example.jpg"
+            remote_abs_filepath = remote_abs_folder+"/"+safefilename(filename) #"uploaded/Image/aha/example.jpg"或者"uploaded/example.jpg"
             type, folder_id = path_to_typed_id(remote_abs_folder, cache)
             assert type=="folder", "expected folder {remote_abs_folder}".format(**locals())
             local_filepath = os.path.join(local_dir, relative_root[1:], filename)
