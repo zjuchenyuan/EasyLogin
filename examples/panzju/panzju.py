@@ -53,11 +53,14 @@ TODO: 支持缩短API网址，提供API服务器部署说明
 """
 登录部分
 """
-def login(username,password):
+def login(username,password, _a=None):
     """
     使用统一通行证登录新版浙大云盘pan.zju.edu.cn
     """
-    global a
+    if _a is None:
+        global a
+    else:
+        a = _a
     x=a.get("https://pan.zju.edu.cn/sso/login",o=True)
     login_page=x.headers["Location"]
     login_service=unquote(login_page.split("service=")[1])
@@ -72,11 +75,14 @@ def login(username,password):
     else:
         return False
 
-def islogin():
+def islogin(_a=None):
     """
     是否已经登录,如果已经登录返回token，否则False
     """
-    global a
+    if _a is None:
+        global a
+    else:
+        a = _a
     x=a.get(DOMAIN+"/apps/files/desktop/own",o=True)
     t=a.b.find("input",{"id":"request_token"})
     if t is None:
@@ -173,8 +179,49 @@ def download(file_uniqe_name):
     tmp = finder.search(page)
     assert tmp is not None, "share link does not exist"
     fileid = tmp.group(1)
-    x=a.get(DOMAIN+"/apps/files/download?file_id={}&scenario=share".format(fileid),o=True)
+    x=a.get(DOMAIN+"/apps/files/download?file_id={}&scenario=share".format(fileid), o=True, result=False)
     return x.headers["Location"]
+
+class NotLoginException(Exception):
+    pass
+
+class SharelinkNotExistsException(Exception):
+    pass
+
+class LoginedDownload_UnknownError(Exception):
+    pass
+
+def logined_download(sharelink, a):
+    """
+    在已经登录的情况下获取下载直链
+    这是一个在download失败情况下的替补方案，可以下载到权限设置为仅学校成员访问的分享链接
+    :param a: 已经登录的EasyLogin对象
+    :param sharelink: 分享链接
+    :return: 可以直接下载的url，一段时间后失效
+    """
+    x = a.get(DOMAIN+"/share/"+sharelink, o=True, result=False)
+    if "Refresh" in x.headers:
+        """
+        发生跳转，自己发布的分享链接或者没有登录
+        """
+        if "login" in x.headers["Refresh"]:
+            raise NotLoginException()
+        else:
+            fileid = x.headers["Refresh"].split("preview=")[1]
+            x = a.get("{DOMAIN}/apps/files/download?file_id={fileid}".format(DOMAIN=DOMAIN,fileid=fileid), o=True, result=False)
+            if x.status_code != 302:
+                raise LoginedDownload_UnknownError(x.text)
+            return x.headers["Location"]
+    else:
+        """
+        没有跳转，是别人的链接
+        """
+        page = x.text
+        tmp = finder.search(page)
+        assert tmp is not None, "share link does not exist"
+        fileid = tmp.group(1)
+        x=a.get(DOMAIN+"/apps/files/download?file_id={}&scenario=share".format(fileid), o=True, result=False)
+        return x.headers["Location"]
 
 def block(fp, showhint=True):
     """
