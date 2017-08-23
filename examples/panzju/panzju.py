@@ -644,11 +644,12 @@ def anonymous_upload(config_uploadlink, config_sharelink, path_to_file):
     import sys
     fileid = upload_by_collection(config_uploadlink, sys.argv[1])
     print(fileid)
-    print("\nDownload Link:")
-    print(getfilename(path_to_file))
-    print("{APIDOMAIN}/{APINAME}/{sharelink}/{fileid}".format(APIDOMAIN=APIDOMAIN, APINAME=APIDEFNITION["direct_download"], sharelink=config_sharelink,fileid=fileid))
+    print("\nDownload Markdown:")
+    apitype = "zjuvideo" if path_to_file.endswith(".mp4") else "panzju"
+    print("[{filename}]({APIDOMAIN}/{apitype}/{sharelink}/{fileid})".format(filename=getfilename(path_to_file), APIDOMAIN=APIDOMAIN, apitype=apitype, sharelink=config_sharelink, fileid=fileid))
     print("\nTemporary download link:")
     print(dirshare_download(config_sharelink, fileid))
+
 
 def logined_upload(token, path_to_file):
     """
