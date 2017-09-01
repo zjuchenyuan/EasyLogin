@@ -165,6 +165,19 @@ def share(token,fileid):
     else:
         return result["share_link"]["unique_name"]
 
+def getshareid(folder_id):
+    """
+    输入一个目录id，如"455000399429"
+    返回其已经存在的分享链接，如"11385b2387f890c195abd7ac14"
+    """
+    global a
+    x = a.get("{DOMAIN}/apps/files/get_share_info?item_typed_id=folder_{folder_id}".format(DOMAIN=DOMAIN, folder_id=folder_id), result=False, o=True)
+    result = x.json()
+    if result.get("success")!=True:
+        return False
+    else:
+        return result["share_link"]["unique_name"]
+        
 finder=re.compile(r'''file_(\d+)''')
 
 def download(file_uniqe_name):
