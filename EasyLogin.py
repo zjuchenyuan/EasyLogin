@@ -19,7 +19,7 @@ import hashlib
 from collections import OrderedDict
 import json
 
-__version__ = 20170719
+__version__ = 20170926
 
 UALIST = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A",
@@ -168,8 +168,9 @@ class EasyLogin:
                 if result:
                     self.b = BeautifulSoup(obj.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
                 return obj
-        postheaders = headers if headers is not None else \
-            {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        postheaders = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        if headers is not None:
+            postheaders.update(headers)
         if dont_change_cookie:
             self.stash_cookie()
         x = self.s.post(url, data, headers=postheaders, allow_redirects=False, proxies=self.proxies)
