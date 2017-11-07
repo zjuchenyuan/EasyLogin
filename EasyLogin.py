@@ -75,7 +75,7 @@ class EasyLogin:
         cookie = {}
         if cookiestring is not None:
             for onecookiestring in cookiestring.split(";"):
-                tmp = onecookiestring.split("=")
+                tmp = onecookiestring.split("=", maxsplit=1)
                 if len(tmp)!=2:
                     continue
                 a, b = tmp
