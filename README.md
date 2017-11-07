@@ -144,17 +144,30 @@ if you want to control the cache filename, just set the filename to cache, like 
 
 This parameter only applies to `get` now.
 
-Consider if the page html is not standard (like "<th>...</td>"), you can specify a function to fixfunction parameter
+Consider if the page html is not standard (like "`<th>...</td>`"), you can specify a function to **fixfunction** parameter.
 
-This function will be called after html **bytes** data fetched, before BeautifulSoup is called; so you can do simple replace beforehand to avoid getting a messed soup
+This function will be called after html **bytes** data fetched, before BeautifulSoup is called; so you can do simple replace beforehand to avoid getting a messed soup.
 
 This function should receive one parameter (type: **bytes**), and return bytes (then passed to BeautifulSoup), so lambda function may be a good choice
 
-example:
+Example:
 
 ```
+# replace all th tag to td
 a.get(..., fixfunction=lambda html: html.replace(b"<th",b"<td").replace(b"</th",b"</td"))
 ```
+
+Otherwise, you can just do it yourself:
+
+```
+from bs4 import BeautifulSoup
+page = a.get(..., result=False) # specify result=False to avoid calling BeautifulSoup
+page = page.replace("<br>", "\n").replace("<BR>", "\n") # this is rather useful, so if you use result=True, this is done automatically
+page = page.replace("<th","<td").replace("</th","</td") # you replace function here; not bytes, but str
+a.b = BeautifulSoup(html, "html.parser")
+```
+
+Compare to using **fixfunction**, this way seems rather complicate and unnecessary, ha?
 
 ## Get the data out! use a.b as a `BeautifulSoup` object
 
