@@ -19,7 +19,7 @@ import hashlib
 from collections import OrderedDict
 import json
 
-__version__ = 20171107
+__version__ = 20170926
 
 UALIST = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A",
@@ -44,12 +44,14 @@ def mymd5(input):
         return hashlib.md5(bytes(input,encoding="utf-8")).hexdigest()
 
 class EasyLogin:
-    def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None, session=None):
+    def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None, session=None, cachedir=None):
         """
         example: a = EasyLogin(cookie={"PHPSESSID":"..."}, proxy="socks5://127.0.0.1:1080")
         :param cookie: a dict of cookie
         :param cookiefile: the file contain cookie which saved by get or post(save=True)
         :param proxy: the proxy to use, rememeber schema and `pip install requests[socks]`
+        :param session: requests.Session()
+        :param cachedir: where cache files should be write to
         """
         self.b = None
         self.cookiestack = []
@@ -70,6 +72,15 @@ class EasyLogin:
                 self.s.cookies = pickle.load(open(cookiefile, "rb"))
             except FileNotFoundError:
                 pass
+        if cachedir is None:
+            self.cachedir = ""
+        else:
+            cachedir = cachedir.replace("\\","/")
+            if not cachedir.endswith("/"):
+                cachedir = cachedir+"/"
+            if not os.path.exists(cachedir):
+                os.mkdir(cachedir)
+            self.cachedir = cachedir
 
     def setcookie(self,cookiestring):
         cookie = {}
@@ -111,12 +122,14 @@ class EasyLogin:
             print(url)
         if cache is True:
             cache = mymd5(url)
-        if cache is not None and os.path.exists(cache): # cache exist, read from cache
+        if cache:
+            cache_filepath = self.cachedir + cache
+        if cache is not None and os.path.exists(cache_filepath): # cache exist, read from cache
             if o:
-                obj = pickle.load(open(cache, "rb"))
+                obj = pickle.load(open(cache_filepath, "rb"))
                 page = obj.content
             else:
-                page = open(cache, "rb").read()
+                page = open(cache_filepath, "rb").read()
             if result:
                 page = page.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
                 if fixfunction is not None:
@@ -149,11 +162,11 @@ class EasyLogin:
             open(self.cookiefile, "wb").write(pickle.dumps(self.s.cookies))
         if o:  # if you need object returned
             if cache is not None:
-                open(cache, "wb").write(pickle.dumps(x))
+                open(cache_filepath, "wb").write(pickle.dumps(x))
             return x
         else:
             if cache is not None:
-                open(cache, "wb").write(x.content)
+                open(cache_filepath, "wb").write(x.content)
             return x.text
 
     def post(self, url, data, result=True, save=False, headers=None, cache=None, dont_change_cookie=False):
