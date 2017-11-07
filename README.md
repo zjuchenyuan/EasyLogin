@@ -162,9 +162,9 @@ Otherwise, you can just do it yourself:
 ```
 from bs4 import BeautifulSoup
 page = a.get(..., result=False) # specify result=False to avoid calling BeautifulSoup
-page = page.replace("<br>", "\n").replace("<BR>", "\n") # this is rather useful, so if you use result=True, this is done automatically
-page = page.replace("<th","<td").replace("</th","</td") # you replace function here; not bytes, but str
-a.b = BeautifulSoup(html, "html.parser")
+page = page.replace("<br>", "\n").replace("<BR>", "\n") # this is rather useful, so if you use EasyLogin without result=False, this is done automatically
+page = page.replace("<th","<td").replace("</th","</td") # your replace function here; not bytes, but str
+a.b = BeautifulSoup(page, "html.parser")
 ```
 
 Compare to using **fixfunction**, this way seems rather complicate and unnecessary, ha?
