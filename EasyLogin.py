@@ -19,7 +19,7 @@ import hashlib
 from collections import OrderedDict
 import json
 
-__version__ = 20170926
+__version__ = 20171107
 
 UALIST = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A",
@@ -94,7 +94,7 @@ class EasyLogin:
         return c
     cookie = property(showcookie)
 
-    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None, debug=False):
+    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None, debug=False, fixfunction=None):
         """
         HTTP GET method, default save soup to self.b
         :param url: a url, example: "http://ip.cn"
@@ -104,22 +104,27 @@ class EasyLogin:
         :param o: return object or just page text
         :param cache: filename to write cache, if already exists, use cache rather than really get; using cache=True to use md5(url) as cache file name
         :param failstring: if failstring occurs in text, raise an exception
+        :param fixfunction: a function receive html (bytes), output fixed html (bytes); this is useful for simple replace to fix dirty html page
         :return page text or object(o=True)
         """
         if debug:
             print(url)
         if cache is True:
             cache = mymd5(url)
-        if cache is not None and os.path.exists(cache):
+        if cache is not None and os.path.exists(cache): # cache exist, read from cache
             if o:
                 obj = pickle.load(open(cache, "rb"))
-                if result:
-                    self.b = BeautifulSoup(obj.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
-                return obj
+                page = obj.content
             else:
                 page = open(cache, "rb").read()
-                if result:
-                    self.b = BeautifulSoup(page.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
+            if result:
+                page = page.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
+                if fixfunction is not None:
+                    page = fixfunction(page)
+                self.b = BeautifulSoup(page, 'html.parser')
+            if o:
+                return obj
+            else:
                 return page.decode(errors='replace')
         if r:
             if headers is None:
@@ -137,6 +142,8 @@ class EasyLogin:
                 raise EasyLogin_ValidateFail
         if result:
                 page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
+                if fixfunction is not None:
+                    page = fixfunction(page)
                 self.b = BeautifulSoup(page, 'html.parser')
         if save:
             open(self.cookiefile, "wb").write(pickle.dumps(self.s.cookies))
