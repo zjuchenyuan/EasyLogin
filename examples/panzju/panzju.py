@@ -273,12 +273,14 @@ def mkdir(token, name, parent_id=0):
     """
     global a
     print("mkdir: name={name}, parent_id={parent_id}".format(**locals()))
+    data = ("""{"parent_folder_id":%s,"name":"%s"}"""%(str(parent_id), name)).encode('utf-8')
     x = a.post(DOMAIN+"/apps/files/new_folder",
-        ("""{"parent_folder_id":%s,"name":"%s"}"""%(str(parent_id), name)).encode('utf-8'),
-        headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"}
+        data,
+        headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest", "content-type":"text/plain;charset=UTF-8"}
         )
     data = x.json()
     if "success" not in data or data["success"]!=True:
+        assert "name_conflicts" in x.text, "Unkown error"
         raise FileExistsError("failed to create {name} under folder_{parent_id}. data={data}".format(**locals()))
     return str(data["new_folder"]["id"])
 
@@ -510,6 +512,7 @@ def fillup_cache(abs_path, cache=None):
         nowpath = "/".join(path_splited[:i+1])
         cache["fs"].update(generate_fscache("/"+nowpath, prefix=nowpath+"/", only1depth = True, cache=cache))
     return cache
+
 
 def upload_directory(token, local_dir, target_folder_path, cache=None, skip_existed=False, show_skip_info=True):
     """
