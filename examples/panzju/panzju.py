@@ -156,10 +156,15 @@ def share(token,fileid):
     可以反复执行，返回相同的分享链接
     """
     global a
+    data = """{"access": "public", "disable_download": "0", "due_time": "never_expire", "password_protected": false,"item_typed_id": "%s"}"""%fileid
     x=a.post(DOMAIN+"/apps/files/share",
-             """{"access": "public", "disable_download": "0", "due_time": "never_expire", "password_protected": false,"item_typed_id": "%s"}"""%fileid,
+             data,
              headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"})
-    result=x.json()
+    try:
+        result=x.json()
+    except:
+        print(x.text)
+        raise
     if result.get("success")!=True:
         return False
     else:
@@ -516,7 +521,58 @@ def fillup_cache(abs_path, cache=None):
         cache["fs"].update(generate_fscache("/"+nowpath, prefix=nowpath+"/", only1depth = True, cache=cache))
     return cache
 
-
+def upload_directory_targetid(token, local_dir, target_folder_id, skip_existed=False, show_skip_info=True):
+    """
+    token: request_token
+    local_dir: 需要上传的文件夹, 如r"d:\to_be_uploaded"
+    target_folder_path: 上传的目标位置的父文件夹id
+    
+    这个函数不是递归函数，使用os.walk mkdir_p upload完成上传任务
+    如果目标文件夹已经存在，会print一行[WARN]; 如果目标文件已经存在，会以在文件末尾添加(1)的形式上传 而不是替换！
+    """
+    #检查本地目录要是一个目录
+    global a
+    assert os.path.isdir(local_dir), "expected a folder, local_dir={local_dir}".format(**locals())
+    name = getfilename(local_dir) #要上传的文件夹名称
+    
+    fid = str(target_folder_id)
+    target_folder_lsdir = lsdir(a, fid)
+    # 对父目录进行了列目录，现在直接mkdir_p生成文件夹吧, sh*t cache! 
+    try:
+        targetfid = mkdir(token, name, parent_id = fid)
+    except FileExistsError:
+        targetfid = [i[1].split("_")[1] for i in target_folder_lsdir if i[0]==name and i[1].split("_")[0]=="folder"][0]
+    print(targetfid)
+    
+    cache = {"fs":{}, "path":"/", "fid": targetfid}
+    cache["fs"].update(generate_fscache("", fid = targetfid, prefix="/", cache=cache))
+    #print(cache["fs"])
+    target_folder_path = ""
+    for root, dirs, files in os.walk(local_dir):
+        for dir in dirs:
+            dirname = root.replace(local_dir,"",1).replace("\\",'/')+"/"+dir #"/Image/aha"
+            mkdir_p(token, target_folder_path+dirname, cache)
+        for filename in files:
+            relative_root = root.replace(local_dir,"",1).replace("\\",'/') #"/Image/aha"或者""
+            remote_abs_folder = target_folder_path+relative_root #"uploaded/Image/aha"或者"uploaded" 注意虽然叫做abs实际上还是相对于cache["path"]的相对目录
+            remote_abs_filepath = remote_abs_folder+"/"+safefilename(filename) #"uploaded/Image/aha/example.jpg"或者"uploaded/example.jpg"
+            #print(remote_abs_folder, cache)
+            type, folder_id = path_to_typed_id(remote_abs_folder, cache)
+            assert type=="folder", "expected folder {remote_abs_folder}".format(**locals())
+            local_filepath = os.path.join(local_dir, relative_root[1:], filename)
+            if skip_existed and remote_abs_filepath in cache["fs"]:
+                if show_skip_info:
+                    print("skip existed file: {remote_abs_filepath}".format(**locals()))
+                continue
+            filesize = getsize(local_filepath)
+            if filesize>BLOCKSIZE:
+                data=block(open(local_filepath,"rb"), showhint=False)
+            else:
+                data=open(local_filepath,"rb").read()
+            newfileid = upload(token,filename,data,filesize,folder_id=folder_id)
+            cache["fs"][remote_abs_filepath] = ("file", newfileid, filesize)
+    return targetfid
+    
 def upload_directory(token, local_dir, target_folder_path, cache=None, skip_existed=False, show_skip_info=True):
     """
     token: request_token
