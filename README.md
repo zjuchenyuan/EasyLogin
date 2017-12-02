@@ -95,7 +95,7 @@ __result__: use the BeautifulSoup to parse the html, default is True (if you car
 
 __save__: used in login request, if `save=True`, write the cookie to a file, filename is given by `cookiefile` during the object initialization(default is cookie.pickle)
 
-__headers__: dict, like {"csrf-token":"xxxxxx"}, added to request headers
+__headers__: dict, like {"csrf-token":"xxxxxx"}, added to request headers; default value contains `Content-Type: application/x-www-form-urlencoded; charset=UTF-8`, if you would like specify a new `Content-Type`, please notify case-sensitive `Content-Type`
 
 __cache__: filename to write cache, if already exists, use cache rather than really get; using cache=True to use md5(url) as cache file name
 

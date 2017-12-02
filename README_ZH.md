@@ -150,7 +150,7 @@ __result__: 得到的结果是否要使用BeautifulSoup解析，默认为True，
 
 __save__: 用于登录请求，默认为False，如果设置则将得到的cookie写入文件，写入的文件名由初始化时的cookiefile参数给定（默认是cookie.pickle）
 
-__headers__: 类似于这样的字典 {"csrf-token":"xxxxxx"}, 将加入到请求的headers中
+__headers__: 类似于这样的字典 {"csrf-token":"xxxxxx"}, 将加入到请求的headers中; 默认的headers有Content-Type: application/x-www-form-urlencoded; charset=UTF-8，如果需要覆盖这个值，切记注意Content-Type的大小写 否则会导致不稳定的覆盖
 
 __cache__: 缓存文件名或者True时将写入缓存文件，如果文件已经存在则将直接读取缓存而不真正发起请求；为了偷懒可以设置cache=True，则将采用md5(url)或md5(url+postdata)作为缓存文件名
 

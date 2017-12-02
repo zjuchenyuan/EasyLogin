@@ -129,7 +129,7 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
         filesize = len(data)
     x=a.post(DOMAIN+"/apps/files/presign_upload",
              """{"folder_id":%s,"file_size":%d}"""%(str(folder_id),filesize),
-             headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest"})
+             headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"})
     try:
         result=x.json()
     except json.decoder.JSONDecodeError:
@@ -158,7 +158,7 @@ def share(token,fileid):
     global a
     x=a.post(DOMAIN+"/apps/files/share",
              """{"access": "public", "disable_download": "0", "due_time": "never_expire", "password_protected": false,"item_typed_id": "%s"}"""%fileid,
-             headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"})
+             headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"})
     result=x.json()
     if result.get("success")!=True:
         return False
@@ -272,15 +272,18 @@ def mkdir(token, name, parent_id=0):
     如果重名文件夹已经存在，抛出FileExistsError异常
     """
     global a
-    print("mkdir: name={name}, parent_id={parent_id}".format(**locals()))
+    print("mkdir: name={name}, parent_id={parent_id}, token={token}".format(**locals()))
     data = ("""{"parent_folder_id":%s,"name":"%s"}"""%(str(parent_id), name)).encode('utf-8')
     x = a.post(DOMAIN+"/apps/files/new_folder",
         data,
-        headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest", "content-type":"text/plain;charset=UTF-8"}
+        headers={"requesttoken":token,"x-requested-with": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"}
         )
-    data = x.json()
+    try:
+        data = json.loads(x.text)
+    except:
+        data = {"success": False}
     if "success" not in data or data["success"]!=True:
-        assert "name_conflicts" in x.text, "Unkown error"
+        assert "name_conflicts" in x.text, "Unkown error"+x.text
         raise FileExistsError("failed to create {name} under folder_{parent_id}. data={data}".format(**locals()))
     return str(data["new_folder"]["id"])
 
