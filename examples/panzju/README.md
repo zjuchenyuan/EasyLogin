@@ -1,6 +1,7 @@
 # 浙大云盘API
 
-使用EasyLogin完成[浙大云盘](https://pan.zju.edu.cn)登录、上传、分享、下载直链获取
+使用EasyLogin完成[浙大云盘](https://pan.zju.edu.cn)登录、上传、分享、下载直链获取；
+浙大云盘没有服务器Linux cli的客户端，写个python来调用网页版接口上传文件夹
 
 ## 使用方法
 
