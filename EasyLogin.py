@@ -18,8 +18,12 @@ from bs4 import BeautifulSoup
 import hashlib
 from collections import OrderedDict
 import json
+try:
+    import cchardet as chardet
+except:
+    import chardet
 
-__version__ = 20170926
+__version__ = 20180106
 
 UALIST = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A",
@@ -138,7 +142,7 @@ class EasyLogin:
             if o:
                 return obj
             else:
-                return page.decode(errors='replace')
+                return page.decode(chardet.detect(page)["encoding"],errors='replace')
         if r:
             if headers is None:
                 headers = {"Accept-Encoding": "gzip, deflate, sdch", "Accept-Language": "zh-CN,zh;q=0.8", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Upgrade-Insecure-Requests": "1", "DNT": "1"}
