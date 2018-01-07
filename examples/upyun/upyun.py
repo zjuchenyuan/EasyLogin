@@ -30,7 +30,12 @@ def purge_rule_request(urls):
     a.get("https://console.upyun.com/purge/purge_rule/",result=False)
     xsrftoken=a.s.cookies["XSRF-TOKEN"]
     x=a.post_json("https://console.upyun.com/api/buckets/purge/batch/",{"source_url": urls, "nofi": 0, "delay": 3600},headers={"x-xsrf-token":xsrftoken})
-    return [i["status"] for i in x["data"]]
+    try:
+        result = [i["status"] for i in x["data"]]
+    except:
+        print(x)
+        return "Error"
+    return result
 
 if __name__=="__main__":
     try:
