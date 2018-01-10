@@ -7,6 +7,10 @@ import ntpath
 import os
 import sys
 import json
+try:
+    import err_hunter as traceback
+except:
+    import traceback
 
 __all__ = ['download', 'upload_by_collection', 'dirshare_listdir', 'dirshare_download', 'upload_directory']
 
@@ -106,7 +110,7 @@ def safefilename(filename):
         filename = filename.replace(x,"")
     return filename
 
-def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
+def upload(token, filename, data, filesize=None, folder_id=0, retry=5, fencrypt=None):
     """
     上传文件，与亿方云基本一致，但需要引入dont_change_cookie
     token:islogin()返回的token
@@ -114,12 +118,34 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
     data:文件二进制数据, 也可以为block generator
     filesize: 文件总大小，如果data为block generator，必须填入
     folder_id: 上传的目的文件夹id
-
+    fencrypt: { #4个元素的dict
+        fencrypt_filename(filename): 对文件名进行加密的函数，返回加密后的文件名ASCII 建议base64
+        fencrypt_data(data_generator): 对文件内容进行加密的函数，输入文件内容的generator，返回密文的generator；即使输入的data不是生成器也会被转为list传入
+        fencrypt_addlen: int 由于文件加密增加的字节数，一般就是iv的长度
+        fencrypt_callback(filename_plaintext, filename_ciphertext, folder_id, fileid): 上传成功后进行回调，便于存储加密信息，传入原文件名、加密文件名、上传目标目录id、上传得到的文件ID， 返回None
+    }
     返回服务器端的文件id
     """
+    if fencrypt is not None:
+        fencrypt_filename = fencrypt.get("fencrypt_filename",None)
+        fencrypt_data = fencrypt.get("fencrypt_data",None)
+        fencrypt_addlen = fencrypt.get("fencrypt_addlen",0)
+        fencrypt_callback = fencrypt.get("fencrypt_callback",None)
+    else:
+        fencrypt_filename = fencrypt_data = fencrypt_callback = None
+        fencrypt_addlen = 0
+    
     global a
     print("upload: filename={filename}, folder_id={folder_id}".format(**locals()))
     _filename = safefilename(getfilename(filename))
+    
+    if fencrypt_filename is not None: # for encrypting filename
+        filename_plaintext = _filename
+        _filename = fencrypt_filename(_filename)
+        filename_ciphertext = _filename
+    else:
+        filename_plaintext = filename_ciphertext = _filename
+    
     try:
         filename=quote(_filename)
     except:
@@ -127,6 +153,7 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
         raise
     if filesize is None:
         filesize = len(data)
+    filesize += fencrypt_addlen
     x=a.post(DOMAIN+"/apps/files/presign_upload",
              """{"folder_id":%s,"file_size":%d}"""%(str(folder_id),filesize),
              headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"})
@@ -134,13 +161,25 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
         result=x.json()
     except json.decoder.JSONDecodeError:
         if retry>0:
-            return upload(token, filename, data, filesize, folder_id, retry = retry-1)
+            return upload(token, filename, data, filesize, folder_id, retry = retry-1, fencrypt=fencrypt)
         else:
             raise
     if result["success"]!=True:
         print(result)
         return False
     upload_url=result["upload_url"]
+    
+    if fencrypt_data is not None: # add support for data encryption
+        is_stream = all([
+            hasattr(data, '__iter__'),
+            not isinstance(data, (str, bytes, list, tuple, dict))
+        ])
+        if not is_stream:
+            data_to_encrypt = [data] # change data to a list for calling fencrypt_data
+        else:
+            data_to_encrypt = data
+        data = fencrypt_data(data_to_encrypt)
+    
     x=a.post(upload_url,
              data,
              headers={"requesttoken": token,"X-File-Name": filename},dont_change_cookie=True)
@@ -148,7 +187,15 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5):
     if "success" not in result or result["success"]!=True:
         print(result)
         return False
-    return result["new_file"]["typed_id"]
+    ret = result["new_file"]["typed_id"]
+    
+    if fencrypt_callback is not None:
+        try:
+            fencrypt_callback(filename_plaintext, filename_ciphertext, folder_id, ret)
+        except:
+            traceback.print_exc()
+            pass # exception happened in callback should not have no influence
+    return ret
 
 def share(token,fileid):
     """
@@ -726,13 +773,13 @@ def anonymous_upload(config_uploadlink, config_sharelink, path_to_file):
     print(dirshare_download(config_sharelink, fileid))
 
 
-def logined_upload(token, path_to_file):
+def logined_upload(token, path_to_file, fencrypt=None):
     """
     已经登录，执行上传流程
     """
     block_generator=block(open(path_to_file,"rb"))
     filesize=getsize(path_to_file)
-    fileid=upload(token,path_to_file,block_generator,filesize)
+    fileid=upload(token,path_to_file,block_generator,filesize, fencrypt=fencrypt)
     sharelink=share(token,fileid)
     return fileid, sharelink
 
@@ -755,7 +802,8 @@ def UI_login_upload(username=None, password=None):
         assert login(username, password)!=False, "Login failed"
         a.save(_statusfile)
         token=islogin()
-    fileid, sharelink = logined_upload(token, sys.argv[1])
+    fencrypt = getattr(config, "fencrypt", {})
+    fileid, sharelink = logined_upload(token, sys.argv[1], fencrypt=fencrypt)
     print("fileid:")
     print(fileid)
     print()
