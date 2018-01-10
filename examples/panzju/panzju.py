@@ -657,7 +657,7 @@ def upload_by_collection_detailed(token, collection_code, filename, filesize, da
     global a
     x = a.post(DOMAIN + "/apps/processes/presign_upload",
             ("""{"code":"%s","file_name":"%s","file_size":%d}"""%(collection_code, filename, filesize)).encode('utf-8'), #在格式化字符串之后再进行编码
-            headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"}
+            headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"}
         )
     result=x.json()
     if "success" not in result or result["success"]!=True:
@@ -667,7 +667,7 @@ def upload_by_collection_detailed(token, collection_code, filename, filesize, da
     upload_url=result["upload_url"]
     x=a.post(upload_url,
              data,
-             headers={"requesttoken": token,"X-File-Name": quote(filename)},dont_change_cookie=True) #header中的还是需要quote的
+             headers={"requesttoken": token,"X-File-Name": quote(filename), "Content-Type":"text/plain;charset=UTF-8"},dont_change_cookie=True) #header中的还是需要quote的
     result=x.json()
     if "success" not in result or result["success"]!=True:
         print("[FAILED] upload")
@@ -676,7 +676,7 @@ def upload_by_collection_detailed(token, collection_code, filename, filesize, da
     fileid = result["new_file"]["id"]
     x = a.post(DOMAIN+"/apps/processes/collection_submit", 
         """{"user_name":".","code":"%s","file_ids":[%s]}"""%(collection_code,fileid),
-        headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"},
+        headers={"requesttoken":token, "X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"},
         dont_change_cookie=True
         )
     result=x.json()
