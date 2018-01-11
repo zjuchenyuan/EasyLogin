@@ -1,6 +1,6 @@
 from panzju import a,_statusfile,islogin, login, upload_directory, getfilename, share, DOMAIN, upload_directory_targetid
-import testconfig
-from testconfig import username, password
+import config
+from config import username, password
 import pickle
 import sys
 import traceback
@@ -22,7 +22,7 @@ python3 upload_dir.py D:\Desktop\ebook +455000335510
 """
 
 def UIuploaddir():
-    fencrypt = getattr(testconfig, "fencrypt", {})
+    fencrypt = getattr(config, "fencrypt", {})
     global a
     token = islogin()
     if not token:
