@@ -1,8 +1,8 @@
 # encoding: utf-8
 from panzju import generate_fscache, login, APIDOMAIN, getshareid
-from testconfig import username,password #与upload_dir类似，也需要你的用户名密码进行登录
+from config import username,password #与upload_dir类似，也需要你的用户名密码进行登录
 import sys
-## 用于列出目录，显示出直接可以点击的Markdown
+## 用于列出分享目录下的文件，显示出直接可以点击下载的Markdown
 ## FIXME: 目前仅支持目录\文件这种形式的正确层级显示
 
 #首先调用login登录和generate_fscache生成文件系统缓存
