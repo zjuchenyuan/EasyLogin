@@ -1,7 +1,10 @@
 # 浙大云盘API
 
 使用EasyLogin完成[浙大云盘](https://pan.zju.edu.cn)登录、上传、分享、下载直链获取；
-浙大云盘没有服务器Linux cli的客户端，写个python来调用网页版接口上传文件夹
+
+浙大云盘目前没有服务器Linux cli的客户端，此项目可以在Linux下上传文件夹
+
+而且支持加密上传，不在云端存储明文数据
 
 ## 使用方法
 
@@ -17,11 +20,13 @@ pip3 install -U requests[socks] bs4 -i https://pypi.doubanio.com/simple/ --trust
 
 ### 第二步 获取本项目源代码
 
-由于这个github repo包含了太多其他项目，并没有必要git clone，此项目除去依赖的EasyLogin 其实只有两个py文件，只需wget下载即可
+由于这个github repo包含了太多其他项目，并没有必要git clone（除非你要加密），此项目除去依赖的EasyLogin 其实只有两个py文件和一个配置文件，只需wget下载即可
 
 ```
 wget https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/panzju/panzju.py
 wget https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/panzju/upload_dir.py
+wget https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/panzju/config.example.py
+mv config.example.py config.py
 ```
 
 ### 使用情景1——上传单个文件
@@ -30,11 +35,13 @@ wget https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/pan
 python3 panzju.py 待上传的文件名 学号 浙江大学统一通行证密码
 ```
 
+或者你也可以在`config.py`里面指定学号密码，参见[config.example.py](config.example.py)
+
 ![screenshot](screenshot.jpg)
 
 ### 使用情景2——上传文件夹 upload_dir.py
 
-每次调用都要命令行提供密码显然很蠢，所以这里的设计是：你需要写一个`testconfig.py` 给出你的`username`和`password`，或者你也可以直接修改upload_dir.py来提供你的学工号和密码
+你需要写一个`config.py` 给出你的`username`和`password`，参见[config.example.py](config.example.py)
 
 Usage: `python3 upload_dir.py src dst`
 
@@ -78,6 +85,13 @@ python3 upload_dir.py 新东方日语教程 +455000335514
 如果文件夹已经存在，会先调用lsdir列举目录 以 跳过已经存在的文件
 
 ## 上传之前当然应该加密啦！
+
+加密用到了mycryptor文件夹，建议你将整个项目git clone
+
+```
+git clone https://github.com/zjuchenyuan/EasyLogin --depth 1
+cd EasyLogin/examples/panzju
+```
 
 config.py里面可以指定文件加密密码、加密方式，参见[config.example.py](config.example.py)
 

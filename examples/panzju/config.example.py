@@ -6,6 +6,7 @@ sharelink = "28c25672a486641f0........."
 # 非匿名上传则使用此用户名密码登录
 username = ".........."
 password = ".........."
+assert username!="..........", "please modify config.py"
 
 # 如果需要加密则引入以下几行
 ENCRYPTION_PASSWORD = "b@dPassw0rd_CHANGEME!" # 文件加密用的密码
