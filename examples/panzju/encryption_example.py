@@ -10,7 +10,7 @@ import mycryptor.cryptor as cryptor
 from config import ENCRYPTION_PASSWORD, ENCRYPTION_METHOD, ENCRYPTION_IVLEN
 
 def fencrypt_filename(filename):
-    return base64.b64encode(filename.encode("utf-8")).decode()
+    return base64.b64encode(filename.encode("utf-8")).decode().replace("+","~").replace("/","@")
 
 def fencrypt_data(data_generator):
     c = cryptor.Cryptor(ENCRYPTION_PASSWORD, ENCRYPTION_METHOD)
