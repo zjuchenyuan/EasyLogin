@@ -568,7 +568,7 @@ def fillup_cache(abs_path, cache=None):
         cache["fs"].update(generate_fscache("/"+nowpath, prefix=nowpath+"/", only1depth = True, cache=cache))
     return cache
 
-def upload_directory_targetid(token, local_dir, target_folder_id, skip_existed=False, show_skip_info=True):
+def upload_directory_targetid(token, local_dir, target_folder_id, skip_existed=False, show_skip_info=True, fencrypt=None):
     """
     token: request_token
     local_dir: 需要上传的文件夹, 如r"d:\to_be_uploaded"
@@ -616,11 +616,11 @@ def upload_directory_targetid(token, local_dir, target_folder_id, skip_existed=F
                 data=block(open(local_filepath,"rb"), showhint=False)
             else:
                 data=open(local_filepath,"rb").read()
-            newfileid = upload(token,filename,data,filesize,folder_id=folder_id)
+            newfileid = upload(token,filename,data,filesize,folder_id=folder_id,fencrypt=fencrypt)
             cache["fs"][remote_abs_filepath] = ("file", newfileid, filesize)
     return targetfid
     
-def upload_directory(token, local_dir, target_folder_path, cache=None, skip_existed=False, show_skip_info=True):
+def upload_directory(token, local_dir, target_folder_path, cache=None, skip_existed=False, show_skip_info=True, fencrypt=None):
     """
     token: request_token
     local_dir: 需要上传的文件夹, 如r"d:\to_be_uploaded"
@@ -670,7 +670,7 @@ def upload_directory(token, local_dir, target_folder_path, cache=None, skip_exis
                 data=block(open(local_filepath,"rb"), showhint=False)
             else:
                 data=open(local_filepath,"rb").read()
-            newfileid = upload(token,filename,data,filesize,folder_id=folder_id)
+            newfileid = upload(token,filename,data,filesize,folder_id=folder_id, fencrypt=fencrypt)
             cache["fs"][remote_abs_filepath] = ("file", newfileid, filesize)
     return fid
 

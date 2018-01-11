@@ -1,5 +1,6 @@
 from panzju import a,_statusfile,islogin, login, upload_directory, getfilename, share, DOMAIN, upload_directory_targetid
-from testconfig import username, password #fix this filename
+import testconfig
+from testconfig import username, password
 import pickle
 import sys
 import traceback
@@ -21,6 +22,7 @@ python3 upload_dir.py D:\Desktop\ebook +455000335510
 """
 
 def UIuploaddir():
+    fencrypt = getattr(testconfig, "fencrypt", {})
     global a
     token = islogin()
     if not token:
@@ -31,11 +33,11 @@ def UIuploaddir():
     src = sys.argv[1].rstrip("/")
     dst = sys.argv[2]
     if dst.startswith("+"):
-        fid = upload_directory_targetid(token, src, dst[1:], skip_existed=True, show_skip_info=True)
+        fid = upload_directory_targetid(token, src, dst[1:], skip_existed=True, show_skip_info=True, fencrypt=fencrypt)
     else:
         if dst.endswith("/"):
             dst += getfilename(sys.argv[1])
-        fid = upload_directory(token, src, dst, skip_existed=True, show_skip_info=True)
+        fid = upload_directory(token, src, dst, skip_existed=True, show_skip_info=True, fencrypt=fencrypt)
     
     sharelink=share(token,"folder_"+fid)
     print(DOMAIN+"/share/"+sharelink)

@@ -18,7 +18,7 @@ from __future__ import absolute_import, division, print_function, \
     with_statement
 
 import hashlib
-from shadowsocks.crypto import openssl
+from ..crypto import openssl
 
 __all__ = ['ciphers']
 
