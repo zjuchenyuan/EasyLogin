@@ -77,17 +77,19 @@ python3 upload_dir.py 新东方日语教程 +455000335514
 
 如果文件夹已经存在，会先调用lsdir列举目录 以 跳过已经存在的文件
 
-## 对EasyLogin感兴趣？这里还有一些额外的说明
-
-### 上传之前当然应该加密啦！
+## 上传之前当然应该加密啦！
 
 config.py里面可以指定文件加密密码、加密方式，参见[config.example.py](config.example.py)
 
+如果你想使用加密上传，将`config.example.py`重命名为`config.py`，填入登录用到的用户名密码信息，修改加密密码
+
 注意[encryption_example.py](encryption_example.py)使用的文件名处理函数并没有对文件名进行加密，只是简单的base64编码
 
-另外，文件夹的名称目前还没有支持加密
+另外，文件夹的名称目前还没有支持加密，匿名上传还没有支持加密
 
 TODO: 提供解密函数
+
+## 对EasyLogin感兴趣？这里还有一些额外的说明
 
 ### 说明
 
