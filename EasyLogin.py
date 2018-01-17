@@ -463,8 +463,7 @@ class EasyLogin:
             return False
         self.s.cookies = self.cookiestack.pop()
 
-
-if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
+def main():
     a = EasyLogin()
     page = a.get("http://ip.cn/")
     IP, location = a.f("code", attrs={})
@@ -474,3 +473,6 @@ if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
     print(a.css())
     print(a.js())
     print(";".join(a.text()))
+
+if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
+    main()
