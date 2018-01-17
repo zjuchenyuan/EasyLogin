@@ -9,5 +9,8 @@ python:
   - "nightly"
 install:
   - pip install -U requests[socks] bs4
+  - pip install coverage
 script: 
-  - python EasyLogin.py
+  - coverage run test.py
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
