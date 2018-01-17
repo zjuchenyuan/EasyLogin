@@ -88,7 +88,6 @@ class EasyLogin:
             if not os.path.exists(cachedir):
                 os.mkdir(cachedir)
             self.cachedir = cachedir
-        print("init!")
 
     def setcookie(self,cookiestring):
         cookie = {}
