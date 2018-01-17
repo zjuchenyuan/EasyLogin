@@ -17,7 +17,6 @@ a = EasyLogin()
 s = threading.local()
 
 import time
-myprint = lambda s: print("[{showtime}] {s}".format(showtime=time.strftime("%Y-%m-%d %H:%M:%S"), s=s))
 
 def gettime():
     return time.strftime("%Y%m%d%H%M%S")
@@ -40,7 +39,7 @@ class TestPanzju(unittest.TestCase):
     
     def test_c_upload(self):
         print(s.token)
-        with open("green.jpg", "rb") as fp:
+        with open(oldcwd + "/examples/panzju/green.jpg", "rb") as fp:
             s.picdata = fp.read()
         s.fileid = upload(s.token, gettime(), s.picdata, filesize=len(s.picdata), _a=a)
     
