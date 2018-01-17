@@ -4,9 +4,9 @@ import os
 from EasyLogin import EasyLogin
 
 if os.environ.get("GFW"):
-    a = EasyLogin(proxy="socks5://127.0.0.1:10800")
+    a = EasyLogin(proxy="socks5://127.0.0.1:10800", cachedir="__pycache__")
 else:
-    a = EasyLogin()
+    a = EasyLogin(cachedir="__pycache__")
 
 class TestHttpbin(unittest.TestCase):
     """testing using https://httpbin.org/"""
@@ -55,6 +55,3 @@ class TestHttpbin(unittest.TestCase):
         x = a.get("https://httpbin.org/cookies", o=True) # not using cache
         self.assertEqual("value2", x.json()["cookies"]["cookie2"])
     
-    def test_dont_change_cookie(self):
-        """post: dont_change_cookie"""
-        pass
