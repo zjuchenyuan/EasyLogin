@@ -8,6 +8,6 @@ python:
   - "pypy3"
   - "nightly"
 install:
-  - pip3 install -U requests[socks] bs4 -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com
+  - pip install -U requests[socks] bs4
 script: 
   - python3 EasyLogin.py
