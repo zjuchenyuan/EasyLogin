@@ -110,7 +110,7 @@ def safefilename(filename):
         filename = filename.replace(x,"")
     return filename
 
-def upload(token, filename, data, filesize=None, folder_id=0, retry=5, fencrypt=None):
+def upload(token, filename, data, filesize=None, folder_id=0, retry=5, fencrypt=None, _a=None):
     """
     上传文件，与亿方云基本一致，但需要引入dont_change_cookie
     token:islogin()返回的token
@@ -135,7 +135,10 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5, fencrypt=
         fencrypt_filename = fencrypt_data = fencrypt_callback = None
         fencrypt_addlen = 0
     
-    global a
+    if _a is None:
+        global a
+    else:
+        a = _a
     print("upload: filename={filename}, folder_id={folder_id}".format(**locals()))
     _filename = safefilename(getfilename(filename))
     
@@ -265,14 +268,14 @@ def logined_download(sharelink, a):
     :return: 可以直接下载的url，一段时间后失效
     """
     x = a.get(DOMAIN+"/share/"+sharelink, o=True, result=False)
-    if "Refresh" in x.headers:
+    if "Location" in x.headers:
         """
         发生跳转，自己发布的分享链接或者没有登录
         """
-        if "login" in x.headers["Refresh"]:
+        if "login" in x.headers["Location"]:
             raise NotLoginException()
         else:
-            fileid = x.headers["Refresh"].split("preview=")[1]
+            fileid = x.headers["Location"].split("file/")[1]
             x = a.get("{DOMAIN}/apps/files/download?file_id={fileid}".format(DOMAIN=DOMAIN,fileid=fileid), o=True, result=False)
             if x.status_code != 302:
                 raise LoginedDownload_UnknownError(x.text)
