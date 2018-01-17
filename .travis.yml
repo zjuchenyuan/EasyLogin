@@ -10,4 +10,4 @@ python:
 install:
   - pip install -U requests[socks] bs4
 script: 
-  - python3 EasyLogin.py
+  - python EasyLogin.py
