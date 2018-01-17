@@ -10,7 +10,7 @@ oldcwd = os.getcwd()
 os.chdir("examples/panzju")
 sys.path.append(".")
 
-from panzju import login, islogin, upload, share, download, logined_download
+from panzju import login, islogin, upload, share, download, logined_download, delete_files
 username, password = os.environ["panzju_username"], os.environ["panzju_password"]
 
 a = EasyLogin()
@@ -32,6 +32,7 @@ os.chdir(oldcwd)
 class TestPanzju(unittest.TestCase):
     """testing using https://github.com/"""
     def test_a_login(self):
+        s.files = []
         self.assertTrue(login(username, password, a))
     
     def test_b_islogin(self):
@@ -42,6 +43,7 @@ class TestPanzju(unittest.TestCase):
         with open(oldcwd + "/examples/panzju/green.jpg", "rb") as fp:
             s.picdata = fp.read()
         s.fileid = upload(s.token, gettime(), s.picdata, filesize=len(s.picdata), _a=a)
+        s.files.append(s.fileid)
     
     def test_d_share(self):
         s.sharelink = share(s.token, s.fileid)
@@ -53,6 +55,7 @@ class TestPanzju(unittest.TestCase):
     
     def test_f_encryptupload(self):
         s.fileid_enc = upload(s.token, gettime()+"_encrypt", s.picdata, filesize=len(s.picdata), _a=a, fencrypt=fencrypt)
+        s.files.append(s.fileid_enc)
         s.sharelink_enc = share(s.token, s.fileid_enc)
     
     def test_g_decryptdownload(self):
@@ -60,3 +63,6 @@ class TestPanzju(unittest.TestCase):
         x = requests.get(url)
         plaintext = fdecrypt_data(x.content)
         self.assertEqual(s.picdata, plaintext)
+    
+    def test_h_deletefiles(self):
+        self.assertTrue(delete_files(s.token,s.files,a))

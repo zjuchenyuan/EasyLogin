@@ -252,6 +252,19 @@ def download(file_uniqe_name):
     x=a.get(DOMAIN+"/apps/files/download?file_id={}&scenario=share".format(fileid), o=True, result=False)
     return x.headers["Location"]
 
+def delete_files(token, fileids, _a=None):
+    if _a is None:
+        global a
+    else:
+        a = _a
+    fileids = list(fileids)
+    data = """{"item_typed_ids":["%s"]}"""%('", "'.join(fileids))
+    x=a.post(DOMAIN+"/apps/files/delete",
+             data,
+             headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"})
+    return x.json()["success"]
+    
+
 class NotLoginException(Exception):
     pass
 
