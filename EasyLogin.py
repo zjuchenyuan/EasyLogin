@@ -65,6 +65,9 @@ class EasyLogin:
             self.s = session
             return
         self.s = requests.Session()
+        adapter = requests.adapters.HTTPAdapter(pool_connections=100, 
+                                            pool_maxsize=1000)
+        self.s.mount('http://', adapter)
         self.s.headers.update({'User-Agent': random.choice(UALIST)})
         if cookie is None:
             cookie = {}
@@ -85,6 +88,7 @@ class EasyLogin:
             if not os.path.exists(cachedir):
                 os.mkdir(cachedir)
             self.cachedir = cachedir
+        print("init!")
 
     def setcookie(self,cookiestring):
         cookie = {}
@@ -109,7 +113,7 @@ class EasyLogin:
         return c
     cookie = property(showcookie)
 
-    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None, debug=False, fixfunction=None):
+    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None, debug=False, fixfunction=None, **kwargs):
         """
         HTTP GET method, default save soup to self.b
         :param url: a url, example: "http://ip.cn"
@@ -151,7 +155,7 @@ class EasyLogin:
             if headers is None:
                 headers = {}
             headers["Cookie"] = cookiestring
-        x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies)
+        x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies, **kwargs)
         if failstring is not None:
             class EasyLogin_ValidateFail:
                 pass
@@ -173,7 +177,7 @@ class EasyLogin:
                 open(cache_filepath, "wb").write(x.content)
             return x.text
 
-    def post(self, url, data, result=True, save=False, headers=None, cache=None, dont_change_cookie=False):
+    def post(self, url, data, result=True, save=False, headers=None, cache=None, dont_change_cookie=False, **kwargs):
         """
         HTTP POST method, submit data to server
         :param url: post target url
@@ -187,8 +191,10 @@ class EasyLogin:
         """
         if cache is True:
             cache = mymd5(url+data)
-        if cache is not None and os.path.exists(cache):
-                obj = pickle.load(open(cache, "rb"))
+        if cache:
+            cache_filepath = self.cachedir + cache
+        if cache is not None and os.path.exists(cache_filepath):
+                obj = pickle.load(open(cache_filepath, "rb"))
                 if result:
                     self.b = BeautifulSoup(obj.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
                 return obj
@@ -197,7 +203,7 @@ class EasyLogin:
             postheaders.update(headers)
         if dont_change_cookie:
             self.stash_cookie()
-        x = self.s.post(url, data, headers=postheaders, allow_redirects=False, proxies=self.proxies)
+        x = self.s.post(url, data, headers=postheaders, allow_redirects=False, proxies=self.proxies, **kwargs)
         if dont_change_cookie:
             self.pop_cookie()
         if result:
