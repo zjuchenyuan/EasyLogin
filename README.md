@@ -1,5 +1,7 @@
 # EasyLogin.py
 
+[![Build Status](https://travis-ci.org/zjuchenyuan/EasyLogin.svg?branch=master)](https://travis-ci.org/zjuchenyuan/EasyLogin)
+
 One file package `EasyLogin.py`, for writing spiders more easily
 
 Just forget UserAgent, Cookies, and Cache... Let EasyLogin take care of all these things, so you can focus on your core code.

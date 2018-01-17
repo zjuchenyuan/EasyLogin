@@ -1,8 +1,5 @@
 # coding:utf-8
-
-# TODO:
-#   support file upload
-#   more document is also needed
+from __future__ import with_statement
 
 try:
     from urllib.parse import urlencode, quote, unquote
@@ -76,7 +73,8 @@ class EasyLogin:
         if cookiefile is not None:
             self.cookiefile = cookiefile
             try:
-                self.s.cookies = pickle.load(open(cookiefile, "rb"))
+                with open(cookiefile, "rb") as fp:
+                    self.s.cookies = pickle.load(fp)
             except FileNotFoundError:
                 pass
         if cachedir is None:
@@ -132,11 +130,12 @@ class EasyLogin:
         if cache:
             cache_filepath = self.cachedir + cache
         if cache is not None and os.path.exists(cache_filepath): # cache exist, read from cache
-            if o:
-                obj = pickle.load(open(cache_filepath, "rb"))
-                page = obj.content
-            else:
-                page = open(cache_filepath, "rb").read()
+            with open(cache_filepath, "rb") as fp:
+                if o:
+                    obj = pickle.load(fp)
+                    page = obj.content
+                else:
+                    page = fp.read()
             if result:
                 page = page.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
                 if fixfunction is not None:
@@ -166,14 +165,17 @@ class EasyLogin:
                     page = fixfunction(page)
                 self.b = BeautifulSoup(page, 'html.parser')
         if save:
-            open(self.cookiefile, "wb").write(pickle.dumps(self.s.cookies))
+            with open(self.cookiefile, "wb") as fp:
+                fp.write(pickle.dumps(self.s.cookies))
         if o:  # if you need object returned
             if cache is not None:
-                open(cache_filepath, "wb").write(pickle.dumps(x))
+                with open(cache_filepath, "wb") as fp:
+                    fp.write(pickle.dumps(x))
             return x
         else:
             if cache is not None:
-                open(cache_filepath, "wb").write(x.content)
+                with open(cache_filepath, "wb") as fp:
+                    fp.write(x.content)
             return x.text
 
     def post(self, url, data, result=True, save=False, headers=None, cache=None, dont_change_cookie=False, **kwargs):
@@ -193,10 +195,11 @@ class EasyLogin:
         if cache:
             cache_filepath = self.cachedir + cache
         if cache is not None and os.path.exists(cache_filepath):
-                obj = pickle.load(open(cache_filepath, "rb"))
-                if result:
-                    self.b = BeautifulSoup(obj.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
-                return obj
+            with open(cache_filepath, "rb") as fp:
+                obj = pickle.load(fp)
+            if result:
+                self.b = BeautifulSoup(obj.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n"), 'html.parser')
+            return obj
         postheaders = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         if headers is not None:
             postheaders.update(headers)
@@ -209,9 +212,11 @@ class EasyLogin:
             page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
             self.b = BeautifulSoup(page, 'html.parser')
         if save:
-            open(self.cookiefile, "wb").write(pickle.dumps(self.s.cookies))
+            with open(self.cookiefile, "wb") as fp:
+                fp.write(pickle.dumps(self.s.cookies))
         if cache is not None:
-            open(cache, "wb").write(pickle.dumps(x))
+            with open(cache_filepath, "wb") as fp:
+                fp.write(pickle.dumps(x))
         return x
 
     def post_dict(self, url, dict, result=True, save=False, headers=None,cache=None):
@@ -315,7 +320,8 @@ class EasyLogin:
         b = self.b
         self.b = None
         data = pickle.dumps(self)
-        open(filename, "wb").write(data)
+        with open(filename, "wb") as fp:
+            fp.write(data)
         self.b = b
         return
     
@@ -328,7 +334,8 @@ class EasyLogin:
         :return: the object
         """
         try:
-            return pickle.load(open(filename, "rb"))
+            with open(filename, "rb") as fp:
+                return pickle.load(fp)
         except:
             return EasyLogin()
     
