@@ -1,6 +1,6 @@
 # EasyLogin.py
 
-[![Build Status](https://travis-ci.org/zjuchenyuan/EasyLogin.svg?branch=master)](https://travis-ci.org/zjuchenyuan/EasyLogin)
+[![Build Status](https://travis-ci.org/zjuchenyuan/EasyLogin.svg?branch=master)](https://travis-ci.org/zjuchenyuan/EasyLogin) [![codecov](https://codecov.io/gh/zjuchenyuan/EasyLogin/branch/master/graph/badge.svg)](https://codecov.io/gh/zjuchenyuan/EasyLogin)
 
 One file package `EasyLogin.py`, for writing spiders more easily
 

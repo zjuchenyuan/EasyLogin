@@ -1,8 +1,7 @@
-from EasyLogin import EasyLogin
-from urllib.parse import unquote
+# coding=utf-8
+from EasyLogin import EasyLogin, unquote, quote
 import re
 from os.path import getsize
-from urllib.parse import quote
 import ntpath
 import os
 import sys
@@ -21,7 +20,10 @@ try:
 except:
     _statusfile = "./panzju.status"
 
-a=EasyLogin.load(_statusfile)
+try:
+    a = EasyLogin.load(_statusfile)
+except:
+    a = EasyLogin()
 BLOCKSIZE=1024*1024*10
 BLOCKHINT="0MB" # 10MB as an unit
 

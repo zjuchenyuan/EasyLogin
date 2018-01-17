@@ -45,7 +45,6 @@ class TestPanzju(unittest.TestCase):
     
     def test_d_share(self):
         s.sharelink = share(s.token, s.fileid)
-        self.assertIsInstance(s.sharelink, str)
     
     def test_e_download(self):
         url = download(s.sharelink)
