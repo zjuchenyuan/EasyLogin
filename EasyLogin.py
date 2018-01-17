@@ -373,7 +373,7 @@ class EasyLogin:
             if len(data) > 0:
                 if not ignore_pureascii_words or any([ord(i)>127 for i in data]):
                     if PY2:
-                        result.append(data.encode())
+                        result.append(data.encode('utf-8'))
                     else:
                         result.append(data)
         return result
