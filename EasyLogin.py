@@ -328,6 +328,7 @@ class EasyLogin:
     
     export = save
     
+    @staticmethod
     def load(filename='EasyLogin.status'):
         """
         load an object from file
@@ -409,8 +410,10 @@ class EasyLogin:
             if not len(data):
                 break
             del(data[0])
+        if text is True:
+            text = " "
         if text:
-            return [self.text(i) for i in data]
+            return [text.join(self.text(i)) for i in data]
         else:
             return data
 

@@ -71,7 +71,7 @@ class TestHttpbin(unittest.TestCase):
     
     def test_d(self):
         """d"""
-        a.get("https://httpbin.org")
+        a.get("https://httpbin.org", cache=True)
         a.d("h2", {"id": "ENDPOINTS"})
         self.assertIsNone(a.b.find("h2", {"id": "ENDPOINTS"}))
     
@@ -87,3 +87,26 @@ class TestHttpbin(unittest.TestCase):
         newcount = len(os.listdir("__pycache__"))
         self.assertEqual(1, newcount-oldcount)
         self.assertTrue(os.path.exists("__pycache__/c346ef69fd49bbf773becfca0b3306a5"))
+        x2 = a.post_dict("https://httpbin.org/post", {"postdata_dict": "666666"}, cache=True)
+        self.assertEqual("666666", x2.json()["form"]["postdata_dict"])
+    
+    def test_find(self):
+        """find: text=True"""
+        a.get("https://httpbin.org", cache=True)
+        self.assertEqual("ENDPOINTS", a.find("h2",'id="ENDPOINTS"', text=True)[0])
+    
+    def test_text(self):
+        """text"""
+        a.get("https://httpbin.org/forms/post")
+        texts = a.text()
+        self.assertIn("Small",texts)
+        self.assertIn("Medium",texts)
+        self.assertIn("Large",texts)
+    
+    def test_save_load_showcookie(self):
+        """save"""
+        a.get("https://httpbin.org/cookies/set?cookie5=value5")
+        a.save()
+        newa = EasyLogin._import()
+        cookiestring = newa.showcookie()
+        self.assertIn("cookie5=value5",cookiestring)
