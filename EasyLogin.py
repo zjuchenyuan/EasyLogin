@@ -17,10 +17,10 @@ from collections import OrderedDict
 import json
 try:
     import cchardet as chardet
-except:
+except: # pragma: no cover
     import chardet
 
-__version__ = 20180106
+__version__ = 20180118
 
 UALIST = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A",
@@ -424,11 +424,12 @@ class EasyLogin:
         """
         if self.b is None:
             return False
-        tags=self.b.find_all(tag,attrs=attrs)
+        if all:
+            tags = self.b.find_all(tag,attrs=attrs)
+        else:
+            tags = [self.b.find(tag,attrs=attrs)]
         if len(tags)==0:
             return False
-        if all == False:
-            tags = tags[0:1]
         for tag in tags:
             tag.extract()
         return True

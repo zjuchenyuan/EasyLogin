@@ -68,3 +68,22 @@ class TestHttpbin(unittest.TestCase):
             html = a.get("https://httpbin.org/get?errorrrr=1", failstring="errorrrr")
         x = cm.exception.args[0]
         self.assertEqual(200, x.status_code)
+    
+    def test_d(self):
+        """d"""
+        a.get("https://httpbin.org")
+        a.d("h2", {"id": "ENDPOINTS"})
+        self.assertIsNone(a.b.find("h2", {"id": "ENDPOINTS"}))
+    
+    def test_post_dict_cache(self):
+        """post_dict: cache=True"""
+        try:
+            os.unlink("__pycache__/c346ef69fd49bbf773becfca0b3306a5")
+        except:
+            pass
+        oldcount = len(os.listdir("__pycache__"))
+        x = a.post_dict("https://httpbin.org/post", {"postdata_dict": "666666"}, cache=True)
+        self.assertEqual("666666", x.json()["form"]["postdata_dict"])
+        newcount = len(os.listdir("__pycache__"))
+        self.assertEqual(1, newcount-oldcount)
+        self.assertTrue(os.path.exists("__pycache__/c346ef69fd49bbf773becfca0b3306a5"))
