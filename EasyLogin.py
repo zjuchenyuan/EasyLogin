@@ -44,6 +44,9 @@ def mymd5(input):
     else:
         return hashlib.md5(bytes(input,encoding="utf-8")).hexdigest()
 
+class EasyLogin_ValidateFail(Exception):
+    pass
+
 class EasyLogin:
     def __init__(self, cookie=None, cookiestring=None, cookiefile=None, proxy=None, session=None, cachedir=None):
         """
@@ -91,7 +94,7 @@ class EasyLogin:
         cookie = {}
         if cookiestring is not None:
             for onecookiestring in cookiestring.split(";"):
-                tmp = onecookiestring.split("=", maxsplit=1)
+                tmp = onecookiestring.split("=", 1)
                 if len(tmp)!=2:
                     continue
                 a, b = tmp
@@ -155,10 +158,8 @@ class EasyLogin:
             headers["Cookie"] = cookiestring
         x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies, **kwargs)
         if failstring is not None:
-            class EasyLogin_ValidateFail:
-                pass
             if failstring in x.text:
-                raise EasyLogin_ValidateFail
+                raise EasyLogin_ValidateFail(x)
         if result:
                 page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
                 if fixfunction is not None:

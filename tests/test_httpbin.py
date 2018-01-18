@@ -1,7 +1,7 @@
 # coding=utf-8
 import unittest
 import os
-from EasyLogin import EasyLogin
+from EasyLogin import EasyLogin, EasyLogin_ValidateFail
 
 if os.environ.get("GFW"):
     a = EasyLogin(proxy="socks5://127.0.0.1:10800", cachedir="__pycache__")
@@ -55,3 +55,16 @@ class TestHttpbin(unittest.TestCase):
         x = a.get("https://httpbin.org/cookies", o=True) # not using cache
         self.assertEqual("value2", x.json()["cookies"]["cookie2"])
     
+    def test_setcookie(self):
+        """setcookie"""
+        a.setcookie("cookie3=value3; cookie4=value4;")
+        html = a.get("https://httpbin.org/cookies")
+        self.assertIn("value3", html)
+        self.assertIn("value4", html)
+    
+    def test_failstring(self):
+        """get: failstring"""
+        with self.assertRaises(EasyLogin_ValidateFail) as cm:
+            html = a.get("https://httpbin.org/get?errorrrr=1", failstring="errorrrr")
+        x = cm.exception.args[0]
+        self.assertEqual(200, x.status_code)
