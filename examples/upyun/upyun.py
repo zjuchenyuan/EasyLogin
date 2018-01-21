@@ -47,7 +47,10 @@ if __name__=="__main__":
         exit(1)
     if len(sys.argv)<2:
         print("Example: python3 upyun.py https://py3.io/*")
+        print("Or you can: python3 upyun.py https://py3.io/@.html, @ stands for *")
     else:
         if not islogin():
             login(config.USERNAME,config.PASSWORD)
-        print(purge_rule_request("\n".join(sys.argv[1:])))
+        # you can pass @ instead of *
+        urls = "\n".join(sys.argv[1:]).replace("@", "*")
+        print(purge_rule_request(urls))
