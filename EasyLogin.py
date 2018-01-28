@@ -87,7 +87,11 @@ class EasyLogin:
             if not cachedir.endswith("/"):
                 cachedir = cachedir+"/"
             if not os.path.exists(cachedir):
-                os.mkdir(cachedir)
+                try:
+                    os.mkdir(cachedir)
+                except:
+                    if not os.path.exists(cachedir):
+                        raise
             self.cachedir = cachedir
 
     def setcookie(self,cookiestring):
@@ -242,7 +246,7 @@ class EasyLogin:
         """
         if headers is None:
             headers={}
-        headers["content-type"]="application/json;charset=UTF-8"
+        headers["Content-Type"]="application/json;charset=UTF-8"
         data=json.dumps(jsondata)
         x=self.post(url, data, result=result, save=save, headers=headers,cache=cache)
         if o:
