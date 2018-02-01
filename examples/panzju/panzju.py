@@ -804,6 +804,40 @@ def logined_upload(token, path_to_file, fencrypt=None):
     sharelink=share(token,fileid)
     return fileid, sharelink
 
+def copy_from_share(token, sharelink, targetid, _a=None):
+    """
+    已经登录，从分享复制到指定目录
+    """
+    if _a is None:
+        global a
+    else:
+        a = _a
+    x = a.get(DOMAIN+"/share/"+sharelink, o=True, result=False)
+    if "Location" in x.headers:
+        """
+        发生跳转，自己发布的分享链接或者没有登录
+        """
+        if "login" in x.headers["Location"]:
+            raise NotLoginException()
+        else:
+            fileid = x.headers["Location"].split("file/")[1]
+    else:
+        """
+        没有跳转，是别人的链接
+        """
+        page = x.text
+        tmp = finder.search(page)
+        assert tmp is not None, "share link does not exist"
+        fileid = tmp.group(1)
+    postdata = """{"target_folder_id":%s,"item_typed_ids":"file_%s","scenario":"share"}"""%(str(targetid), fileid)
+    x = a.post(DOMAIN+"/apps/files/copy?scenario=share", postdata, headers={"Content-Type":"text/plain;charset=UTF-8","requesttoken":token})
+    try:
+        data = x.json()
+        print(data["files_and_folders"][0]["name"])
+    except:
+        print(x.text)
+    return data["success"]
+
 def UI_login_upload(username=None, password=None):
     """
     上传sys.argv[0]文件，并输出分享链接

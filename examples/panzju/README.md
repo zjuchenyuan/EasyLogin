@@ -103,6 +103,15 @@ config.py里面可以指定文件加密密码、加密方式，参见[config.exa
 
 TODO: 提供解密函数
 
+## 遇到了别人分享的一大堆学习资料的分享链接，想批量保存？
+
+现在有了[batch_saveshare.py](batch_saveshare.py)，用法：
+
+* 首先将username和password写入到`config.py`
+* 然后运行`python3 batch_saveshare.py`
+* 输入目标文件夹ID，这个可以打开对应目录后从浏览器地址栏复制
+* 然后粘贴包含分享链接的文本，不包含的行会自动跳过
+
 ## 对EasyLogin感兴趣？这里还有一些额外的说明
 
 ### 说明
