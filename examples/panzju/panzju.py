@@ -184,7 +184,6 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5, fencrypt=
         else:
             data_to_encrypt = data
         data = fencrypt_data(data_to_encrypt)
-    
     x=a.post(upload_url,
              data,
              headers={"requesttoken": token,"X-File-Name": filename},dont_change_cookie=True)
@@ -837,6 +836,10 @@ def copy_from_share(token, sharelink, targetid, _a=None):
     except:
         print(x.text)
     return data["success"]
+
+def changename(a, token, newname):
+    postdata = '{"name":"%s"}'%newname
+    return a.post(DOMAIN+"/user_settings/update", postdata, headers={"requesttoken": token, "Content-Type": "application/json", "Referer": DOMAIN+"/user_settings/index"})
 
 def UI_login_upload(username=None, password=None):
     """

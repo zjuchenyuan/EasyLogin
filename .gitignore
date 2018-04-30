@@ -2,6 +2,7 @@
 *.status
 config.py
 testconfig.py
+examples/*/EasyLogin.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
