@@ -474,7 +474,7 @@ class EasyLogin:
 
 def main():
     a = EasyLogin()
-    page = a.get("http://ip.cn/")
+    page = a.get("https://ip.cn/")
     IP, location = a.f("code", attrs={})
     print(IP)
     print(location)
