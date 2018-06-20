@@ -92,6 +92,8 @@ def islogin(_a=None):
     x=a.get(DOMAIN+"/apps/files/desktop/own",o=True)
     t=a.b.find("input",{"id":"request_token"})
     if t is None:
+        t = a.b.find("input",{"id":"oc_requesttoken"})
+    if t is None:
         return False
     else:
         return t["value"]
