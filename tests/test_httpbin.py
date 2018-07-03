@@ -71,7 +71,7 @@ class TestHttpbin(unittest.TestCase):
     
     def test_d(self):
         """d"""
-        a.get("https://httpbin.org", cache=True)
+        a.get("https://httpbin.org/base64/PGgyIGlkPSdFTkRQT0lOVFMnPkVORFBPSU5UUzwvaDI+PHA+IGh0dHBiaW4gY2hhbmdlZCBpdHMgaW5kZXggcGFnZTwvcD4K", cache=True)
         a.d("h2", {"id": "ENDPOINTS"})
         self.assertIsNone(a.b.find("h2", {"id": "ENDPOINTS"}))
     
@@ -92,7 +92,7 @@ class TestHttpbin(unittest.TestCase):
     
     def test_find(self):
         """find: text=True"""
-        a.get("https://httpbin.org", cache=True)
+        a.get("https://httpbin.org/base64/PGgyIGlkPSdFTkRQT0lOVFMnPkVORFBPSU5UUzwvaDI+PHA+IGh0dHBiaW4gY2hhbmdlZCBpdHMgaW5kZXggcGFnZTwvcD4K", cache=True)
         self.assertEqual("ENDPOINTS", a.find("h2",'id="ENDPOINTS"', text=True)[0])
     
     def test_text(self):
