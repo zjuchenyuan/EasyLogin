@@ -160,7 +160,9 @@ class EasyLogin:
             if headers is None:
                 headers = {}
             headers["Cookie"] = cookiestring
-        x = self.s.get(url, headers=headers, allow_redirects=False, proxies=self.proxies, **kwargs)
+        if "allow_redirects" not in kwargs:
+            kwargs["allow_redirects"] = False
+        x = self.s.get(url, headers=headers, proxies=self.proxies, **kwargs)
         if failstring is not None:
             if failstring in x.text:
                 raise EasyLogin_ValidateFail(x)
