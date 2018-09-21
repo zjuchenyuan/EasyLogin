@@ -15,16 +15,21 @@ def login(username,password):
     :return:
     """
     global a
-    a.get("https://www.fangcloud.com/auth/login")
-    token=a.b.find("input",{"name":"requesttoken"})["value"]
-    x=a.post("https://www.fangcloud.com/auth/login",
-             """{"identifier":"%s","password":"%s","remember_login":"1","scene":"login"}"""%(username,password),
-             headers={"requesttoken":token,"X-Requested-With":"XMLHttpRequest"})
+    a.get("https://account.fangcloud.com/login")
+    _token = a.b.find("input",{"name":"_token"})["value"]
+    _fstate = a.b.find("input",{"name":"_fstate"})["value"]
+    x=a.post("https://account.fangcloud.com/login?_fstate="+_fstate,
+             """{"login":"%s","password":"%s","remember_login":true,"login_type":"web","_fstate":"%s"}"""%(username,password, _fstate),
+             headers={"X-CSRF-TOKEN":_token,"X-Requested-With":"XMLHttpRequest", "Content-Type":"application/json"})
     result=x.json()
-    if result["success"]!=True:
-        return False
-    else:
+    if "redirect" not in result:
+        raise Exception("login failed! maybe password incorrect or need captcha")
+    url = result["redirect"]
+    x=a.get(url, result=False, o=True)
+    if "/apps/files/home" in x.headers.get("Refresh",""):
         return True
+    else:
+        raise Exception("login failed! wired")
 
 def islogin():
     """
