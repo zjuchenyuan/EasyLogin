@@ -44,21 +44,23 @@ def islogin():
         return t["value"]
 
 
-def upload(token,filename,data,filesize=None):
+def upload(token,filename,data,filesize=None, target_folder_id=0):
     """
     上传文件，与浙大云盘的差异在于上传链接需要额外的请求
     token:islogin()返回的token
     filename: 存储的文件名
-    data:文件二进制数据
+    data: 文件二进制数据或者数据的generator
+    filesize: 文件大小 不给出则使用len函数得到
+    target_folder_id: 上传的目标文件夹，默认为0表示根目录
 
-    返回服务器端的文件id
+    返回服务器端的文件id 如"file_100001234567"
     """
     global a
     filename=quote(filename)
     if filesize is None:
         filesize = len(data)
     x=a.post("https://www.fangcloud.com/apps/files/presign_upload",
-             """{"folder_id":0,"file_size":%d}"""%filesize,
+             """{"folder_id":%d,"file_size":%d}"""%(target_folder_id, filesize),
              headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest"})
     result=x.json()
     if result["success"]!=True:
