@@ -69,6 +69,8 @@ def login(username,password, _a=None):
         a = _a
     x=a.get("https://pan.zju.edu.cn/sso/login",o=True)
     login_page=x.headers["Location"]
+    if "/apps/files/home" in login_page:
+        return True
     login_service=unquote(login_page.split("service=")[1])
     x=a.post_dict("https://pan.zju.edu.cn/zjuLogin/SessionClient/login",{"username":username,"password":password,"service":login_service})
     login_status=x.json()
