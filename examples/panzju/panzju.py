@@ -70,7 +70,10 @@ def login(username, password, _a=None):
     a.s = x.a.s
     x=a.get("https://pan.zju.edu.cn/sso/login", o=True, result=False)
     while x.headers.get("location", None):
-        x=a.get(x.headers["location"], o=True, result=False)
+        url = x.headers["location"]
+        if "zuinfo.zju.edu.cn" in url:
+            url = "https://pan.zju.edu.cn/sso/login"
+        x=a.get(url, o=True, result=False)
     assert "apps" in x.url, "possible panzju URL change, this code may be expired"
     return True
 
