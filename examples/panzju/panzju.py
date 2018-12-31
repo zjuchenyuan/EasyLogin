@@ -59,29 +59,20 @@ TODO: 支持缩短API网址，提供API服务器部署说明
 """
 登录部分
 """
-def login(username,password, _a=None):
-    """
-    使用统一通行证登录新版浙大云盘pan.zju.edu.cn
-    """
+from zjuauthme import ZJUAUTHME
+def login(username, password, _a=None):
     if _a is None:
         global a
     else:
         a = _a
-    x=a.get("https://pan.zju.edu.cn/sso/login",o=True)
-    login_page=x.headers["Location"]
-    if "/apps/files/home" in login_page:
-        return True
-    login_service=unquote(login_page.split("service=")[1])
-    x=a.post_dict("https://pan.zju.edu.cn/zjuLogin/SessionClient/login",{"username":username,"password":password,"service":login_service})
-    login_status=x.json()
-    if login_status["status"]!="success":
-        return False
-    login_service = login_status["service"]
-    x=a.get(login_service,o=True)
-    if "apps" in x.headers["Location"]:
-        return True
-    else:
-        return False
+    x = ZJUAUTHME(username, password)
+    assert x.login(), "zuinfo password error"
+    a.s = x.a.s
+    x=a.get("https://pan.zju.edu.cn/sso/login", o=True, result=False)
+    while x.headers.get("location", None):
+        x=a.get(x.headers["location"], o=True, result=False)
+    assert "apps" in x.url, "possible panzju URL change, this code may be expired"
+    return True
 
 def islogin(_a=None):
     """
