@@ -25,18 +25,16 @@ def login(username,password):
     if "redirect" not in result:
         raise Exception("login failed! maybe password incorrect or need captcha")
     url = result["redirect"]
-    x=a.get(url, result=False, o=True)
-    if "/apps/files/home" in x.headers.get("Refresh",""):
-        return True
-    else:
-        raise Exception("login failed! wired")
+    x=a.get(url, result=False, o=True, allow_redirects=True)
+    assert 'apps/files' in x.url
+    return True
 
 def islogin():
     """
     是否已经登录,如果已经登录返回token，否则False
     """
     global a
-    a.get("https://www.fangcloud.com/apps/files/home")
+    a.get("https://v2.fangcloud.com/apps/files/home", allow_redirects=True)
     t=a.b.find("input",{"id":"oc_requesttoken"})
     if t is None:
         return False
@@ -59,16 +57,16 @@ def upload(token,filename,data,filesize=None, target_folder_id=0):
     filename=quote(filename)
     if filesize is None:
         filesize = len(data)
-    x=a.post("https://www.fangcloud.com/apps/files/presign_upload",
+    x=a.post("https://v2.fangcloud.com/apps/files/presign_upload",
              """{"folder_id":%d,"file_size":%d}"""%(target_folder_id, filesize),
-             headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest"})
+             headers={"requesttoken": token, "X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"})
     result=x.json()
     if result["success"]!=True:
         return False
     upload_url=result["upload_url"]
     x=a.post(upload_url,
              data,
-             headers={"requesttoken": token,"X-File-Name":filename})
+             headers={"requesttoken": token,"X-File-Name":filename, "Content-Type":"text/plain;charset=UTF-8"})
     result=x.json()
     if result["success"]!=True:
         return False
@@ -80,9 +78,9 @@ def share(token,fileid):
     可以反复执行，返回相同的分享链接
     """
     global a
-    x=a.post("https://www.fangcloud.com/apps/files/share",
+    x=a.post("https://v2.fangcloud.com/apps/files/share",
              """{"access": "public", "disable_download": "0", "due_time": "never_expire", "password_protected": false,"item_typed_id": "%s"}"""%fileid,
-             headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest"})
+             headers={"requesttoken":token,"X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"})
     result=x.json()
     if result.get("success")!=True:
         return False
@@ -99,9 +97,9 @@ def download(file_uniqe_name):
     :return: 可以直接下载的url，一段时间后失效
     """
     a=EasyLogin()
-    page=a.get("https://www.fangcloud.com/share/"+file_uniqe_name,result=False)
+    page=a.get("https://v2.fangcloud.com/share/"+file_uniqe_name,result=False)
     fileid = finder.search(page).group(1)
-    x=a.get("https://www.fangcloud.com/apps/files/download?file_id={}&scenario=share".format(fileid),o=True)
+    x=a.get("https://v2.fangcloud.com/apps/files/download?file_id={}&scenario=share".format(fileid),o=True)
     return x.headers["Location"]
 
 def block(fp):
@@ -136,7 +134,7 @@ if __name__=="__main__":
     print(fileid)
     print()
     print("Share Link:")
-    print("https://www.fangcloud.com/share/"+file_uniqe_name)
+    print("https://v2.fangcloud.com/share/"+file_uniqe_name)
     print()
     print("Download Link (expire soon):")
     print(download(file_uniqe_name))
