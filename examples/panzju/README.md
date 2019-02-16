@@ -24,6 +24,7 @@ pip3 install -U requests[socks] bs4 -i https://pypi.doubanio.com/simple/ --trust
 
 ```
 wget https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/panzju/panzju.py
+wget https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/panzju/zjuauthme.py
 wget https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/panzju/upload_dir.py
 wget https://raw.githubusercontent.com/zjuchenyuan/EasyLogin/master/examples/panzju/config.example.py
 mv config.example.py config.py
