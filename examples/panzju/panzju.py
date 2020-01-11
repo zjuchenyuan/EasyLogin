@@ -740,7 +740,7 @@ def upload_by_collection_detailed(token, collection_code, filename, filesize, da
         raise Exception("upload failed")
     fileid = result["new_file"]["id"]
     x = a.post(DOMAIN+"/apps/processes/collection_submit", 
-        """{"user_name":".","code":"%s","file_ids":[%s]}"""%(collection_code,fileid),
+        """{"user_name":"x","code":"%s","file_ids":[%s]}"""%(collection_code,fileid),
         headers={"requesttoken":token, "X-Requested-With": "XMLHttpRequest", "Content-Type":"text/plain;charset=UTF-8"},
         dont_change_cookie=True
         )
@@ -838,6 +838,23 @@ def copy_from_share(token, sharelink, targetid, _a=None):
 def changename(a, token, newname):
     postdata = '{"name":"%s"}'%newname
     return a.post(DOMAIN+"/user_settings/update", postdata, headers={"requesttoken": token, "Content-Type": "application/json", "Referer": DOMAIN+"/user_settings/index"})
+
+def login_and_upload(filepath, username=None, password=None):
+    token = islogin()
+    if not token:
+        if username is None:
+            try:
+                import config
+                if getattr(config,"username",None) is not None:
+                    username, password = (config.username, config.password)
+            except ImportError:
+                raise Exception("please set username password in config.py, or pass it as parameter")
+        print("Login!", username)
+        assert login(username, password)!=False, "Login failed"
+        a.save(_statusfile)
+        token=islogin()
+    fileid, sharelink = logined_upload(token, filepath)
+    return sharelink
 
 def UI_login_upload(username=None, password=None):
     """
