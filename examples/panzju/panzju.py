@@ -163,6 +163,7 @@ def upload(token, filename, data, filesize=None, folder_id=0, retry=5, fencrypt=
     try:
         result=x.json()
     except json.JSONDecodeError:
+        print(x, x.text)
         if retry>0:
             return upload(token, filename, data, filesize, folder_id, retry = retry-1, fencrypt=fencrypt)
         else:
