@@ -10,7 +10,7 @@ def rsa_encrypt(password_str, e_str, M_str):
     e_int = int(e_str, 16) # equal to 0x10001
     M_int = int(M_str, 16) # Modulus number
     result_int = pow(password_int, e_int, M_int) # pow is a built-in function in python
-    return hex(result_int)[2:] # int->hex str
+    return hex(result_int)[2:].rjust(128, '0') # int->hex str, thanks to @96486d9b
 
 class ZJUAUTHME():
     AUTHME_DOMAIN = "https://zjuam.zju.edu.cn"
