@@ -475,15 +475,17 @@ class EasyLogin:
         self.s.cookies = self.cookiestack.pop()
 
 def main():
+    # crawl main page of v2ex.com, print hot topics, and return a list of ("/t/637075", "公司让选一本书作为新年礼物，小于 80 元，有什么推荐的吗？")
     a = EasyLogin()
-    page = a.get("https://ip.cn/")
-    IP, location = a.f("code", attrs={})
-    print(IP)
-    print(location)
-    print(a.img())
-    print(a.css())
-    print(a.js())
-    print(";".join(a.text()))
+    page = a.get("https://v2ex.com/")
+    TopicsHot = a.b.find("div",{"id":"TopicsHot"})
+    print("\n".join(a.text(TopicsHot)))
+    res = []
+    for item in TopicsHot.find_all("a"):
+        if not item["href"].startswith("/t/"):
+            continue
+        res.append((item["href"], item.text))
+    return res
 
 if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
-    main()
+    print(main())
