@@ -1,26 +1,78 @@
-# ÓÖÅÄÔÆ·Ç¹Ù·½API
+# åˆæ‹äº‘éå®˜æ–¹API
 
-±¾ÎÄ¼şÌá¹©ÓÖÅÄÔÆÍøÒ³¿ØÖÆÌ¨µÄ²¿·Ö¹¦ÄÜ£¬ÒÔÃÖ²¹ÏÖÓĞAPIµÄ²»×ã
+æœ¬æ–‡ä»¶æä¾›åˆæ‹äº‘ç½‘é¡µæ§åˆ¶å°çš„éƒ¨åˆ†åŠŸèƒ½ï¼Œä»¥å¼¥è¡¥ç°æœ‰APIçš„ä¸è¶³
 
-ÓÉÓÚĞèÒªÃ÷ÎÄ´æ´¢ÕËºÅÃÜÂë£¬²»½¨ÒéÔÚÉú²ú»·¾³Ê¹ÓÃ£¬ËùÒÔ½ö½öÊµÏÖÏÖÓĞÓÖÅÄÔÆ¹Ù·½APIÃ»ÓĞÌá¹©µÄ¹¦ÄÜ
+ç”±äºéœ€è¦æ˜æ–‡å­˜å‚¨è´¦å·å¯†ç ï¼Œä¸å»ºè®®åœ¨ç”Ÿäº§ç¯å¢ƒä½¿ç”¨
 
-Ä¿Ç°¹¦ÄÜ°üº¬£º**¹æÔòË¢ĞÂ**
+ç›®å‰åŠŸèƒ½åŒ…å«ï¼š**è§„åˆ™åˆ·æ–°**ï¼Œ **httpsè¯ä¹¦æ›´æ–°**
 
 ## config.py
 
-ĞèÒªĞ´ÈëÍøÒ³¿ØÖÆÌ¨µÄµÇÂ¼ĞèÒªµÄÓÃ»§ÃûºÍÃÜÂë£¬ÇëÒ»¶¨±£ÃÜÕâ¸öconfig.py
+éœ€è¦å†™å…¥ç½‘é¡µæ§åˆ¶å°çš„ç™»å½•éœ€è¦çš„ç”¨æˆ·åå’Œå¯†ç ï¼Œè¯·ä¸€å®šä¿å¯†è¿™ä¸ªconfig.py
 
-config.pyµÄ¸ñÊ½£º
+config.pyçš„æ ¼å¼ï¼š
 
 ```
-USERNAME="ÄãµÄÓÃ»§Ãû"
-PASSWORD="ÄãµÄÃÜÂë"
+USERNAME="ä½ çš„ç”¨æˆ·å"
+PASSWORD="ä½ çš„å¯†ç "
 ```
 
-## ÓÃ·¨
+## è§„åˆ™åˆ·æ–° ç”¨æ³•
 
-Ğ´ÈëºÃconfig.pyºó£¬ÔËĞĞ`python3 upyun.py http://py3.io/*`¼´¿ÉË¢ĞÂpy3.ioµÄ»º´æ
+å†™å…¥å¥½config.pyåï¼Œè¿è¡Œ`python3 upyun.py http://py3.io/*`å³å¯åˆ·æ–°py3.ioçš„ç¼“å­˜
 
-Ö§³ÖÍ¬Ê±Ë¢ĞÂ¶à¸öÓòÃû£¬Ö»ĞèÒªÔÚÃüÁîĞĞ²ÎÊı¸ø³ö¼´¿É
+æ”¯æŒåŒæ—¶åˆ·æ–°å¤šä¸ªåŸŸåï¼Œåªéœ€è¦åœ¨å‘½ä»¤è¡Œå‚æ•°ç»™å‡ºå³å¯
 
 ![](screenshot.jpg)
+
+## httpsè¯ä¹¦æ›´æ–° ç”¨æ³•
+
+```
+# æŸ¥çœ‹æ‰€æœ‰è¯ä¹¦ï¼Œåªæ˜¾ç¤ºå½“å‰æ­£åœ¨ä½¿ç”¨çš„è‡ªæœ‰è¯ä¹¦+æ­£åœ¨ä½¿ç”¨çš„å·²ç»è¿‡æœŸçš„è¯ä¹¦
+python3 upyun.py https list
+
+# æ›´æ–°æ‰€æœ‰ 30 å¤©ä¹‹å†…è¿‡æœŸçš„è¯ä¹¦
+python3 upyun.py https renew
+```
+
+æ›´æ–°è¯ä¹¦é™¤äº†éœ€è¦åœ¨ config.py ä¸­æä¾›ç™»å½•çš„USERNAMEå’ŒPASSWORDä¹‹å¤–ï¼Œè¿˜éœ€è¦æä¾›ä¸€ä¸ª api_func(domain_name)å‡½æ•°ï¼Œè¿™ä¸ªå‡½æ•°éœ€è¦è¿”å›è¯ä¹¦ä¿¡æ¯
+
+```
+ {"certificate":"-----BEGIN CERTIFICATE-----\n...", 
+  "private_key":"-----BEGIN RSA PRIVATE KEY-----\n..."}
+```
+
+æˆ‘æ˜¯ä½¿ç”¨å‡½æ•°è®¡ç®—ç”¨ dns éªŒè¯è‡ªåŠ¨æ›´æ–°è¯ä¹¦ï¼š https://py3.io/Nginx/#https_1
+
+è¿™ä¸ªå‡½æ•°å°±æ˜¯è¿™ä¸ªæ ·å­ï¼š(æ³¨æ„åˆ°ä¼ å…¥çš„åŸŸåå¯èƒ½æ˜¯å­åŸŸå éœ€è¦åˆ¤æ–­åç¼€ï¼‰
+
+```
+def renew_api(domain):
+    namedict = {
+      'py3.io': 'py3io_ATxx', 
+    }
+    for k, v in namedict.items():
+        if domain.endswith(k):
+            return get_from_oss(v)
+    return False
+
+import requests
+sess = requests.session()
+def get_from_oss(name):
+    crt = sess.get("https://OSSNAME.oss-cn-REGION.aliyuncs.com/{name}.crt".format(name=name), headers={"Referer":"Referer_STRING"})
+    key = sess.get("https://OSSNAME.oss-cn-REGION.aliyuncs.com/{name}.key".format(name=name), headers={"Referer":"Referer_STRING"})
+    return {"certificate": crt.text, "private_key": key.text}
+```
+
+## æ—¥å¿—ä¸‹è½½ [downloadlogs.py](downloadlogs.py)
+
+ä½¿ç”¨upyunæä¾›çš„apiä¸‹è½½config.pyä¸­mydomainsçš„30å¤©å†…çš„æ—¥å¿—
+
+éœ€è¦åœ¨config.pyä¸­æä¾›mydomainså’ŒACCESS_TOKEN
+
+ACCESS_TOKENå¯ä»¥é€šè¿‡è°ƒç”¨openapi.pyå¾—åˆ°:
+
+```
+from openapi import createtoken
+print(createtoken("downloadlog"))
+```
