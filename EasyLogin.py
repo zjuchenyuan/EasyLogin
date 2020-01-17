@@ -117,7 +117,7 @@ class EasyLogin:
         return c
     cookie = property(showcookie)
 
-    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None, debug=False, fixfunction=None, **kwargs):
+    def get(self, url, result=True, save=False, headers=None, o=False, cache=None, r=False, cookiestring=None,failstring=None, debug=False, fixfunction=None, encoding=None, **kwargs):
         """
         HTTP GET method, default save soup to self.b
         :param url: a url, example: "http://ip.cn"
@@ -147,11 +147,16 @@ class EasyLogin:
                 page = page.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
                 if fixfunction is not None:
                     page = fixfunction(page)
-                self.b = BeautifulSoup(page, 'html.parser')
+                if encoding:
+                    self.b = BeautifulSoup(page.decode(encoding,errors='replace'), 'html.parser')
+                else:
+                    self.b = BeautifulSoup(page, 'html.parser')
             if o:
                 return obj
             else:
-                return page.decode(chardet.detect(page)["encoding"],errors='replace')
+                if not encoding:
+                    encoding = chardet.detect(page)["encoding"]
+                return page.decode(encoding,errors='replace')
         if r:
             if headers is None:
                 headers = {"Accept-Encoding": "gzip, deflate, sdch", "Accept-Language": "zh-CN,zh;q=0.8", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Upgrade-Insecure-Requests": "1", "DNT": "1"}
@@ -163,6 +168,8 @@ class EasyLogin:
         if "allow_redirects" not in kwargs:
             kwargs["allow_redirects"] = False
         x = self.s.get(url, headers=headers, proxies=self.proxies, **kwargs)
+        if encoding:
+            x.encoding = encoding
         if failstring is not None:
             if failstring in x.text:
                 raise EasyLogin_ValidateFail(x)
@@ -170,7 +177,10 @@ class EasyLogin:
                 page = x.content.replace(b"<br>", b"\n").replace(b"<BR>", b"\n")
                 if fixfunction is not None:
                     page = fixfunction(page)
-                self.b = BeautifulSoup(page, 'html.parser')
+                if encoding:
+                    self.b = BeautifulSoup(page.decode(encoding,errors='replace'), 'html.parser')
+                else:
+                    self.b = BeautifulSoup(page, 'html.parser')
         if save:
             with open(self.cookiefile, "wb") as fp:
                 fp.write(pickle.dumps(self.s.cookies))
