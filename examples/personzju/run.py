@@ -18,7 +18,7 @@ def get(url, params, **kwargs):
     global a
     t = int(time.time())*1000
     a.s.headers.update({"appKey":"50634610756a4c0e82d5a13bb692e257", "timestamp":str(t), "sign": sign(t, url, params)})
-    x = a.get("https://person.zju.edu.cn/server"+url+"?"+"&".join(k+"="+str(v) for (k,v) in params.items()), o=True, result=False, **kwargs)
+    x = a.get("https://person.zju.edu.cn/server"+url+"?"+"&".join(k+"="+str(v) for (k,v) in sorted(params.items())), o=True, result=False, **kwargs)
     return x.json()
 
 def tprint(*args):
@@ -35,8 +35,8 @@ def worker(item):
     item.append(uid)
     return item
 
-def handler(meta, item)
-    meta["fp"].write("\t".join(item)+"\n")
+def handler(meta, item):
+    meta["fp"].write("\t".join([str(i) for i in item])+"\n")
 
 if __name__ == "__main__":
     #print(sign(1579490640000, "/api/front/psons/search", {"size": 12, "page":0, "lang": "cn"}))
