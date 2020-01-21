@@ -41,7 +41,7 @@ def handler(meta, item):
 if __name__ == "__main__":
     #print(sign(1579490640000, "/api/front/psons/search", {"size": 12, "page":0, "lang": "cn"}))
     
-    meta = {"fp": open("result_uid.txt","w",encoding="utf-8")}
+    meta = {"fp": open("personzju.txt","w",encoding="utf-8")}
     m = MPMS(worker, handler, 2, 2, meta=meta)
     m.start()
     for t in get("/api/front/psons/search", {"size":10000, "page":0, "lang":"cn"}, cache=True)["data"]["content"]:
