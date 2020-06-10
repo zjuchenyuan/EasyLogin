@@ -497,5 +497,7 @@ def main():
         res.append((item["href"], item.text))
     return res
 
+EL = EasyLogin
+
 if __name__ == '__main__':  # sample code for get ip by "http://ip.cn"
     print(main())
