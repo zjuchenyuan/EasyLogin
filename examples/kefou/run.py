@@ -7,7 +7,9 @@ a.s.headers["referer"]="https://servicewechat.com/wxa2fcebe559478c18/6/page-fram
 def get(url):
     global a
     x = a.get("https://kefou.topless.tech"+url, result=False, o=True, cache=True, headers={"Referer":REFERER, "User-Agent":UA})
-    return x.json()
+    res = x.json()
+    #print(res)
+    return res
 
 def new_comments(schoolid=school):
     return get("/comments/new?school="+schoolid)["data"]["comments"]
@@ -58,4 +60,3 @@ if __name__ == "__main__":
             #tprint(f["name"], t["name"], t["gpaScore"], t["rateScore"], t["rateNum"])
             #break
             consumer(res)
-            
